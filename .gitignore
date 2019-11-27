@@ -36,3 +36,4 @@ npm-debug.log*
 *.sublime-project
 package-lock.json
 TODO.lst
+.vscode
