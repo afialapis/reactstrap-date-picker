@@ -1,0 +1,74 @@
+{
+  "name": "reactsrap-date-picker",
+  "version": "0.0.1",
+  "description": "Reactstrap based, zero dependencies, date picker",
+  "author": "Donato Lorenzo <donato@afialapis.com>",
+  "contributors": [
+    "Donato Lorenzo <donato@afialapis.com>"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/afialapis/valium-reactstrap.git"
+  },
+  "bugs": {
+    "url": "https://github.com/afialapis/valium-reactstrap/issues"
+  },
+  "homepage": "https://valium-reactstrap.afialapis.com/",
+  "files": [
+    "lib"
+  ],
+  "main": "lib/index.js",
+  "scripts": {
+    "lint": "eslint src",
+    "mocha": "mocha --require @babel/register ./tests",
+    "test": "npm run lint && npm run mocha",
+    "build": "babel src -d lib",
+    "clean-dist": "rimraf dist && mkdir dist",
+    "build-dist": "webpack",
+    "build-dist-min": "NODE_ENV=production webpack",
+    "dist": "npm run clean-dist && npm run build-dist && npm run build-dist-min",
+    "prepublish": "npm run test && npm run build && npm run dist",
+    "demo": "NODE_ENV=development node demo/server"
+  },
+  "keywords": [
+    "js",
+    "react",
+    "reactstrap",
+    "date",
+    "picker"
+  ],
+  "devDependencies": {
+    "@babel/cli": "^7.6.0",
+    "@babel/core": "^7.6.0",
+    "@babel/plugin-proposal-class-properties": "7.5.5",
+    "@babel/plugin-proposal-object-rest-spread": "7.5.5",
+    "@babel/plugin-syntax-dynamic-import": "7.2.0",
+    "@babel/polyfill": "^7.6.0",
+    "@babel/preset-env": "^7.6.0",
+    "@babel/preset-react": "^7.0.0",
+    "@babel/register": "^7.6.0",
+    "babel-eslint": "^10.0.3",
+    "babel-loader": "^8.0.6",
+    "css-loader": "^3.2.0",
+    "eslint": "^6.3.0",
+    "eslint-plugin-filenames": "^1.3.2",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-react": "^7.16.0",
+    "mini-css-extract-plugin": "^0.7.0",
+    "mocha": "^6.2.0",
+    "node-sass": "^4.12.0",
+    "rimraf": "^3.0.0",
+    "sass-loader": "^8.0.0",
+    "terser-webpack-plugin": "^2.0.1",
+    "webpack": "^4.39.3",
+    "webpack-cli": "^3.3.8",
+    "webpack-dev-server": "^3.8.0"
+  },
+  "dependencies": {
+    "bootstrap": "^4.3.1",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
+    "reactstrap": "^8.0.1"
+  }
+}
