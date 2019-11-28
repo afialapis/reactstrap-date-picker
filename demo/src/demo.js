@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom'
 import ExampleOne from './ExampleOne'
 
+import '../../node_modules/bootstrap/dist/css/bootstrap.min.css'
 import './demo.scss'
 
 const Demo = () => {
