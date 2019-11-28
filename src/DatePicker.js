@@ -4,7 +4,7 @@ import {Input, InputGroup, InputGroupAddon, InputGroupText, Popover, PopoverHead
 import DatePickerHeader from './DatePickerHeader'
 import DatePickerCalendar from './DatePickerCalendar'
 
-let instanceCount = 0;
+let instanceCount = 1;
 
 class DatePicker extends React.Component {
 

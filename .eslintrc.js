@@ -4,8 +4,13 @@ module.exports = {
   "parser": "babel-eslint",
   "extends": ["eslint:recommended", "plugin:react/recommended"],
   "plugins": [
-	"react"
+	  "react"
   ],
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
   "parserOptions": {
     "ecmaVersion": 7,
     "sourceType": "module",
