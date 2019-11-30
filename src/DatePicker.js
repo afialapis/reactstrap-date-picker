@@ -24,7 +24,7 @@ class DatePicker extends React.Component {
   get inputRef() {
     return this.props.inputRef || this._inputRef
   }
-
+  
   componentDidMount() {
     document.addEventListener('mousedown', this.onClickOutside.bind(this));
   }
@@ -35,13 +35,15 @@ class DatePicker extends React.Component {
 
   onClickOutside(event) {
     if (this.overlayContainerRef && this.overlayContainerRef.current && !this.overlayContainerRef.current.contains(event.target)) {
-      if (this.inputRef && this.inputRef.current && !this.inputRef.current.contains(event.target)) {
-        this.setState({
-          focused: false
-        });
-      }
+      const inputFocused= (this.inputRef && this.inputRef.current && this.inputRef.current.contains(event.target))
+      this.setState({
+        focused: false,
+        inputFocused: inputFocused
+      });
+      this.handleHide()
     }    
   }
+  
 
   getInitialState() {
     const state = this.makeDateValues(this.props.value || this.props.defaultValue)
@@ -131,6 +133,7 @@ class DatePicker extends React.Component {
       }
     }
   }
+
 
   handleFocus() {
     if (this.state.focused === true) {
@@ -405,6 +408,24 @@ class DatePicker extends React.Component {
       >
         {control}
         
+        <Popover  id         = {`date-picker-popover-${this.props.instanceCount}`} 
+                  className  = "date-picker-popover" 
+                  toggle     = {() => this.handleHide()}
+                  isOpen     = {this.state.focused}
+                  container  = {this.props.calendarContainer || this.overlayContainerRef.current}
+                  target     = {`date-picker-control-${this.props.instanceCount}`}
+                  placement  = {this.state.calendarPlacement}
+                  delay      = {200}                
+        >
+          <PopoverHeader tag = "div">
+            {calendarHeader}
+          </PopoverHeader>
+          
+          <PopoverBody>
+            {calendar}
+          </PopoverBody>
+        </Popover>
+
         <div   ref   = {this.overlayContainerRef}/>
         
         <input ref   = {this.hiddenInputRef}
@@ -428,23 +449,7 @@ class DatePicker extends React.Component {
         
         {this.props.children}
         
-        <Popover  id         = {`date-picker-popover-${this.props.instanceCount}`} 
-                  className  = "date-picker-popover" 
-                  toggle     = {() => this.handleHide()}
-                  isOpen     = {this.state.focused}
-                  container  = {this.props.calendarContainer || this.overlayContainerRef.current}
-                  target     = {`date-picker-control-${this.props.instanceCount}`}
-                  placement  = {this.state.calendarPlacement}
-                  delay      = {200}                
-        >
-          <PopoverHeader tag = "div">
-            {calendarHeader}
-          </PopoverHeader>
-          
-          <PopoverBody>
-            {calendar}
-          </PopoverBody>
-        </Popover>     
+     
       </InputGroup>
     )
   }
@@ -545,7 +550,6 @@ DatePicker.defaultProps= {
   roundedCorners: false,
   noValidate: false
 }
-
 
 
 export default DatePicker

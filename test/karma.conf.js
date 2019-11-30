@@ -2,23 +2,13 @@
 
 module.exports = function (config) {
     config.set({
-        browsers: ['Firefox'],
+        browsers: ['Chrome'], /*'Firefox',*/
         failOnEmptyTestSuite: false,
         singleRun: true,
         frameworks: ['mocha'],
         plugins: [
-          /*'karma-firefox-launcher',
-          'karma-chrome-launcher',
-          'karma-safari-launcher',
-          'karma-mocha',
-          'karma-coveralls',
-          'karma-coverage',
-          'karma-sourcemap-loader',
-          'karma-webpack',
-          'karma-browserstack-launcher'*/
           'karma-firefox-launcher',
           'karma-chrome-launcher',
-          //'karma-safari-launcher',
           'karma-mocha',
           'karma-sourcemap-loader',
           'karma-webpack',
