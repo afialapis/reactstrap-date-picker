@@ -151,7 +151,7 @@ class DatePickerCalendar extends React.Component {
           <td colSpan={this.props.dayLabels.length} style={{ paddingTop: '9px' }}>
             <Button
               block
-              bsSize="xsmall"
+              size="sm"
               className="u-today-button"
               onClick={() => this.handleClickToday()}>
               {this.props.todayButtonLabel}

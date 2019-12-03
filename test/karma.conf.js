@@ -2,7 +2,7 @@
 
 module.exports = function (config) {
     config.set({
-        browsers: ['Chrome'], /*'Firefox',*/
+        browsers: ['Firefox', 'Chrome'],
         failOnEmptyTestSuite: false,
         singleRun: true,
         frameworks: ['mocha'],

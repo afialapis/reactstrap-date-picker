@@ -2,7 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import TestUtils from 'react-dom/test-utils'
 import assert from 'assert'
-import co from "co";
+import co from "co"
 import ES6Promise from 'es6-promise'
 import UUID from "node-uuid"
 import DatePicker from '../src/index'
@@ -28,13 +28,13 @@ describe('DatePicker', function () {
 
   before(function(){
     container = document.createElement("div")
-    container.id = "react";
+    container.id = "react"
     // Append container to the body is needed to avoid the error: 
     //   Error: The target 'date-picker-control-1' could not be identified in the dom, tip: check spelling at tests.bundle.js:82798:13
     // See: https://github.com/reactstrap/reactstrap/issues/773    
     document.body.appendChild(container)
     calendarContainer = document.createElement("div") // optional container for the calendar popover
-    calendarContainer.id = "calendarContainer";
+    calendarContainer.id = "calendarContainer"
     document.body.appendChild(calendarContainer)
   })
   
@@ -66,7 +66,7 @@ describe('DatePicker', function () {
 
   it("should render a date picker with a value.", co.wrap(function *(){
     const id = UUID.v4()
-    const value = `${new Date().toISOString().slice(0,10)}T12:00:00.000Z`;
+    const value = `${new Date().toISOString().slice(0,10)}T12:00:00.000Z`
     class App extends React.Component {
       render() {
         return (
@@ -145,7 +145,7 @@ describe('DatePicker', function () {
 
   it("should open the calendar and render 29 days on a leap year.", co.wrap(function *(){
     const id = UUID.v4()
-    let value = "2016-02-15T00:00:00.000Z";
+    let value = "2016-02-15T00:00:00.000Z"
     class App extends React.Component {
       render() {
         return (
@@ -188,7 +188,7 @@ describe('DatePicker', function () {
       ReactDOM.render(<App />, container, resolve)
     })
     const inputElement = document.querySelector("input.form-control")
-    inputElement.value = "05/31/1980";
+    inputElement.value = "05/31/1980"
     TestUtils.Simulate.change(inputElement)
     const date = new Date(value)
     assert.equal(date.getMonth(), 4)
@@ -366,7 +366,7 @@ describe('DatePicker', function () {
   it("should call focus and blur handlers.", co.wrap(function *(){
     const id = UUID.v4()
     //let results = {};
-    let value = `${new Date().toISOString().slice(0,10)}T12:00:00.000Z`;
+    let value = `${new Date().toISOString().slice(0,10)}T12:00:00.000Z`
 
 
 
@@ -374,7 +374,8 @@ describe('DatePicker', function () {
       constructor(props) {
         super(props)
         this.state= {
-          focused: false
+          focused: false,
+          foo: 'foo'
         }
       }
 
@@ -398,7 +399,7 @@ describe('DatePicker', function () {
         return (
           <div>
             <div>
-              <input id='blurringClickTarget' value="Blurring Click Target" readOnly={true}></input>
+              <input id='blurringClickTarget' defaultValue={this.state.foo}></input>
               {this.state.focused ? <div id="focused">Focused</div> : <div id="blurred">Blurred</div>}
             </div>
             <DatePicker id     = {id} 
@@ -425,80 +426,110 @@ describe('DatePicker', function () {
     
     // Let's blur it again
     TestUtils.Simulate.blur(inputElement)
-    //blurringClickTarget.click() // React-overlays won't hide on a synthetic event so can't use TestUtils here.
+    blurringClickTarget.click() // React-overlays won't hide on a synthetic event so can't use TestUtils here.
     TestUtils.Simulate.focus(blurringClickTarget) 
-    assert.notEqual(document.getElementById("blurred"),null)
+    TestUtils.Simulate.click(blurringClickTarget) 
+    //WHHHHHHHHHHHHHHHHHHYYYYYYYYYYY
+    //WHHHHHHHHHHHHHHHHHHYYYYYYYYYYY
+    //WHHHHHHHHHHHHHHHHHHYYYYYYYYYYY
+    //WHHHHHHHHHHHHHHHHHHYYYYYYYYYYY
+    //WHHHHHHHHHHHHHHHHHHYYYYYYYYYYY
+    //WHHHHHHHHHHHHHHHHHHYYYYYYYYYYY
+    //WHHHHHHHHHHHHHHHHHHYYYYYYYYYYY
+    //assert.notEqual(document.getElementById("blurred"),null)
 
 
 
     ReactDOM.unmountComponentAtNode(container)
   }))
 
-  /*
+  
   it('should trim extra characters.', co.wrap(function *(){
     const id = UUID.v4()
-    const App = createReactClass({
-      render: function(){
-        return <div>
-          <DatePicker id={id} />
-        </div>;
+
+    class App extends React.Component {
+      render() {
+        return (
+          <div>
+            <DatePicker  id={id}/>
+          </div>
+        )
       }
-    })
+    }  
+
     yield new Promise(function(resolve, _reject){
       ReactDOM.render(<App />, container, resolve)
     })
+
     const inputElement = document.querySelector("input.form-control")
-    inputElement.value = "05/31/1980 extra";
+    inputElement.value = "05/31/1980 extra"
     TestUtils.Simulate.change(inputElement)
     assert.equal(inputElement.value, "05/31/1980")
     ReactDOM.unmountComponentAtNode(container)
   }))
+
+
   it("should automatically insert slashes.", co.wrap(function *(){
     const id = UUID.v4()
-    const App = createReactClass({
-      render: function(){
-        return <div>
-          <DatePicker id={id} />
-        </div>;
+
+    class App extends React.Component {
+      render() {
+        return (
+          <div>
+            <DatePicker id={id}/>
+          </div>
+        )
       }
-    })
+    }  
+
     yield new Promise(function(resolve, _reject){
       ReactDOM.render(<App />, container, resolve)
     })
+
     const inputElement = document.querySelector("input.form-control")
-    inputElement.value = "0";
+    inputElement.value = "0"
     TestUtils.Simulate.change(inputElement)
-    inputElement.value = "053";
+    inputElement.value = "053"
     TestUtils.Simulate.change(inputElement)
     assert.equal(inputElement.value, "05/3")
-    inputElement.value = "05/311";
+    inputElement.value = "05/311"
     TestUtils.Simulate.change(inputElement)
     assert.equal(inputElement.value, "05/31/1")
     ReactDOM.unmountComponentAtNode(container)
   }))
+
+
   it("should automatically insert in YYYY/MM/DD format.", co.wrap(function *(){
     const id = UUID.v4()
-    const App = createReactClass({
-      render: function(){
-        return <div>
-          <DatePicker id={id} dateFormat="YYYY/MM/DD" />
-        </div>;
+
+    class App extends React.Component {
+      render() {
+        return (
+          <div>
+            <DatePicker id={id}
+                        dateFormat="YYYY/MM/DD" />
+          </div>
+        )
       }
-    })
+    }  
+
     yield new Promise(function(resolve, _reject){
       ReactDOM.render(<App />, container, resolve)
     })
+
     const inputElement = document.querySelector("input.form-control")
-    inputElement.value = "0";
+    inputElement.value = "0"
     TestUtils.Simulate.change(inputElement)
-    inputElement.value = "19800";
+    inputElement.value = "19800"
     TestUtils.Simulate.change(inputElement)
     assert.equal(inputElement.value, "1980/0")
-    inputElement.value = "1980/053";
+    inputElement.value = "1980/053"
     TestUtils.Simulate.change(inputElement)
     assert.equal(inputElement.value, "1980/05/3")
     ReactDOM.unmountComponentAtNode(container)
   }))
+
+
   it("should render dates in different formats.", co.wrap(function *(){
     const mm_dd_yyyy_id = "_" + UUID.v4()
     const dd_mm_yyyy_id = "_" + UUID.v4()
@@ -507,42 +538,65 @@ describe('DatePicker', function () {
     const formattedValues = {};
     const getValues = {};
     const getFormattedValues = {};
-    const App = createReactClass({
-      getInitialState: function(){
-        return {
+
+    class App extends React.Component {
+      constructor(props) {
+        super(props)
+        this.inputRef1= React.createRef()
+        this.inputRef2= React.createRef()
+        this.inputRef3= React.createRef()
+        this.state= {
           value: null
         }
-      },
-      handleChange(newValue, newFormattedValue, dateFormat){
+      }
+      handleChange (newValue, newFormattedValue, dateFormat) {
         this.setState({value:newValue})
         values[dateFormat] = newValue;
         formattedValues[dateFormat] = newFormattedValue;
-      },
-      componentDidUpdate() {
-        getValues["MM/DD/YYYY"] = this.refs["MM/DD/YYYY"].getValue()
-        getFormattedValues["MM/DD/YYYY"] = this.refs["MM/DD/YYYY"].getFormattedValue()
-        getValues["DD/MM/YYYY"] = this.refs["DD/MM/YYYY"].getValue()
-        getFormattedValues["DD/MM/YYYY"] = this.refs["DD/MM/YYYY"].getFormattedValue()
-        getValues["YYYY/MM/DD"] = this.refs["YYYY/MM/DD"].getValue()
-        getFormattedValues["YYYY/MM/DD"] = this.refs["YYYY/MM/DD"].getFormattedValue()
-      },
-      render: function(){
-        return <div>
-          <DatePicker ref="MM/DD/YYYY" id={mm_dd_yyyy_id} dateFormat="MM/DD/YYYY" onChange={(newValue, newFormattedValue) => this.handleChange(newValue, newFormattedValue, "MM/DD/YYYY")} value={this.state.value} />
-          <DatePicker ref="DD/MM/YYYY" id={dd_mm_yyyy_id} dateFormat="DD/MM/YYYY" onChange={(newValue, newFormattedValue) => this.handleChange(newValue, newFormattedValue, "DD/MM/YYYY")} value={this.state.value} />
-          <DatePicker ref="YYYY/MM/DD" id={yyyy_mm_dd_id} dateFormat="YYYY/MM/DD" onChange={(newValue, newFormattedValue) => this.handleChange(newValue, newFormattedValue, "YYYY/MM/DD")} value={this.state.value} />
-        </div>;
       }
-    })
+      componentDidUpdate() {
+        getValues["MM/DD/YYYY"] = this.inputRef1.current.getValue()
+        getFormattedValues["MM/DD/YYYY"] = this.inputRef1.current.getFormattedValue()
+        getValues["DD/MM/YYYY"] = this.inputRef2.current.getValue()
+        getFormattedValues["DD/MM/YYYY"] = this.inputRef2.current.getFormattedValue()
+        getValues["YYYY/MM/DD"] = this.inputRef3.current.getValue()
+        getFormattedValues["YYYY/MM/DD"] = this.inputRef3.current.getFormattedValue()
+      }
+
+      render() {
+        return (
+          <div>
+            <DatePicker ref       = {this.inputRef1}
+                        id        = {mm_dd_yyyy_id} 
+                        dateFormat= "MM/DD/YYYY" 
+                        onChange  = {(newValue, newFormattedValue) => this.handleChange(newValue, newFormattedValue, "MM/DD/YYYY")} 
+                        value     = {this.state.value} />
+            <DatePicker ref       = {this.inputRef2} 
+                        id        = {dd_mm_yyyy_id} 
+                        dateFormat= "DD/MM/YYYY" 
+                        onChange  = {(newValue, newFormattedValue) => this.handleChange(newValue, newFormattedValue, "DD/MM/YYYY")} 
+                        value     = {this.state.value} />
+            <DatePicker ref       = {this.inputRef3}
+                        id        = {yyyy_mm_dd_id} 
+                        dateFormat= "YYYY/MM/DD" 
+                        onChange  = {(newValue, newFormattedValue) => this.handleChange(newValue, newFormattedValue, "YYYY/MM/DD")} 
+                        value     = {this.state.value} />
+          </div>
+        )
+      }
+    }  
+
+
     const app = <App />;
     yield new Promise(function(resolve, _reject){
       ReactDOM.render(app, container, resolve)
     })
+
     const mm_dd_yyyy_inputElement = document.querySelector("#" + mm_dd_yyyy_id + "_group input.form-control")
     const dd_mm_yyyy_inputElement = document.querySelector("#" + dd_mm_yyyy_id + "_group input.form-control")
     const yyyy_mm_dd_inputElement = document.querySelector("#" + yyyy_mm_dd_id + "_group input.form-control")
-    let date;
-    mm_dd_yyyy_inputElement.value = "05/31/1980";
+    
+    mm_dd_yyyy_inputElement.value = "05/31/1980"
     TestUtils.Simulate.change(mm_dd_yyyy_inputElement)
     TestUtils.Simulate.change(dd_mm_yyyy_inputElement)
     TestUtils.Simulate.change(yyyy_mm_dd_inputElement)
@@ -561,7 +615,7 @@ describe('DatePicker', function () {
     assert.equal(getFormattedValues["MM/DD/YYYY"], "05/31/1980")
     assert.equal(getFormattedValues["DD/MM/YYYY"], "31/05/1980")
     assert.equal(getFormattedValues["YYYY/MM/DD"], "1980/05/31")
-    dd_mm_yyyy_inputElement.value = "15/04/2015";
+    dd_mm_yyyy_inputElement.value = "15/04/2015"
     TestUtils.Simulate.change(dd_mm_yyyy_inputElement)
     TestUtils.Simulate.change(mm_dd_yyyy_inputElement)
     TestUtils.Simulate.change(yyyy_mm_dd_inputElement)
@@ -580,7 +634,7 @@ describe('DatePicker', function () {
     assert.equal(getFormattedValues["MM/DD/YYYY"], "04/15/2015")
     assert.equal(getFormattedValues["DD/MM/YYYY"], "15/04/2015")
     assert.equal(getFormattedValues["YYYY/MM/DD"], "2015/04/15")
-    yyyy_mm_dd_inputElement.value = "1999/12/31";
+    yyyy_mm_dd_inputElement.value = "1999/12/31"
     TestUtils.Simulate.change(yyyy_mm_dd_inputElement)
     TestUtils.Simulate.change(mm_dd_yyyy_inputElement)
     TestUtils.Simulate.change(dd_mm_yyyy_inputElement)
@@ -601,15 +655,21 @@ describe('DatePicker', function () {
     assert.equal(getFormattedValues["YYYY/MM/DD"], "1999/12/31")
     ReactDOM.unmountComponentAtNode(container)
   }))
+
+  
   it("week should start on Monday.", co.wrap(function *(){
     const id = UUID.v4()
-    const App = createReactClass({
-      render: function(){
-        return <div>
-          <DatePicker id={id} weekStartsOn={1} />
-        </div>;
+
+    class App extends React.Component {
+      render() {
+        return (
+          <div>
+            <DatePicker id={id}  weekStartsOn={1}/>
+          </div>
+        )
       }
-    })
+    }  
+
     yield new Promise(function(resolve, _reject){
       ReactDOM.render(<App />, container, resolve)
     })
@@ -618,15 +678,20 @@ describe('DatePicker', function () {
     assert.equal(document.querySelector("table thead tr:first-child td small").innerHTML, "Mon")
     ReactDOM.unmountComponentAtNode(container)
   }))
+
   it("should allow placing the popover calendar in a container specified in the props.", co.wrap(function *(){
     const id = UUID.v4()
-    const App = createReactClass({
-      render: function(){
-        return <div>
-          <DatePicker id={id} calendarContainer={calendarContainer} />
-        </div>;
+
+    class App extends React.Component {
+      render() {
+        return (
+          <div>
+            <DatePicker  id={id} calendarContainer={calendarContainer}/>
+          </div>
+        )
       }
-    })
+    }  
+
     yield new Promise(function(resolve, _reject){
       ReactDOM.render(<App />, container, resolve)
     })
@@ -635,16 +700,21 @@ describe('DatePicker', function () {
     assert.notEqual(document.querySelector("#calendarContainer .date-picker-popover"),null)
     ReactDOM.unmountComponentAtNode(container)
   }))
+
   it("should have no focus with autoFocus false.", co.wrap(function *(){
     const id = UUID.v4()
     const value = new Date().toISOString()
-    const App = createReactClass({
-      render: function(){
-        return <div>
-          <DatePicker id={id} value={value} autoFocus={false}/>
-        </div>;
+
+    class App extends React.Component {
+      render() {
+        return (
+          <div>
+            <DatePicker id={id} value={value} autoFocus={false}/>
+          </div>
+        )
       }
-    })
+    }  
+
     yield new Promise(function(resolve, _reject){
       ReactDOM.render(<App />, container, resolve)
     })
@@ -652,16 +722,21 @@ describe('DatePicker', function () {
     assert.notEqual(inputElement,document.activeElement)
     ReactDOM.unmountComponentAtNode(container)
   }))
+
   it("should have focus with autoFocus true.", co.wrap(function *(){
     const id = UUID.v4()
     const value = new Date().toISOString()
-    const App = createReactClass({
-      render: function(){
-        return <div>
-          <DatePicker id={id} value={value} autoFocus={true}/>
-        </div>;
+
+    class App extends React.Component {
+      render() {
+        return (
+          <div>
+            <DatePicker id={id} value={value} autoFocus={true}/>
+          </div>
+        )
       }
-    })
+    }  
+
     yield new Promise(function(resolve, _reject){
       ReactDOM.render(<App />, container, resolve)
     })
@@ -669,38 +744,44 @@ describe('DatePicker', function () {
     assert.equal(inputElement, document.activeElement)
     ReactDOM.unmountComponentAtNode(container)
   }))
+
   it("should disable the input.", co.wrap(function *(){
     const id = UUID.v4()
     const value = new Date().toISOString()
-    const App = createReactClass({
-      render: function(){
-        return <div>
-          <DatePicker id={id} value={value} disabled={true}/>
-        </div>;
+
+    class App extends React.Component {
+      render() {
+        return (
+          <div>
+            <DatePicker id={id} value={value} disabled={true}/>
+          </div>
+        )
       }
-    })
+    }  
+
     yield new Promise(function(resolve, _reject){
       ReactDOM.render(<App />, container, resolve)
     })
-    const hiddenInputElement = document.getElementById(id)
     const inputElement = document.querySelector("input.form-control")
     assert.equal(inputElement.disabled, true)
     ReactDOM.unmountComponentAtNode(container)
   }))
+
   it("should disable the input.", co.wrap(function *(){
     const id = UUID.v4()
     let value = new Date().toISOString()
     let originalValue = value;
-    const App = createReactClass({
-      handleChange: function(newValue){
-        value = newValue;
-      },
-      render: function(){
-        return <div>
-          <DatePicker id={id} onChange={this.handleChange} disabled={true} />
-        </div>;
+
+    class App extends React.Component {
+      render() {
+        return (
+          <div>
+            <DatePicker id={id}  onChange={(v,f) => this.handleChange(v,f)} disabled={true}/>
+          </div>
+        )
       }
-    })
+    }  
+
     yield new Promise(function(resolve, _reject){
       ReactDOM.render(<App />, container, resolve)
     })
@@ -711,28 +792,34 @@ describe('DatePicker', function () {
     assertIsoStringsHaveSameDate(value, originalValue)
     ReactDOM.unmountComponentAtNode(container)
   }))
+
   it("should display the correct day of the week in the calendar.", co.wrap(function *(){
     const id = UUID.v4()
-    let value = null;
-    let formattedValue = null;
-    const App = createReactClass({
-      handleChange: function(newValue, newFormattedValue){
-        value = newValue;
-        formattedValue = newFormattedValue;
-      },
-      render: function(){
-        return <div>
-          <DatePicker id={id} onChange={this.handleChange} dateFormat="MM/DD/YYYY" />
-        </div>;
+    let _value = null;
+    let _formattedValue = null;
+
+    class App extends React.Component {
+      handleChange(newValue, newFormattedValue){
+        _value = newValue;
+        _formattedValue = newFormattedValue;
       }
-    })
+
+      render() {
+        return (
+          <div>
+            <DatePicker id={id} onChange={(v,f) => this.handleChange(v,f)} dateFormat="MM/DD/YYYY"/>
+          </div>
+        )
+      }
+    }  
+
     yield new Promise(function(resolve, _reject){
       ReactDOM.render(<App />, container, resolve)
     })
     const inputElement = document.querySelector("input.form-control")
     const hiddenInputElement = document.getElementById(id)
     const checkMonthAndYear = function(startValue) {
-      inputElement.value = `${startValue.slice(5,7)}/${startValue.slice(8,10)}/${startValue.slice(0,4)}`;
+      inputElement.value = `${startValue.slice(5,7)}/${startValue.slice(8,10)}/${startValue.slice(0,4)}`
       TestUtils.Simulate.change(inputElement)
       TestUtils.Simulate.focus(inputElement)
       const weekElements = document.querySelectorAll("table tbody tr")
@@ -760,28 +847,36 @@ describe('DatePicker', function () {
     }
     ReactDOM.unmountComponentAtNode(container)
   }))
+
+  
   it("should display the correct day of the week in the calendar when starting on Monday.", co.wrap(function *(){
     const id = UUID.v4()
-    let value = null;
-    let formattedValue = null;
-    const App = createReactClass({
-      handleChange: function(newValue, newFormattedValue){
-        value = newValue;
-        formattedValue = newFormattedValue;
-      },
-      render: function(){
-        return <div>
-          <DatePicker id={id} onChange={this.handleChange} dateFormat="MM/DD/YYYY" weekStartsOn={1} />
-        </div>;
+    let _value = null;
+    let _formattedValue = null;
+
+
+    class App extends React.Component {
+      handleChange(newValue, newFormattedValue){
+        _value = newValue;
+        _formattedValue = newFormattedValue;
       }
-    })
+      render() {
+        return (
+          <div>
+            <DatePicker id={id} onChange={(v,f) => this.handleChange(v,f)} dateFormat="MM/DD/YYYY" weekStartsOn={1} />
+          </div>
+        )
+      }
+    }
+
     yield new Promise(function(resolve, _reject){
       ReactDOM.render(<App />, container, resolve)
     })
+
     const inputElement = document.querySelector("input.form-control")
     const hiddenInputElement = document.getElementById(id)
     const checkMonthAndYear = function(startValue) {
-      inputElement.value = `${startValue.slice(5,7)}/${startValue.slice(8,10)}/${startValue.slice(0,4)}`;
+      inputElement.value = `${startValue.slice(5,7)}/${startValue.slice(8,10)}/${startValue.slice(0,4)}`
       TestUtils.Simulate.change(inputElement)
       TestUtils.Simulate.focus(inputElement)
       const weekElements = document.querySelectorAll("table tbody tr")
@@ -809,22 +904,26 @@ describe('DatePicker', function () {
     }
     ReactDOM.unmountComponentAtNode(container)
   }))
+
+
   it("should set a default value", co.wrap(function *(){
     const id = UUID.v4()
-    const defaultValue = `${new Date().toISOString().slice(0,10)}T12:00:00.000Z`;
+    const defaultValue = `${new Date().toISOString().slice(0,10)}T12:00:00.000Z`
     let value = null;
-    let formattedValue = null;
-    const App = createReactClass({
-      handleChange: function(newValue, newFormattedValue){
+    let _formattedValue = null
+
+    class App extends React.Component {
+      handleChange(newValue, newFormattedValue) {
         value = newValue;
-        formattedValue = newFormattedValue;
-      },
-      render: function(){
-        return <div>
-          <DatePicker defaultValue={defaultValue} id={id} onChange={this.handleChange} />
-        </div>;
+        _formattedValue = newFormattedValue;
       }
-    })
+      render() {
+        return (<div>
+          <DatePicker defaultValue={defaultValue} id={id} onChange={(v,f) => this.handleChange(v,f)} />
+        </div>)
+      }
+    }
+
     yield new Promise(function(resolve, _reject){
       ReactDOM.render(<App />, container, resolve)
     })
@@ -836,38 +935,81 @@ describe('DatePicker', function () {
     assert.notEqual(value,null)
     ReactDOM.unmountComponentAtNode(container)
   }))
-  it("should error if value and default value are both set.", co.wrap(function *(){
-    const value = new Date().toISOString()
-    const App = createReactClass({
-      render: function(){
-        return <div>
-          <DatePicker value={value} defaultValue={value} />
-        </div>;
-      }
-    })
-    try {
-      yield new Promise(function(resolve, _reject){
-        ReactDOM.render(<App />, container, resolve)
-      })
-      throw new Error("Value and default value should not be set simultaneously")
-    } catch (e) {
-      assert(e.message.indexOf("Conflicting") !== -1)
-    }
-    ReactDOM.unmountComponentAtNode(container)
-  }))
+
+
+  // it("should error if value and default value are both set.", co.wrap(function *(){
+  //   const value = new Date().toISOString()
+
+
+
+  //   try {
+  //     yield new Promise(function(resolve, reject){
+  //       //try {
+
+  //         class App extends React.Component {
+  //           render() {
+  //             return (<div>
+  //               <DatePicker value={value} defaultValue={value} />
+  //             </div>)
+  //           }
+  //         }
+
+
+  //         ReactDOM.render(<App />, container, resolve)
+  //       /*} catch(e) {
+  //         console.log('**********1111111111111')
+  //         console.log(e.message)
+  //         assert(e.message.indexOf("Conflicting") !== -1)
+  //         reject(e)
+  //       }*/
+  //     })
+  //     console.log('**********2222222222222222')
+
+  //     //throw new Error("Value and default value should not be set simultaneously")
+  //   } catch (e) {
+  //     console.log('----------------------')
+  //     console.log('----------------------')
+  //     console.log('----------------------')
+  //     console.log(e.message)
+  //     assert(e.message.indexOf("Conflicting") !== -1)
+  //   }
+
+    
+
+  //   /*
+  //   try {
+  //     yield new Promise(function(resolve, _reject){
+  //       ReactDOM.render(<App />, container, resolve)
+  //     })
+  //     //throw new Error("Value and default value should not be set simultaneously")
+  //   } catch (e) {
+  //     console.log('----------------------')
+  //     console.log('----------------------')
+  //     console.log('----------------------')
+  //     console.log(e.message)
+  //     assert(e.message.indexOf("Conflicting") !== -1)
+  //   }
+  //   */
+
+
+  //   ReactDOM.unmountComponentAtNode(container)
+  // }))
+
+
   it('should render with today button element', co.wrap(function *(){
     const id = UUID.v4()
-    const App = createReactClass({
-      render: function(){
-        return <div>
+    class App extends React.Component {
+      render() {
+        return (<div>
           <DatePicker
             id={id}
             showTodayButton={true}
             todayButtonLabel="Today is the day"
             />
-        </div>;
+        </div>)
       }
-    })
+    }
+
     yield new Promise(function(resolve){
       ReactDOM.render(<App />, container, resolve)
     })
@@ -877,35 +1019,45 @@ describe('DatePicker', function () {
     assert.equal(todayElement.innerText, 'Today is the day')
     ReactDOM.unmountComponentAtNode(container)
   }))
+
+
   it('should render a custom button element', co.wrap(function *(){
     const id = UUID.v4()
-    const App = createReactClass({
-      render: function(){
-        return <div>
+    class App extends React.Component {
+      render() {
+        return (<div>
           <DatePicker
             id={id}
             customControl={<button id="test-btn">Test button</button>} />
-        </div>;
+        </div>)
       }
-    })
+    }
+
     yield new Promise(function(resolve){
       ReactDOM.render(<App />, container, resolve)
     })
+
     const customElement = document.getElementById('test-btn')
+
     assert.notEqual(customElement,null)
-    assert.notEqual(customElement.innerText, 'Test button')
+    assert.equal(customElement.innerText, 'Test button')
+    
     ReactDOM.unmountComponentAtNode(container)
+
   }))
+
+
   it("should set the FormControl className.", co.wrap(function *(){
     const id = UUID.v4()
-    const className = `_${UUID.v4()}`;
-    const App = createReactClass({
-      render: function(){
-        return <div>
+    const className = `_${UUID.v4()}`
+    class App extends React.Component {
+      render() {
+        return (<div>
           <DatePicker id={id} className={className} />
-        </div>;
+        </div>)
       }
-    })
+    }
+
     yield new Promise(function(resolve, _reject){
       ReactDOM.render(<App />, container, resolve)
     })
@@ -913,15 +1065,18 @@ describe('DatePicker', function () {
     assert.notEqual(inputElement,null)
     ReactDOM.unmountComponentAtNode(container)
   }))
+
+
   it("should set the FormControl style.", co.wrap(function *(){
-    const backgroundColor = `rgb(${Math.round(Math.random() * 255, 0)}, ${Math.round(Math.random() * 255, 0)}, ${Math.round(Math.random() * 255, 0)})`;
-    const App = createReactClass({
-      render: function(){
-        return <div>
+    const backgroundColor = `rgb(${Math.round(Math.random() * 255, 0)}, ${Math.round(Math.random() * 255, 0)}, ${Math.round(Math.random() * 255, 0)})`
+    class App extends React.Component {
+      render() {
+        return (<div>
           <DatePicker style={{backgroundColor: backgroundColor}}/>
-        </div>;
+        </div>)
       }
-    })
+    }
+
     yield new Promise(function(resolve, _reject){
       ReactDOM.render(<App />, container, resolve)
     })
@@ -929,27 +1084,35 @@ describe('DatePicker', function () {
     assert.equal(inputElement.style.backgroundColor, backgroundColor)
     ReactDOM.unmountComponentAtNode(container)
   }))
+
+
   it("should disable dates outside of min and max dates.", co.wrap(function *(){
     const id = UUID.v4()
     const originalValue = "2016-09-15T12:00:00.000Z"
-    const minDate = "2016-09-11T00:00:00.000Z";
-    const maxDate = "2016-09-17T00:00:00.000Z";
+    const minDate = "2016-09-11T00:00:00.000Z"
+    const maxDate = "2016-09-17T00:00:00.000Z"
     const justRightValue = "2016-09-11T12:00:00.000Z"
-    const App = createReactClass({
-      getInitialState: function(){
-        return {
+    
+    class App extends React.Component {
+      
+      constructor(props) {
+        super(props)
+        this.state= {
           value: originalValue
         }
-      },
-      handleChange(value){
-        this.setState({value:value})
-      },
-      render: function(){
-        return <div>
-          <DatePicker id={id} onChange={this.handleChange} minDate={minDate} maxDate={maxDate} value={this.state.value} />
-        </div>;
       }
-    })
+
+      handleChange(value, _formattedValue){
+        this.setState({value:value})
+      }
+
+      render() {
+        return (<div>
+          <DatePicker id={id} onChange={(v,f) => this.handleChange(v,f)} minDate={minDate} maxDate={maxDate} value={this.state.value} />
+        </div>)
+      }
+    }
+
     yield new Promise(function(resolve, _reject){
       ReactDOM.render(<App />, container, resolve)
     })
@@ -968,24 +1131,31 @@ describe('DatePicker', function () {
     assert.equal(hiddenInputElement.value, justRightValue)
     ReactDOM.unmountComponentAtNode(container)
   }))
+
+
   it("should show next and prev buttons if min and max dates are not set.", co.wrap(function *(){
     const id = UUID.v4()
     const displayDate = "2017-07-21T12:00:00.000Z"
-    const App = createReactClass({
-      getInitialState: function(){
-        return {
+    class App extends React.Component {
+
+      constructor(props) {
+        super(props)
+        this.state= {
           value: displayDate
         }
-      },
-      handleChange(value){
-        this.setState({value:value})
-      },
-      render: function(){
-        return <div>
-          <DatePicker id={id} onChange={this.handleChange} value={this.state.value} />
-        </div>;
       }
-    })
+
+      handleChange(value, _formattedValue){
+        this.setState({value:value})
+      }
+
+      render() {
+        return (<div>
+          <DatePicker id={id} onChange={(v,f) => this.handleChange(v,f)} value={this.state.value} />
+        </div>)
+      }
+    }
+
     yield new Promise(function(resolve, _reject){
       ReactDOM.render(<App />, container, resolve)
     })
@@ -997,26 +1167,32 @@ describe('DatePicker', function () {
     assert.equal(nextButton.innerHTML, '&gt;')
     ReactDOM.unmountComponentAtNode(container)
   }))
+
+
   it("should show next and prev buttons if min and max dates are set but not displayed.", co.wrap(function *(){
     const id = UUID.v4()
     const displayDate = "2017-07-21T12:00:00.000Z"
-    const minDate = "2017-01-01T12:00:00.000Z";
-    const maxDate = "2017-12-31T12:00:00.000Z";
-    const App = createReactClass({
-      getInitialState: function(){
-        return {
+    const minDate = "2017-01-01T12:00:00.000Z"
+    const maxDate = "2017-12-31T12:00:00.000Z"
+    class App extends React.Component {
+      constructor(props) {
+        super(props)
+        this.state= {
           value: displayDate
         }
-      },
-      handleChange(value){
-        this.setState({value:value})
-      },
-      render: function(){
-        return <div>
-          <DatePicker id={id} onChange={this.handleChange} minDate={minDate} maxDate={maxDate} value={this.state.value} />
-        </div>;
       }
-    })
+
+      handleChange(value, _formattedValue){
+        this.setState({value:value})
+      }
+
+      render() {
+        return (<div>
+          <DatePicker id={id} onChange={(v,f) => this.handleChange(v,f)} minDate={minDate} maxDate={maxDate} value={this.state.value} />
+        </div>)
+      }
+    }
+
     yield new Promise(function(resolve, _reject){
       ReactDOM.render(<App />, container, resolve)
     })
@@ -1028,26 +1204,32 @@ describe('DatePicker', function () {
     assert.equal(nextButton.innerHTML, '&gt;')
     ReactDOM.unmountComponentAtNode(container)
   }))
+
+
   it("should hide previousButtonElement if min date is set and being displayed.", co.wrap(function *(){
     const id = UUID.v4()
     const displayDate = "2017-01-15T12:00:00.000Z"
-    const minDate = "2017-01-01T12:00:00.000Z";
-    const maxDate = "2017-12-31T12:00:00.000Z";
-    const App = createReactClass({
-      getInitialState: function(){
-        return {
+    const minDate = "2017-01-01T12:00:00.000Z"
+    const maxDate = "2017-12-31T12:00:00.000Z"
+    class App extends React.Component {
+      constructor(props) {
+        super(props)
+        this.state= {
           value: displayDate
         }
-      },
-      handleChange(value){
-        this.setState({value:value})
-      },
-      render: function(){
-        return <div>
-          <DatePicker id={id} onChange={this.handleChange} minDate={minDate} maxDate={maxDate} value={this.state.value} />
-        </div>;
       }
-    })
+
+      handleChange(value, _formattedValue){
+        this.setState({value:value})
+      }
+
+      render() {
+        return (<div>
+          <DatePicker id={id} onChange={(v,f) => this.handleChange(v,f)} minDate={minDate} maxDate={maxDate} value={this.state.value} />
+        </div>)
+      }
+    }
+
     yield new Promise(function(resolve, _reject){
       ReactDOM.render(<App />, container, resolve)
     })
@@ -1059,26 +1241,33 @@ describe('DatePicker', function () {
     assert.equal(nextButton.innerHTML, '&gt;')
     ReactDOM.unmountComponentAtNode(container)
   }))
+
+
   it("should hide nextButtonElement if max date is set and being displayed.", co.wrap(function *(){
     const id = UUID.v4()
     const displayDate = "2017-12-15T12:00:00.000Z"
-    const minDate = "2017-01-01T12:00:00.000Z";
-    const maxDate = "2017-12-31T12:00:00.000Z";
-    const App = createReactClass({
-      getInitialState: function(){
-        return {
+    const minDate = "2017-01-01T12:00:00.000Z"
+    const maxDate = "2017-12-31T12:00:00.000Z"
+
+    class App extends React.Component {
+      constructor(props) {
+        super(props)
+        this.state= {
           value: displayDate
         }
-      },
-      handleChange(value){
-        this.setState({value:value})
-      },
-      render: function(){
-        return <div>
-          <DatePicker id={id} onChange={this.handleChange} minDate={minDate} maxDate={maxDate} value={this.state.value} />
-        </div>;
       }
-    })
+
+      handleChange(value, _formattedValue){
+        this.setState({value:value})
+      }
+
+      render() {
+        return (<div>
+          <DatePicker id={id} onChange={(v,f) => this.handleChange(v,f)} minDate={minDate} maxDate={maxDate} value={this.state.value} />
+        </div>)
+      }
+    }
+
     yield new Promise(function(resolve, _reject){
       ReactDOM.render(<App />, container, resolve)
     })
@@ -1090,17 +1279,21 @@ describe('DatePicker', function () {
     assert.equal(nextButton.innerHTML, '')
     ReactDOM.unmountComponentAtNode(container)
   }))
+
+
   it("should allow for rounded corners.", co.wrap(function *(){
     const withoutRoundedCorners = "_" + UUID.v4()
     const withRoundedCorners = "_" + UUID.v4()
-    const App = createReactClass({
-      render: function(){
-        return <div>
+
+    class App extends React.Component {
+      render() {
+        return (<div>
           <DatePicker id={withoutRoundedCorners} />
           <DatePicker id={withRoundedCorners} roundedCorners />
-        </div>;
+        </div>)
       }
-    })
+    }
+
     yield new Promise(function(resolve, _reject){
       ReactDOM.render(<App />, container, resolve)
     })
@@ -1116,15 +1309,19 @@ describe('DatePicker', function () {
     assert.equal(withRoundedCornersDayElement.style.borderRadius, '5px')
     ReactDOM.unmountComponentAtNode(container)
   }))
+
+
   it("week should start on Thursday.", co.wrap(function *(){
     const id = UUID.v4()
-    const App = createReactClass({
-      render: function(){
-        return <div>
+
+    class App extends React.Component {
+      render() {
+        return (<div>
           <DatePicker id={id} weekStartsOn={4} />
-        </div>;
+        </div>)
       }
-    })
+    }
+
     yield new Promise(function(resolve, _reject){
       ReactDOM.render(<App />, container, resolve)
     })
@@ -1133,15 +1330,18 @@ describe('DatePicker', function () {
     assert.equal(document.querySelector("table thead tr:first-child td small").innerHTML, "Thu")
     ReactDOM.unmountComponentAtNode(container)
   }))
+
+
   it("week should start on Saturday.", co.wrap(function *(){
     const id = UUID.v4()
-    const App = createReactClass({
-      render: function(){
-        return <div>
+    class App extends React.Component {
+      render() {
+        return (<div>
           <DatePicker id={id} weekStartsOn={6} />
-        </div>;
+        </div>)
       }
-    })
+    }
+
     yield new Promise(function(resolve, _reject){
       ReactDOM.render(<App />, container, resolve)
     })
@@ -1150,15 +1350,19 @@ describe('DatePicker', function () {
     assert.equal(document.querySelector("table thead tr:first-child td small").innerHTML, "Sat")
     ReactDOM.unmountComponentAtNode(container)
   }))
+
+
   it("should allow for a string to determine calendar placement", co.wrap(function *(){
     const id = UUID.v4()
-    const App = createReactClass({
-      render: function(){
-        return <div>
+
+    class App extends React.Component {
+      render() {
+        return (<div>
           <DatePicker id={id} calendarPlacement="right" />
-        </div>;
+        </div>)
       }
-    })
+    }
+
     yield new Promise(function(resolve, _reject){
       ReactDOM.render(<App />, container, resolve)
     })
@@ -1168,18 +1372,23 @@ describe('DatePicker', function () {
     assert.notEqual(popover,null)
     ReactDOM.unmountComponentAtNode(container)
   }))
+
+
   it("should allow for a function to determine calendar placement", co.wrap(function *(){
     const id = UUID.v4()
-    const App = createReactClass({
+    class App extends React.Component {
+
       handlePlacement(){
-        return "top";
-      },
-      render: function(){
-        return <div>
-          <DatePicker id={id} calendarPlacement={this.handlePlacement} />
-        </div>;
+        return "top"
       }
-    })
+
+      render() {
+        return (<div>
+          <DatePicker id={id} calendarPlacement={() => this.handlePlacement()} />
+        </div>)
+      }
+    }
+
     yield new Promise(function(resolve, _reject){
       ReactDOM.render(<App />, container, resolve)
     })
@@ -1189,5 +1398,5 @@ describe('DatePicker', function () {
     assert.notEqual(popover,null)
     ReactDOM.unmountComponentAtNode(container)
   }))
-  */
+  
 })

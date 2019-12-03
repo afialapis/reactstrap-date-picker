@@ -7,32 +7,30 @@ import {
 } from 'reactstrap'
 import DatePicker from '../../../src'
 
-const RDPBasic = () => {
-  const inputName = 'reactstrap_date_picker_basic'
+const RDPSizeLarge = () => {
+  const inputName = 'reactstrap_date_picker_size-large'
   const [value, setValue] = useState("2019-06-01T00:00:00.000Z")
-  const [fmtValue, setFmtValue] = useState("06/01/2019")
 
   return (
     <FormGroup>
       <Label for={inputName}
              className="valium-reactstrap-label">
-        {"Basic"}
+        {"Large"}
       </Label>
       <InputGroup>
         <DatePicker
           name         = {inputName}
-          instanceCount= {1}
+          instanceCount= {8}
           value        = {value}
-          onChange     = {(v, f) => {setValue(v); setFmtValue(f);}}
+          onChange     = {(v, _f) => setValue(v)}
+          bsSize       = "lg"
         /> 
       </InputGroup>
       <FormText>
-        {value 
-         ? `Selected date is: ${value} (formatted: ${fmtValue})`
-         : 'No date selected'}
+        {"Large size input, size='lg'"}
       </FormText>
     </FormGroup>
   )
 }
 
-export default RDPBasic
+export default RDPSizeLarge

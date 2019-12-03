@@ -34,13 +34,22 @@ class DatePicker extends React.Component {
   }
 
   onClickOutside(event) {
+    event.stopPropagation()
+    
     if (this.overlayContainerRef && this.overlayContainerRef.current && !this.overlayContainerRef.current.contains(event.target)) {
+          
       const inputFocused= (this.inputRef && this.inputRef.current && this.inputRef.current.contains(event.target))
       this.setState({
         focused: false,
         inputFocused: inputFocused
       });
-      this.handleHide()
+
+      if (this.props.onBlur) {
+        const event = document.createEvent('CustomEvent');
+        event.initEvent('Change Date', true, false);
+        this.hiddenInputRef.current.dispatchEvent(event);
+        this.props.onBlur(event);
+      }
     }    
   }
   
@@ -359,10 +368,15 @@ class DatePicker extends React.Component {
           roundedCorners  = {this.props.roundedCorners}
           showWeeks       = {this.props.showWeeks}/>
     
+    
+    let controlId= `date-picker-control-${this.props.instanceCount}`
+    if (this.props.customControl!=undefined && this.props.customControl.props.id) {
+      controlId= this.props.customControl.props.id
+    }
 
     const control = this.props.customControl
       ? React.cloneElement(this.props.customControl, {
-        id          : `date-picker-control-${this.props.instanceCount}`,
+        id          : controlId,
         onKeyDown   : (e) => this.handleKeyDown(e),
         value       : this.state.inputValue || '',
         required    : this.props.required,
@@ -379,7 +393,7 @@ class DatePicker extends React.Component {
         noValidate  : this.props.noValidate,
       })
       : <Input
-          id          = {`date-picker-control-${this.props.instanceCount}`}
+          id          = {controlId}
           onKeyDown   = {(e) => this.handleKeyDown(e)}
           value       = {this.state.inputValue || ''}
           required    = {this.props.required}
@@ -401,19 +415,19 @@ class DatePicker extends React.Component {
 
     return (
       <InputGroup
-        // TOCHECK bsClass and bsSize
+        // TODO Check bsClass
         //bsClass = {this.props.showClearButton ? this.props.bsClass : ''}
-        //bsSize  = {this.props.bsSize}
+        size  = {this.props.bsSize}
         id      = {this.props.id ? `${this.props.id}_group` : null}
       >
         {control}
         
         <Popover  id         = {`date-picker-popover-${this.props.instanceCount}`} 
-                  className  = "date-picker-popover" 
+                  className  = {`date-picker-popover ${this.state.calendarPlacement}`}
                   toggle     = {() => this.handleHide()}
                   isOpen     = {this.state.focused}
                   container  = {this.props.calendarContainer || this.overlayContainerRef.current}
-                  target     = {`date-picker-control-${this.props.instanceCount}`}
+                  target     = {controlId}
                   placement  = {this.state.calendarPlacement}
                   delay      = {200}                
         >
@@ -474,11 +488,6 @@ DatePicker.propTypes= {
   onFocus: PropTypes.func,
   autoFocus: PropTypes.bool,
   disabled: PropTypes.bool,
-  weekStartsOnMonday: (props, propName, componentName) => {
-    if (props[propName]) {
-      return new Error(`Prop '${propName}' supplied to '${componentName}' is obsolete. Use 'weekStartsOn' instead.`);
-    }
-  },
   weekStartsOn: PropTypes.number,
   clearButtonElement: PropTypes.oneOfType([
     PropTypes.string,
@@ -498,7 +507,7 @@ DatePicker.propTypes= {
     PropTypes.func
   ]),
   dateFormat: PropTypes.string, // 'MM/DD/YYYY', 'DD/MM/YYYY', 'YYYY/MM/DD', 'DD-MM-YYYY'
-  bsClass: PropTypes.string,
+  //bsClass: PropTypes.string,
   bsSize: PropTypes.string,
   calendarContainer: PropTypes.object,
   id: PropTypes.string,

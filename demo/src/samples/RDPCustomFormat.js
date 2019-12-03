@@ -14,8 +14,6 @@ const spanishMonthLabels = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio
 const RDPCustomFormat = () => {
   const inputName = 'reactstrap_date_picker_custom_format'
   const [value, setValue] = useState("2019-06-01T00:00:00.000Z")
-  const [fmtValue, setFmtValue] = useState("01/06/2019")
-
   return (
     <FormGroup>
       <Label for={inputName}
@@ -27,14 +25,14 @@ const RDPCustomFormat = () => {
           name         = {inputName}
           instanceCount= {4}
           value        = {value}
-          onChange     = {(v, f) => {setValue(v); setFmtValue(f);}}
+          onChange     = {(v, _f) => setValue(v)}
           dateFormat   = {"DD/MM/YYYY"}
           dayLabels    = {spanishDayLabels}
           monthLabels  = {spanishMonthLabels}
         /> 
       </InputGroup>
       <FormText>
-        {"Using ES labels and date format (DD/M/YYYY)"}        
+        {"Using ES labels and dateFormat='DD/M/YYYY'"}        
       </FormText>
     </FormGroup>
   )

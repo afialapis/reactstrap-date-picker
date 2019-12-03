@@ -7,32 +7,33 @@ import {
 } from 'reactstrap'
 import DatePicker from '../../../src'
 
-const RDPFocusBlur = () => {
+const RDPBasicDisabled = () => {
   const inputName = 'reactstrap_date_picker_disabled'
   const [value, setValue] = useState("2019-06-01T00:00:00.000Z")
-  const [focused, setFocused] = useState(false)
+  const [fmtValue, setFmtValue] = useState("06/01/2019")
 
   return (
     <FormGroup>
       <Label for={inputName}
              className="valium-reactstrap-label">
-        {"Focus / Blur"}
+        {"Disabled"}
       </Label>
       <InputGroup>
         <DatePicker
           name         = {inputName}
-          instanceCount= {5}
+          instanceCount= {2}
           value        = {value}
-          onChange     = {(v, f) => setValue(v)}
-          onBlur       = {() => setFocused(false)}
-          onFocus      = {() => setFocused(true)}
+          onChange     = {(v, f) => {setValue(v); setFmtValue(f);}}
+          disabled     = {true}
         /> 
       </InputGroup>
       <FormText>
-        {`Field is ${focused ? 'focused' : 'blurred'}`}
+        {value 
+         ? `Selected date is: ${value} (formatted: ${fmtValue})`
+         : 'No date selected'}
       </FormText>
     </FormGroup>
   )
 }
 
-export default RDPFocusBlur
+export default RDPBasicDisabled

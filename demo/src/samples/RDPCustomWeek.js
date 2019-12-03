@@ -7,33 +7,30 @@ import {
 } from 'reactstrap'
 import DatePicker from '../../../src'
 
-const RDPDisabled = () => {
-  const inputName = 'reactstrap_date_picker_disabled'
+const RDPBasic = () => {
+  const inputName = 'reactstrap_date_picker_basic'
   const [value, setValue] = useState("2019-06-01T00:00:00.000Z")
-  const [fmtValue, setFmtValue] = useState("06/01/2019")
 
   return (
     <FormGroup>
       <Label for={inputName}
              className="valium-reactstrap-label">
-        {"Disabled"}
+        {"Week starts on Monday"}
       </Label>
       <InputGroup>
         <DatePicker
           name         = {inputName}
-          instanceCount= {2}
+          instanceCount= {5}
           value        = {value}
-          onChange     = {(v, f) => {setValue(v); setFmtValue(f);}}
-          disabled     = {true}
+          onChange     = {(v, _f) => setValue(v)}
+          weekStartsOn = {1}
         /> 
       </InputGroup>
       <FormText>
-        {value 
-         ? `Selected date is: ${value} (formatted: ${fmtValue})`
-         : 'No date selected'}
+        {"Week starts on Monday, weekStartsOn=1"}
       </FormText>
     </FormGroup>
   )
 }
 
-export default RDPDisabled
+export default RDPBasic
