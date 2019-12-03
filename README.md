@@ -7,7 +7,7 @@ A Reactstrap based, zero dependencies, date picker.
 
 Based on [react-bootstrap-date-picker](https://github.com/pushtell/react-bootstrap-date-picker/).
 
-Demo and docs at [react-bootstrap-date-picker](https://react-bootstrap-date-picker.afialapis.com/).
+Demo and docs at [reactstrap-date-picker](https://reactstrap-date-picker.afialapis.com/).
 
 
 
