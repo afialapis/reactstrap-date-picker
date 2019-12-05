@@ -1,6 +1,6 @@
 {
   "name": "reactstrap-date-picker",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Reactstrap based, zero dependencies, date picker",
   "author": "Donato Lorenzo <donato@afialapis.com>",
   "contributors": [
@@ -9,12 +9,12 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/afialapis/valium-reactstrap.git"
+    "url": "https://github.com/afialapis/reactstrap-date-picker.git"
   },
   "bugs": {
-    "url": "https://github.com/afialapis/valium-reactstrap/issues"
+    "url": "https://github.com/afialapis/reactstrap-date-picker/issues"
   },
-  "homepage": "https://valium-reactstrap.afialapis.com/",
+  "homepage": "https://reactstrap-date-picker.afialapis.com/",
   "files": [
     "lib"
   ],
@@ -50,6 +50,7 @@
     "@babel/register": "^7.6.0",
     "babel-eslint": "^10.0.3",
     "babel-loader": "^8.0.6",
+    "bootstrap": "^4.3.1",
     "co": "^4.6.0",
     "css-loader": "^3.2.0",
     "es6-promise": "^4.2.8",
@@ -76,7 +77,6 @@
     "webpack-dev-server": "^3.8.0"
   },
   "dependencies": {
-    "bootstrap": "^4.3.1",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "reactstrap": "^8.0.1"
