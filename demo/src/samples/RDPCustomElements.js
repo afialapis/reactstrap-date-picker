@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import {
   FormGroup,
-  InputGroup,
   FormText,
   Label
 } from 'reactstrap'
@@ -21,17 +20,15 @@ const RDPCustomElements = () => {
              className="valium-reactstrap-label">
         {"Custom Elements"}
       </Label>
-      <InputGroup>
-        <DatePicker
-          name         = {inputName}
-          instanceCount= {3}
-          value        = {value}
-          onChange     = {(v, _f) => setValue(v)}
-          clearButtonElement   = {clearButtonElement}
-          nextButtonElement    = {nextButtonElement}
-          previousButtonElement= {previousButtonElement}           
-        /> 
-      </InputGroup>
+      <DatePicker
+        name         = {inputName}
+        instanceCount= {3}
+        value        = {value}
+        onChange     = {(v, _f) => setValue(v)}
+        clearButtonElement   = {clearButtonElement}
+        nextButtonElement    = {nextButtonElement}
+        previousButtonElement= {previousButtonElement}           
+      /> 
       <FormText>
         {'Custom text/elements can be rendered on Clear and Prev/Next calendar buttons'}
       </FormText>

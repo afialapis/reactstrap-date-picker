@@ -4,7 +4,26 @@ import {Input, InputGroup, InputGroupAddon, InputGroupText, Popover, PopoverHead
 import DatePickerHeader from './DatePickerHeader'
 import DatePickerCalendar from './DatePickerCalendar'
 
-let instanceCount = 1;
+const getInstanceCount = () => {
+  if (typeof window === 'object') {
+    if (window._reactstrapDatePickerInstance == undefined) {
+      window._reactstrapDatePickerInstance= 0
+    }
+    const next= window._reactstrapDatePickerInstance+1
+    window._reactstrapDatePickerInstance= next
+    return next
+  } else if (typeof process === 'object') {
+    if (process._reactstrapDatePickerInstance == undefined) {
+      process._reactstrapDatePickerInstance= 0
+    }
+    const next= process._reactstrapDatePickerInstance+1
+    process._reactstrapDatePickerInstance= next
+    return next
+  } else {
+    console.error("Reactstrap Date Picker cannot determine environment (it is neither browser's <window> nor Node's <process>).")
+    return 1
+  }
+}
 
 class DatePicker extends React.Component {
 
@@ -19,6 +38,36 @@ class DatePicker extends React.Component {
     this.overlayContainerRef= React.createRef()
 
     this.state= this.getInitialState()
+    this.idSuffix= this.makeIdSuffix()
+  }
+
+  getInitialState() {
+    const state = this.makeDateValues(this.props.value || this.props.defaultValue)
+    if (this.props.weekStartsOn > 1) {
+      state.dayLabels = this.props.dayLabels
+        .slice(this.props.weekStartsOn)
+        .concat(this.props.dayLabels.slice(0, this.props.weekStartsOn))
+    } else if (this.props.weekStartsOn === 1) {
+      state.dayLabels = this.props.dayLabels.slice(1).concat(this.props.dayLabels.slice(0,1))
+    } else {
+      state.dayLabels = this.props.dayLabels
+    }
+    state.focused = false
+    state.inputFocused = false
+    state.placeholder = this.props.placeholder || this.props.dateFormat
+    state.separator = this.props.dateFormat.match(/[^A-Z]/)[0]
+    return state
+  }
+
+  makeIdSuffix() {
+    // Try <id> or <name> props to determine elements' id suffix
+    if (this.props.id!=undefined && this.props.id!='')
+      return this.props.id
+    if (this.props.name!=undefined && this.props.name!='')
+      return this.props.name
+    // If none was passed, use global vars
+    const iCount= getInstanceCount()
+    return iCount.toString()
   }
 
   get inputRef() {
@@ -53,25 +102,6 @@ class DatePicker extends React.Component {
     }    
   }
   
-
-  getInitialState() {
-    const state = this.makeDateValues(this.props.value || this.props.defaultValue)
-    if (this.props.weekStartsOn > 1) {
-      state.dayLabels = this.props.dayLabels
-        .slice(this.props.weekStartsOn)
-        .concat(this.props.dayLabels.slice(0, this.props.weekStartsOn))
-    } else if (this.props.weekStartsOn === 1) {
-      state.dayLabels = this.props.dayLabels.slice(1).concat(this.props.dayLabels.slice(0,1))
-    } else {
-      state.dayLabels = this.props.dayLabels
-    }
-    state.focused = false
-    state.inputFocused = false
-    state.placeholder = this.props.placeholder || this.props.dateFormat
-    state.separator = this.props.dateFormat.match(/[^A-Z]/)[0]
-    return state
-  }
-
   makeDateValues(isoString) {
     let displayDate;
     const selectedDate = isoString ? new Date(`${isoString.slice(0,10)}T12:00:00.000Z`) : null;
@@ -142,7 +172,6 @@ class DatePicker extends React.Component {
       }
     }
   }
-
 
   handleFocus() {
     if (this.state.focused === true) {
@@ -243,7 +272,6 @@ class DatePicker extends React.Component {
     });
   }
 
-
   handleInputChange() {
     const originalValue = this.inputRef.current.value;
     const inputValue = originalValue.replace(/(-|\/\/)/g, this.state.separator).slice(0,10);
@@ -341,7 +369,6 @@ class DatePicker extends React.Component {
   }
 
   render() {
-
     const calendarHeader = 
       <DatePickerHeader
           previousButtonElement= {this.props.previousButtonElement}
@@ -369,7 +396,7 @@ class DatePicker extends React.Component {
           showWeeks       = {this.props.showWeeks}/>
     
     
-    let controlId= `date-picker-control-${this.props.instanceCount}`
+    let controlId= `rdp-form-control-${this.idSuffix}`
     if (this.props.customControl!=undefined && this.props.customControl.props.id) {
       controlId= this.props.customControl.props.id
     }
@@ -386,7 +413,7 @@ class DatePicker extends React.Component {
         onFocus     : () => this.handleFocus(),
         onBlur      : () => this.handleBlur(),
         onChange    : () => this.handleInputChange(),
-        className   : this.props.className,
+        className   : `rdp-form-control ${this.props.className || ''}`,
         style       : this.props.style,
         autoComplete: this.props.autoComplete,
         onInvalid   : this.props.onInvalid,
@@ -399,7 +426,7 @@ class DatePicker extends React.Component {
           required    = {this.props.required}
           innerRef    = {this.inputRef}
           type        = "text"
-          className   = {this.props.className}
+          className   = {`rdp-form-control ${this.props.className || ''}`}
           style       = {this.props.style}
           autoFocus   = {this.props.autoFocus}
           disabled    = {this.props.disabled}
@@ -417,13 +444,13 @@ class DatePicker extends React.Component {
       <InputGroup
         // TODO Check bsClass
         //bsClass = {this.props.showClearButton ? this.props.bsClass : ''}
-        size  = {this.props.bsSize}
-        id      = {this.props.id ? `${this.props.id}_group` : null}
+        size      = {this.props.bsSize}
+        id        = {`rdp-input-group-${this.idSuffix}`}
+        className = {'rdp-input-group'}
       >
         {control}
         
-        <Popover  id         = {`date-picker-popover-${this.props.instanceCount}`} 
-                  className  = {`date-picker-popover ${this.state.calendarPlacement}`}
+        <Popover  className  = {`rdp-popover ${this.state.calendarPlacement}`}
                   toggle     = {() => this.handleHide()}
                   isOpen     = {this.state.focused}
                   container  = {this.props.calendarContainer || this.overlayContainerRef.current}
@@ -440,20 +467,23 @@ class DatePicker extends React.Component {
           </PopoverBody>
         </Popover>
 
-        <div   ref   = {this.overlayContainerRef}/>
+        <div   ref       = {this.overlayContainerRef}
+               className = 'rdp-overlay'/>
         
-        <input ref   = {this.hiddenInputRef}
-               type  = "hidden" 
-               id    = {this.props.id} 
-               name  = {this.props.name} 
-               value = {this.state.value || ''} 
+        <input ref       = {this.hiddenInputRef}
+               type      = "hidden"
+               className = 'rdp-hidden'
+               id        = {this.props.id!=undefined ? this.props.id : `rdp-hidden-${this.idSuffix}`} 
+               name      = {this.props.name} 
+               value     = {this.state.value || ''} 
                data-formattedvalue = {this.state.value ? this.state.inputValue : ''}
         />
               
         {this.props.showClearButton && !this.props.customControl && 
             <InputGroupAddon onClick  = {() => this.props.disabled ? null : this.clear()}
                              style    = {{cursor:(this.state.inputValue && !this.props.disabled) ? 'pointer' : 'not-allowed'}}
-                             addonType= "append">
+                             addonType= "append"
+                             className= 'rdp-addon'>
                 <InputGroupText
                              style={{opacity: (this.state.inputValue && !this.props.disabled) ? 1 : 0.5}}>
                   {this.props.clearButtonElement}
@@ -514,7 +544,6 @@ DatePicker.propTypes= {
   name: PropTypes.string,
   showTodayButton: PropTypes.bool,
   todayButtonLabel: PropTypes.string,
-  instanceCount: PropTypes.number,
   customControl: PropTypes.object,
   roundedCorners: PropTypes.bool,
   showWeeks: PropTypes.bool,
@@ -552,7 +581,6 @@ DatePicker.defaultProps= {
   todayButtonLabel     : 'Today',
   autoComplete         : 'on',
   showWeeks            : false,
-  instanceCount        : instanceCount++,
   style: {
     width: '100%'
   },

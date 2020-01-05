@@ -40,14 +40,14 @@ class DatePickerHeader extends React.Component {
 
   render() {
     return (
-      <div className="text-center">
-        <div className= "text-muted float-left datepicker-previous-wrapper" 
+      <div className="rdp-header text-center">
+        <div className= "text-muted float-left rdp-header-previous-wrapper" 
              onClick  = {() => this.handleClickPrevious()}
              style    = {{cursor: 'pointer'}}>
           {this.displayingMinMonth() ? null : this.props.previousButtonElement}
         </div>
         <span>{this.props.monthLabels[this.props.displayDate.getMonth()]} {this.props.displayDate.getFullYear()}</span>
-        <div className= "text-muted float-right datepicker-next-wrapper" 
+        <div className= "text-muted float-right rdp-header-next-wrapper" 
              onClick  = {() => this.handleClickNext()} 
              style    = {{cursor: 'pointer'}}>
           {this.displayingMaxMonth() ? null : this.props.nextButtonElement}

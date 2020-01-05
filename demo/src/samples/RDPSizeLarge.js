@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import {
   FormGroup,
-  InputGroup,
   FormText,
   Label
 } from 'reactstrap'
@@ -17,15 +16,13 @@ const RDPSizeLarge = () => {
              className="valium-reactstrap-label">
         {"Large"}
       </Label>
-      <InputGroup>
-        <DatePicker
-          name         = {inputName}
-          instanceCount= {8}
-          value        = {value}
-          onChange     = {(v, _f) => setValue(v)}
-          bsSize       = "lg"
-        /> 
-      </InputGroup>
+      <DatePicker
+        name         = {inputName}
+        instanceCount= {8}
+        value        = {value}
+        onChange     = {(v, _f) => setValue(v)}
+        bsSize       = "lg"
+      />
       <FormText>
         {"Large size input, size='lg'"}
       </FormText>

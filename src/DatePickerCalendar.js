@@ -129,7 +129,7 @@ class DatePickerCalendar extends React.Component {
         style={{padding: this.props.cellPadding}} /> :
         null;
 
-    return <table className="text-center">
+    return <table className="rdp-calendar text-center">
       <thead>
         <tr>
           {weekColumn}

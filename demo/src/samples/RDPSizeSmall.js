@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import {
   FormGroup,
-  InputGroup,
   FormText,
   Label
 } from 'reactstrap'
@@ -17,15 +16,13 @@ const RDPSizeSmall = () => {
              className="valium-reactstrap-label">
         {"Small"}
       </Label>
-      <InputGroup>
-        <DatePicker
-          name         = {inputName}
-          instanceCount= {7}
-          value        = {value}
-          onChange     = {(v, _f) => setValue(v)}
-          bsSize       = "sm"
-        /> 
-      </InputGroup>
+      <DatePicker
+        name         = {inputName}
+        instanceCount= {7}
+        value        = {value}
+        onChange     = {(v, _f) => setValue(v)}
+        bsSize       = "sm"
+      />
       <FormText>
         {"Small size input, size='sm'"}
       </FormText>

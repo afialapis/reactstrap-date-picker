@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import {
   FormGroup,
-  InputGroup,
   FormText,
   Label
 } from 'reactstrap'
@@ -18,15 +17,13 @@ const RDPBasicDisabled = () => {
              className="valium-reactstrap-label">
         {"Disabled"}
       </Label>
-      <InputGroup>
-        <DatePicker
-          name         = {inputName}
-          instanceCount= {2}
-          value        = {value}
-          onChange     = {(v, f) => {setValue(v); setFmtValue(f);}}
-          disabled     = {true}
-        /> 
-      </InputGroup>
+      <DatePicker
+        name         = {inputName}
+        instanceCount= {2}
+        value        = {value}
+        onChange     = {(v, f) => {setValue(v); setFmtValue(f);}}
+        disabled     = {true}
+      /> 
       <FormText>
         {value 
          ? `Selected date is: ${value} (formatted: ${fmtValue})`

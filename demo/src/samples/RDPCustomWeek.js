@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import {
   FormGroup,
-  InputGroup,
   FormText,
   Label
 } from 'reactstrap'
@@ -17,15 +16,13 @@ const RDPBasic = () => {
              className="valium-reactstrap-label">
         {"Week starts on Monday"}
       </Label>
-      <InputGroup>
-        <DatePicker
-          name         = {inputName}
-          instanceCount= {5}
-          value        = {value}
-          onChange     = {(v, _f) => setValue(v)}
-          weekStartsOn = {1}
-        /> 
-      </InputGroup>
+      <DatePicker
+        name         = {inputName}
+        instanceCount= {5}
+        value        = {value}
+        onChange     = {(v, _f) => setValue(v)}
+        weekStartsOn = {1}
+      />
       <FormText>
         {"Week starts on Monday, weekStartsOn=1"}
       </FormText>

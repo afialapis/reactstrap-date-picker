@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import {
   FormGroup,
-  InputGroup,
   FormText,
   Label
 } from 'reactstrap'
@@ -18,16 +17,14 @@ const RDPFocusBlur = () => {
              className="valium-reactstrap-label">
         {"Focus / Blur"}
       </Label>
-      <InputGroup>
-        <DatePicker
-          name         = {inputName}
-          instanceCount= {6}
-          value        = {value}
-          onChange     = {(v, _f) => setValue(v)}
-          onBlur       = {() => setFocused(false)}
-          onFocus      = {() => setFocused(true)}
-        /> 
-      </InputGroup>
+      <DatePicker
+        name         = {inputName}
+        instanceCount= {6}
+        value        = {value}
+        onChange     = {(v, _f) => setValue(v)}
+        onBlur       = {() => setFocused(false)}
+        onFocus      = {() => setFocused(true)}
+      /> 
       <FormText>
         {`Field is ${focused ? 'focused' : 'blurred'}`}
       </FormText>

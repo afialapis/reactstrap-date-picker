@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import {
   FormGroup,
-  InputGroup,
   FormText,
   Label
 } from 'reactstrap'
@@ -17,15 +16,13 @@ const RDPPlacementBottom = () => {
              className="valium-reactstrap-label">
         {"Bottom"}
       </Label>
-      <InputGroup>
-        <DatePicker
-          name         = {inputName}
-          instanceCount= {11}
-          value        = {value}
-          onChange     = {(v, _f) => setValue(v)}
-          calendarPlacement    = "bottom"
-        /> 
-      </InputGroup>
+      <DatePicker
+        name         = {inputName}
+        instanceCount= {11}
+        value        = {value}
+        onChange     = {(v, _f) => setValue(v)}
+        calendarPlacement    = "bottom"
+      /> 
       <FormText>
         {"calendarPlacement='bottom'"}
       </FormText>
