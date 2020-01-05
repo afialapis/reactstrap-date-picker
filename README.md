@@ -1,5 +1,3 @@
-# reactstrap-date-picker
-
 ![reactstrap-date-picker logo](https://reactstrap-date-picker.afialapis.com/assets/images/logo/reactstrap_date_picker_name.png)
 
 [![NPM Version](https://badge.fury.io/js/reactstrap-date-picker.svg)](https://www.npmjs.com/package/reactstrap-date-picker)
@@ -14,7 +12,7 @@ Demo and docs at [reactstrap-date-picker](https://reactstrap-date-picker.afialap
 
 
 
-## Installation
+# Installation
 
 `reactstrap-date-picker` is compatible with React 0.14.x, 0.15.x and 0.16.x.
 
@@ -22,7 +20,7 @@ Demo and docs at [reactstrap-date-picker](https://reactstrap-date-picker.afialap
 npm install reactstrap-date-picker
 ```
 
-## Usage
+# Usage
 
 ```js
 import React from 'react
@@ -67,13 +65,13 @@ class App extends React.Component {
 ```
 
 
-## API Reference
+# API Reference
 
-### `<DatePicker />`
+## `<DatePicker />`
 
 `reactstrap-date-picker`'s public component.
 
-#### Date properties
+### Date properties
 
   * `value` - ISO date string representing the current value.
     * Optional
@@ -106,7 +104,7 @@ class App extends React.Component {
     * Example: `"2016-05-19T12:00:00.000Z"`
   
 
-#### Events
+### Events
 
   * `onChange` - Focus callback function.
     * Optional
@@ -138,7 +136,7 @@ class App extends React.Component {
     * Type: `function`
 
 
-#### Customize Form Control
+### Customize Form Control
   
   Form control is the shown HTML input, and you can customize it:
 
@@ -175,7 +173,7 @@ class App extends React.Component {
     * Example: `<CustomControl />`
 
 
-#### Clear button
+### Clear button
 
   * `showClearButton` - Toggles the visibility of the clearButton
     * Optional
@@ -188,7 +186,7 @@ class App extends React.Component {
     * Default: `"×"`
 
 
-#### Customize Calendar
+### Customize Calendar
 
   You can also customize the popup's Calendar:
 
@@ -239,7 +237,7 @@ class App extends React.Component {
 
 
 
-## Deeper customizing
+# Deeper customizing
 
 You can also customize `reactstrap-date-picker` trough element's `id` or `class` attributes.
 
@@ -300,9 +298,9 @@ So, the idea is, depending on your needs:
 
 
 
-## Inspect this package
+# Inspect this package
 
-### Demo
+## Demo
 
 ```bash
 
@@ -313,7 +311,7 @@ npm run demo
 And visit [http://localhost:3002](http://localhost:3002) on your browser
 
 
-### Running Tests
+## Running Tests
 
 ```bash
 
