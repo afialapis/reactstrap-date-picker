@@ -439,7 +439,6 @@ class DatePicker extends React.Component {
           noValidate  = {this.props.noValidate}
           />;
     
-
     return (
       <InputGroup
         // TODO Check bsClass
@@ -456,7 +455,7 @@ class DatePicker extends React.Component {
                   container  = {this.props.calendarContainer || this.overlayContainerRef.current}
                   target     = {controlId}
                   placement  = {this.state.calendarPlacement}
-                  delay      = {200}                
+                  delay      = {200}
         >
           <PopoverHeader tag = "div">
             {calendarHeader}

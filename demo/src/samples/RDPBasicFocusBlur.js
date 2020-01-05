@@ -7,7 +7,7 @@ import {
 import DatePicker from '../../../src'
 
 const RDPFocusBlur = () => {
-  const inputName = 'reactstrap_date_picker_disabled'
+  const inputName = 'reactstrap_date_picker_focus'
   const [value, setValue] = useState("2019-06-01T00:00:00.000Z")
   const [focused, setFocused] = useState(false)
 

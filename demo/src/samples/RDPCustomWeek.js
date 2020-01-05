@@ -7,7 +7,7 @@ import {
 import DatePicker from '../../../src'
 
 const RDPBasic = () => {
-  const inputName = 'reactstrap_date_picker_basic'
+  const inputName = 'reactstrap_date_picker_cweek'
   const [value, setValue] = useState("2019-06-01T00:00:00.000Z")
 
   return (
