@@ -68,9 +68,7 @@ class App extends React.Component {
 
 ### `<DatePicker />`
 
-DatePicker component. Renders as a [reactstrap InputGroup](https://reactstrap.github.io/components/form/).
-
-[InputGroup](https://reactstrap.github.io/components/form/) properties are passed through to the input group.
+`reactstrap-date-picker`'s public component.
 
 #### Date properties
 
@@ -104,6 +102,7 @@ DatePicker component. Renders as a [reactstrap InputGroup](https://reactstrap.gi
     * Type: `string`
     * Example: `"2016-05-19T12:00:00.000Z"`
   
+
 #### Events
 
   * `onChange` - Focus callback function.
@@ -172,19 +171,18 @@ DatePicker component. Renders as a [reactstrap InputGroup](https://reactstrap.gi
     * Type: `React.Component`
     * Example: `<CustomControl />`
 
+
 #### Clear button
 
   * `showClearButton` - Toggles the visibility of the clearButton
     * Optional
     * Type: `bool`
-    * Example: `false`
+    * Default: `false`
 
   * `clearButtonElement` - Character or component to use for the clear button.
     * Optional
     * Type: `string` or `ReactClass`
-    * Example: `"×"`
-  
-
+    * Default: `"×"`
 
 
 #### Customize Calendar
@@ -194,32 +192,32 @@ DatePicker component. Renders as a [reactstrap InputGroup](https://reactstrap.gi
   * `previousButtonElement` - Character or component to use for the calendar's previous button.
     * Optional
     * Type: `string` or `ReactClass`
-    * Example: `"<"`
+    * Default: `"<"`
   
   * `nextButtonElement` - Character or component to use for the calendar's next button.
     * Optional
     * Type: `string` or `ReactClass`
-    * Example: `">"`
+    * Default: `">"`
   
   * `cellPadding` - CSS padding value for calendar date cells.
     * Optional
     * Type: `string`
-    * Example: `"2px"`
+    * Default: `"5px"`
   
   * `dayLabels` - Array of day names to use in the calendar. Starting on Sunday.
     * Optional
     * Type: `array`
-    * Example: `['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']`
+    * Default: `['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']`
   
   * `monthLabels` - Array of month names to use in the calendar.
     * Optional
     * Type: `array`
-    * Example: `['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']`
+    * Default: `['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']`
   
   * `calendarPlacement` - Overlay placement for the popover calendar.
     * Optional
     * Type: `string` or `function`
-    * Example: `"top"`
+    * Default: `"top"`
   
   * `calendarContainer` - Overlay container for the popover calendar. When placing the date-picker in a scrolling container, set this prop to some ancestor of the scrolling container.
     * Optional
@@ -229,12 +227,12 @@ DatePicker component. Renders as a [reactstrap InputGroup](https://reactstrap.gi
   * `showTodayButton` - Toggles the visibility of the today-button.
     * Optional
     * Type: `boolean`
-    * Example: `false`
+    * Default: `false`
   
   * `todayButtonLabel` - Label for the today-button
     * Optional
     * Type: `string`
-    * Example: `"Today"`
+    * Default: `"Today"`
 
 
 
