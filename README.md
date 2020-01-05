@@ -10,6 +10,13 @@ Based on [react-bootstrap-date-picker](https://github.com/pushtell/react-bootstr
 
 Demo and docs at [reactstrap-date-picker](https://reactstrap-date-picker.afialapis.com/).
 
+# Table of Contents
+
+1. [Installation](#installation)
+2. [Usage](#usage)
+3. [API Reference](#api-reference)
+4. [Deeper customizing](#deeper-customizing)
+4. [Inspect this package](#inspect-this-package)
 
 
 # Installation
