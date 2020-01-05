@@ -73,168 +73,250 @@ class App extends React.Component {
 
 ### Date properties
 
-  * `value` - ISO date string representing the current value.
-    * Optional
-    * Type: `string`
-    * Example: `"2016-05-19T12:00:00.000Z"`
-  
-  * `defaultValue` - ISO date string representing the default value. Cannot be set with 'value'.
-    * Optional
-    * Type: `string`
-    * Example: `"2016-05-19T12:00:00.000Z"`
-  
-  * `dateFormat` - Date format. Any combination of DD, MM, YYYY and separator.
-    * Optional
-    * Type: `string`
-    * Examples: `"MM/DD/YYYY"`, `"YYYY/MM/DD"`, `"MM-DD-YYYY"`, or `"DD MM YYYY"`
+#### `value`
 
-  * `weekStartsOn` - Makes the calendar's week to start on a specified day. 0 = Sunday, 1 = Monday, etc.
-    * Optional
-    * Type: `number`
-    * Example: `4`
+ISO date string representing the current value.
 
-  * `minDate` - ISO date string to set the lowest allowable date value.
-    * Optional
-    * Type: `string`
-    * Example: `"2016-05-19T12:00:00.000Z"`
-  
-  * `maxDate` - ISO date string to set the highest allowable date value.
-    * Optional
-    * Type: `string`
-    * Example: `"2016-05-19T12:00:00.000Z"`
-  
+  * Optional
+  * Type: `string`.
+  * Example: `"2016-05-19T12:00:00.000Z"`.
+
+#### `defaultValue`
+
+ISO date string representing the default value. Cannot be set with 'value'.
+
+  * Optional
+  * Type: `string`
+  * Example: `"2016-05-19T12:00:00.000Z"`
+
+#### `dateFormat`
+
+Date format. Any combination of DD, MM, YYYY and separator.
+
+  * Optional
+  * Type: `string`
+  * Examples: `"MM/DD/YYYY"`, `"YYYY/MM/DD"`, `"MM-DD-YYYY"`, or `"DD MM YYYY"`
+
+#### `weekStartsOn`
+
+Makes the calendar's week to start on a specified day. 0 = Sunday, 1 = Monday, etc.
+
+  * Optional
+  * Type: `number`
+  * Example: `4`
+
+#### `minDate`
+
+ISO date string to set the lowest allowable date value.
+
+  * Optional
+  * Type: `string`
+  * Example: `"2016-05-19T12:00:00.000Z"`
+
+#### `maxDate`
+
+ISO date string to set the highest allowable date value.
+
+  * Optional
+  * Type: `string`
+  * Example: `"2016-05-19T12:00:00.000Z"`
+
 
 ### Events
 
-  * `onChange` - Focus callback function.
-    * Optional
-    * Type: `function`
-    * Callback Arguments:
-      * `value` - ISO date string representing the selected value.
-        * Type: `String`
-        * Example: `"2016-05-19T12:00:00.000Z"`
-      * `formattedValue` - String representing the formatted value as defined by the `dateFormat` property.
-        * Type: `String`
-        * Example: `"05/19/2016"`
-  
-  * `onFocus` - Focus callback function.
-    * Optional
-    * Type: `function`
-    * Callback Arguments:
-      * `event` - Focus event.
-        * Type: `Event`
-  
-  * `onBlur` - Blur callback function.
-    * Optional
-    * Type: `function`
-    * Callback Arguments:
-      * `event` - Blur event.
-        * Type: `Event`
+#### `onChange`
 
-  * `onClear` - Defines what happens when clear button is clicked.
-    * Optional
-    * Type: `function`
+Change callback function.
+
+  * Optional
+  * Type: `function`
+  * Callback Arguments:
+    * `value` : ISO date string representing the selected value.
+      * Type: `String`
+      * Example: `"2016-05-19T12:00:00.000Z"`
+    * `formattedValue` : String representing the formatted value as defined by the `dateFormat` property.
+      * Type: `String`
+      * Example: `"05/19/2016"`
+
+#### `onFocus`
+
+Focus callback function.
+
+  * Optional
+  * Type: `function`
+  * Callback Arguments:
+    * `event` : Focus event.
+      * Type: `Event`
+
+#### `onBlur`
+
+Blur callback function.
+
+  * Optional
+  * Type: `function`
+  * Callback Arguments:
+    * `event` : Blur event.
+      * Type: `Event`
+
+#### `onClear`
+
+Defines what happens when clear button is clicked.
+
+  * Optional
+  * Type: `function`
 
 
 ### Customize Form Control
   
-  Form control is the shown HTML input, and you can customize it:
+Form control is the shown HTML input, and you can customize it.
 
-  * `style` - Style object passed to the `FormControl` input element.
-    * Optional
-    * Type: `object`
-    * Example: `{width: "100%"}`
-  
-  * `className` - Class name passed to the `FormControl` input element.
-    * Optional
-    * Type: `string`
-    * Example: `example-class`
-  
-  * `autoComplete` - autoComplete attribute passed to the `FormControl` input element.
-    * Optional
-    * Type: `string`
-    * Example: `off`
-  
-  * `autoFocus` - Whether or not component starts with focus.
-    * Optional
-    * Type: `bool`
-    * Example: `false`
-  
-  * `disabled` - Whether or not component is disabled.
-    * Optional
-    * Type: `bool`
-    * Example: `false`
+#### `style`
 
-  You can also override it completely and pass your own component:
+Style object passed to the Form Control input element.
 
-  * `customControl` - Overwrite the default `FormControl` component with your own component.
-    * Optional
-    * Type: `React.Component`
-    * Example: `<CustomControl />`
+  * Optional
+  * Type: `object`
+  * Example: `{width: "100%"}`
+
+#### `className`
+
+Class name passed to the Form Control input element.
+
+  * Optional
+  * Type: `string`
+  * Example: `example-class`
+
+#### `autoComplete`
+
+`autoComplete` attribute passed to the Form Control input element.
+
+  * Optional
+  * Type: `string`
+  * Example: `off`
+
+#### `autoFocus`
+
+Whether or not component starts with focus.
+
+  * Optional
+  * Type: `bool`
+  * Example: `false`
+
+#### `disabled`
+
+Whether or not component is disabled.
+
+  * Optional
+  * Type: `bool`
+  * Example: `false`
+
+
+
+You can also override it completely and pass your own component:
+
+#### `customControl`
+
+Overwrite the default Form Control component with your own component.
+
+  * Optional
+  * Type: `React.Component`
+  * Example: `<CustomControl />`
 
 
 ### Clear button
 
-  * `showClearButton` - Toggles the visibility of the clearButton
-    * Optional
-    * Type: `bool`
-    * Default: `false`
+#### `showClearButton`
 
-  * `clearButtonElement` - Character or component to use for the clear button.
-    * Optional
-    * Type: `string` or `ReactClass`
-    * Default: `"×"`
+Toggles the visibility of the clearButton
+
+  * Optional
+  * Type: `bool`
+  * Default: `false`
+
+#### `clearButtonElement`
+
+Character or component to use for the clear button.
+
+  * Optional
+  * Type: `string` or `ReactClass`
+  * Default: `"×"`
 
 
 ### Customize Calendar
 
-  You can also customize the popup's Calendar:
+You can also customize the popup's Calendar:
 
-  * `previousButtonElement` - Character or component to use for the calendar's previous button.
-    * Optional
-    * Type: `string` or `ReactClass`
-    * Default: `"<"`
-  
-  * `nextButtonElement` - Character or component to use for the calendar's next button.
-    * Optional
-    * Type: `string` or `ReactClass`
-    * Default: `">"`
-  
-  * `cellPadding` - CSS padding value for calendar date cells.
-    * Optional
-    * Type: `string`
-    * Default: `"5px"`
-  
-  * `dayLabels` - Array of day names to use in the calendar. Starting on Sunday.
-    * Optional
-    * Type: `array`
-    * Default: `['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']`
-  
-  * `monthLabels` - Array of month names to use in the calendar.
-    * Optional
-    * Type: `array`
-    * Default: `['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']`
-  
-  * `calendarPlacement` - Overlay placement for the popover calendar.
-    * Optional
-    * Type: `string` or `function`
-    * Default: `"top"`
-  
-  * `calendarContainer` - Overlay container for the popover calendar. When placing the date-picker in a scrolling container, set this prop to some ancestor of the scrolling container.
-    * Optional
-    * Type: A DOM element or a component
-    * Example: `document.body`
+#### `previousButtonElement`
 
-  * `showTodayButton` - Toggles the visibility of the today-button.
-    * Optional
-    * Type: `boolean`
-    * Default: `false`
-  
-  * `todayButtonLabel` - Label for the today-button
-    * Optional
-    * Type: `string`
-    * Default: `"Today"`
+Character or component to use for the calendar's previous button.
 
+  * Optional
+  * Type: `string` or `ReactClass`
+  * Default: `"<"`
+
+#### `nextButtonElement`
+
+Character or component to use for the calendar's next button.
+
+  * Optional
+  * Type: `string` or `ReactClass`
+  * Default: `">"`
+
+#### `cellPadding`
+
+CSS padding value for calendar date cells.
+
+  * Optional
+  * Type: `string`
+  * Default: `"5px"`
+
+#### `dayLabels`
+
+Array of day names to use in the calendar. Starting on Sunday.
+
+  * Optional
+  * Type: `array`
+  * Default: `['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']`
+
+#### `monthLabels`
+
+Array of month names to use in the calendar.
+
+  * Optional
+  * Type: `array`
+  * Default: `['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']`
+
+#### `calendarPlacement`
+
+Overlay placement for the popover calendar.
+
+  * Optional
+  * Type: `string` or `function`
+  * Default: `"top"`
+
+#### `calendarContainer`
+
+Overlay container for the popover calendar. When placing the date-picker in a scrolling container, set this prop to some ancestor of the scrolling container.
+
+  * Optional
+  * Type: A DOM element or a component
+  * Example: `document.body`
+
+#### `showTodayButton`
+
+Toggles the visibility of the today-button.
+
+  * Optional
+  * Type: `boolean`
+  * Default: `false`
+
+#### `todayButtonLabel`
+
+Label for the today-button
+
+  * Optional
+  * Type: `string`
+  * Default: `"Today"`
 
 
 # Deeper customizing
