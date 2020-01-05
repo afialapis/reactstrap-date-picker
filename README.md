@@ -1,4 +1,7 @@
 # reactstrap-date-picker
+
+![reactstrap-date-picker logo](https://reactstrap-date-picker.afialapis.com/assets/images/logo/reactstrap_date_picker_name.png)
+
 [![NPM Version](https://badge.fury.io/js/reactstrap-date-picker.svg)](https://www.npmjs.com/package/reactstrap-date-picker)
 [![Dependency Status](https://david-dm.org/afialapis/reactstrap-date-picker.svg)](https://david-dm.org/afialapis/reactstrap-date-picker)
 [![NPM Downloads](https://img.shields.io/npm/dm/reactstrap-date-picker.svg?style=flat)](https://www.npmjs.com/package/reactstrap-date-picker)
