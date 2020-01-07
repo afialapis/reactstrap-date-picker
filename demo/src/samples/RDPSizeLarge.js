@@ -21,7 +21,7 @@ const RDPSizeLarge = () => {
         instanceCount= {8}
         value        = {value}
         onChange     = {(v, _f) => setValue(v)}
-        bsSize       = "lg"
+        size         = "lg"
       />
       <FormText>
         {"Large size input, size='lg'"}

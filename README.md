@@ -217,7 +217,13 @@ Whether or not component is disabled.
   * Type: `bool`
   * Example: `false`
 
+#### `size`
 
+Size of the input
+
+  * Optional
+  * Type: `string`
+  * Examples: `lg`, `sm`, ...
 
 You can also override it completely and pass your own component:
 

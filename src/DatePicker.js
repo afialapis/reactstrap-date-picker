@@ -441,9 +441,7 @@ class DatePicker extends React.Component {
     
     return (
       <InputGroup
-        // TODO Check bsClass
-        //bsClass = {this.props.showClearButton ? this.props.bsClass : ''}
-        size      = {this.props.bsSize}
+        size      = {this.props.size}
         id        = {`rdp-input-group-${this.idSuffix}`}
         className = {'rdp-input-group'}
       >
@@ -536,8 +534,7 @@ DatePicker.propTypes= {
     PropTypes.func
   ]),
   dateFormat: PropTypes.string, // 'MM/DD/YYYY', 'DD/MM/YYYY', 'YYYY/MM/DD', 'DD-MM-YYYY'
-  //bsClass: PropTypes.string,
-  bsSize: PropTypes.string,
+  size: PropTypes.string,
   calendarContainer: PropTypes.object,
   id: PropTypes.string,
   name: PropTypes.string,

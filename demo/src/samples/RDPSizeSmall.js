@@ -21,7 +21,7 @@ const RDPSizeSmall = () => {
         instanceCount= {7}
         value        = {value}
         onChange     = {(v, _f) => setValue(v)}
-        bsSize       = "sm"
+        size         = "sm"
       />
       <FormText>
         {"Small size input, size='sm'"}
