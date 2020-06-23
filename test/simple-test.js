@@ -1399,4 +1399,80 @@ describe('DatePicker', function () {
     ReactDOM.unmountComponentAtNode(container)
   }))
   
+  it("should not include the is-invalid class when invalid is false", co.wrap(function *(){
+    const id = UUID.v4()
+    class App extends React.Component {
+      render() {
+        return (
+          <div>
+            <DatePicker id={id} invalid={false} />
+          </div>
+        )
+      }
+    }
+    yield new Promise(function(resolve, _reject){
+      ReactDOM.render(<App />, container, resolve)
+    })
+    const hiddenInputElement = document.getElementById(`rdp-input-group-${id}`)
+    assert.equal(hiddenInputElement.classList.contains('is-invalid'), false)
+    ReactDOM.unmountComponentAtNode(container)
+  }))
+  
+  it("should include the is-invalid class when invalid is true", co.wrap(function *(){
+    const id = UUID.v4()
+    class App extends React.Component {
+      render() {
+        return (
+          <div>
+            <DatePicker id={id} invalid={true} />
+          </div>
+        )
+      }
+    }
+    yield new Promise(function(resolve, _reject){
+      ReactDOM.render(<App />, container, resolve)
+    })
+    const hiddenInputElement = document.getElementById(`rdp-input-group-${id}`)
+    assert.equal(hiddenInputElement.classList.contains('is-invalid'), true)
+    ReactDOM.unmountComponentAtNode(container)
+  }))
+  
+  it("should not include the is-valid class when invalid is false", co.wrap(function *(){
+    const id = UUID.v4()
+    class App extends React.Component {
+      render() {
+        return (
+          <div>
+            <DatePicker id={id} valid={false} />
+          </div>
+        )
+      }
+    }
+    yield new Promise(function(resolve, _reject){
+      ReactDOM.render(<App />, container, resolve)
+    })
+    const hiddenInputElement = document.getElementById(`rdp-input-group-${id}`)
+    assert.equal(hiddenInputElement.classList.contains('is-valid'), false)
+    ReactDOM.unmountComponentAtNode(container)
+  }))
+  
+  it("should include the is-valid class when invalid is true", co.wrap(function *(){
+    const id = UUID.v4()
+    class App extends React.Component {
+      render() {
+        return (
+          <div>
+            <DatePicker id={id} valid={true} />
+          </div>
+        )
+      }
+    }
+    yield new Promise(function(resolve, _reject){
+      ReactDOM.render(<App />, container, resolve)
+    })
+    const hiddenInputElement = document.getElementById(`rdp-input-group-${id}`)
+    assert.equal(hiddenInputElement.classList.contains('is-valid'), true)
+    ReactDOM.unmountComponentAtNode(container)
+  }))
+  
 })

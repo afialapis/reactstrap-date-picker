@@ -443,7 +443,7 @@ class DatePicker extends React.Component {
       <InputGroup
         size      = {this.props.size}
         id        = {`rdp-input-group-${this.idSuffix}`}
-        className = {'rdp-input-group'}
+        className = {`rdp-input-group${this.props.invalid ? ' is-invalid' : ''}${this.props.valid ? ' is-valid' : ''}`}
       >
         {control}
         
@@ -549,7 +549,9 @@ DatePicker.propTypes= {
 
   ]),
   onInvalid: PropTypes.func,
-  noValidate: PropTypes.bool
+  noValidate: PropTypes.bool,
+  valid: PropTypes.bool, // applied the is-valid class when true, does nothing when false
+  invalid: PropTypes.bool // applied the is-invalid class when true, does nothing when false
 }
 
 
