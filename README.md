@@ -173,6 +173,17 @@ Defines what happens when clear button is clicked.
   * Type: `function`
 
 
+### Customize Input Group
+
+#### `customInputGroup`
+
+Overwrite the default InputGroup component with your own component.
+
+  * Optional
+  * Type: `React.Component`
+  * Example: `<CustomInputGroup />`
+
+
 ### Customize Form Control
   
 Form control is the shown HTML input, and you can customize it.
