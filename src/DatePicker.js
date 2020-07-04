@@ -368,6 +368,22 @@ class DatePicker extends React.Component {
     }
   }
 
+  renderInputGroup(children) {
+    if (this.props.customInputGroup!=undefined)
+      return (
+        React.cloneElement(this.props.customInputGroup, {children: children})
+      )
+    return (
+      <InputGroup
+        size      = {this.props.size}
+        id        = {`rdp-input-group-${this.idSuffix}`}
+        className = {`rdp-input-group${this.props.invalid ? ' is-invalid' : ''}${this.props.valid ? ' is-valid' : ''}`}
+      >
+        {children}
+      </InputGroup>
+    )
+  }
+
   render() {
     const calendarHeader = 
       <DatePickerHeader
@@ -394,8 +410,7 @@ class DatePicker extends React.Component {
           maxDate         = {this.props.maxDate}
           roundedCorners  = {this.props.roundedCorners}
           showWeeks       = {this.props.showWeeks}/>
-    
-    
+
     let controlId= `rdp-form-control-${this.idSuffix}`
     if (this.props.customControl!=undefined && this.props.customControl.props.id) {
       controlId= this.props.customControl.props.id
@@ -439,12 +454,8 @@ class DatePicker extends React.Component {
           noValidate  = {this.props.noValidate}
           />;
     
-    return (
-      <InputGroup
-        size      = {this.props.size}
-        id        = {`rdp-input-group-${this.idSuffix}`}
-        className = {`rdp-input-group${this.props.invalid ? ' is-invalid' : ''}${this.props.valid ? ' is-valid' : ''}`}
-      >
+    return this.renderInputGroup(
+      <>
         {control}
         
         <Popover  className  = {`rdp-popover ${this.state.calendarPlacement}`}
@@ -491,7 +502,7 @@ class DatePicker extends React.Component {
         {this.props.children}
         
      
-      </InputGroup>
+      </>
     )
   }
 }
@@ -551,7 +562,8 @@ DatePicker.propTypes= {
   onInvalid: PropTypes.func,
   noValidate: PropTypes.bool,
   valid: PropTypes.bool, // applied the is-valid class when true, does nothing when false
-  invalid: PropTypes.bool // applied the is-invalid class when true, does nothing when false
+  invalid: PropTypes.bool, // applied the is-invalid class when true, does nothing when false
+  customInputGroup: PropTypes.object
 }
 
 

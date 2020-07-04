@@ -1085,6 +1085,34 @@ describe('DatePicker', function () {
     ReactDOM.unmountComponentAtNode(container)
   }))
 
+  it('should render a custom inpupt group element', co.wrap(function *(){
+    const id = UUID.v4()
+    class App extends React.Component {
+      render() {
+        return (<div>
+          <DatePicker
+            id={id}
+            customInputGroup={<div id="custom-input-group"></div>}/>
+        </div>)
+      }
+    }
+
+    yield new Promise(function(resolve){
+      ReactDOM.render(<App />, container, resolve)
+    })
+
+    const customGroup = document.getElementById('custom-input-group')
+    const innerInput = document.getElementById(id)
+    
+    assert.notEqual(customGroup,null)
+    assert.notEqual(innerInput,null)
+    
+    
+    ReactDOM.unmountComponentAtNode(container)
+
+  }))
+
+
 
   it("should disable dates outside of min and max dates.", co.wrap(function *(){
     const id = UUID.v4()
