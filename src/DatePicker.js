@@ -561,8 +561,8 @@ DatePicker.propTypes= {
   ]),
   onInvalid: PropTypes.func,
   noValidate: PropTypes.bool,
-  valid: PropTypes.bool, // applied the is-valid class when true, does nothing when false
-  invalid: PropTypes.bool, // applied the is-invalid class when true, does nothing when false
+  valid: PropTypes.bool, 
+  invalid: PropTypes.bool,
   customInputGroup: PropTypes.object
 }
 

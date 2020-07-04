@@ -175,6 +175,22 @@ Defines what happens when clear button is clicked.
 
 ### Customize Input Group
 
+#### `valid`
+
+Applies the `is-valid` class when `true`, does nothing when `false`
+
+  * Optional
+  * Type: `bool`
+  * Example: `true`
+
+#### `invalid`
+
+Applies the `is-invalid` class when `true`, does nothing when `false`
+
+  * Optional
+  * Type: `bool`
+  * Example: `true`  
+
 #### `customInputGroup`
 
 Overwrite the default InputGroup component with your own component.
