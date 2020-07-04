@@ -591,9 +591,9 @@ DatePicker.defaultProps= {
   todayButtonLabel     : 'Today',
   autoComplete         : 'on',
   showWeeks            : false,
-  style: {
+  /*style: {
     width: '100%'
-  },
+  },*/
   roundedCorners: false,
   noValidate: false
 }
