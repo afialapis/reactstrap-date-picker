@@ -14,6 +14,7 @@ import RDPPlacementBottom from './samples/RDPPlacementBottom'
 import RDPPlacementLeft from './samples/RDPPlacementLeft'
 import RDPPlacementRight from './samples/RDPPlacementRight'
 import RDPCustomInputGroup from './samples/RDPCustomInputGroup'
+import RDPCustomFormControl from './samples/RDPCustomFormControl'
 
 import '../../node_modules/bootstrap/dist/css/bootstrap.min.css'
 import './demo.scss'
@@ -105,7 +106,7 @@ const Demo = () => {
         <Four one={RDPPlacementTop} two={RDPPlacementRight} three={RDPPlacementBottom} four={RDPPlacementLeft}/>
 
         <Title title="Custom components"/>
-        <Pair one={RDPCustomInputGroup} two={RDPCustomInputGroup}/>
+        <Pair one={RDPCustomInputGroup} two={RDPCustomFormControl}/>
         
         
       </Container>
