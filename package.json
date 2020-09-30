@@ -1,6 +1,6 @@
 {
   "name": "reactstrap-date-picker",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "description": "Reactstrap based, zero dependencies, date picker",
   "author": "Donato Lorenzo <donato@afialapis.com>",
   "contributors": [
@@ -19,7 +19,7 @@
     "lib",
     "dist"
   ],
-  "main": "dist/reactstrap-date-picker.js",
+  "main": "lib/index.js",
   "browser": "dist/reactstrap-date-picker.umd.js",
   "module": "dist/reactstrap-date-picker.es.js",
   "scripts": {
