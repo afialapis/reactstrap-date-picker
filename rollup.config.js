@@ -2,7 +2,6 @@ import babel from '@rollup/plugin-babel'
 import commonjs from '@rollup/plugin-commonjs'
 import replace from '@rollup/plugin-replace'
 import resolve from '@rollup/plugin-node-resolve'
-import external from 'rollup-plugin-peer-deps-external'
 import { terser } from 'rollup-plugin-terser'
 
 import packageJSON from './package.json'
@@ -25,9 +24,8 @@ const baseCfg= (output, withReplace, withTerser) => {
     babel({
       exclude: 'node_modules/**',
       /*https://github.com/rollup/plugins/tree/master/packages/babel#babelhelpers*/
-      babelHelpers: 'runtime'
+      babelHelpers: 'bundled'
     }),
-    external([/@babel\/runtime/, 'react', 'react-dom', 'reactstrap']),
     resolve(),
     commonjs()
   ])
@@ -39,6 +37,7 @@ const baseCfg= (output, withReplace, withTerser) => {
   return {
     input: input,
     output: output,
+    external: ['react', 'react-dom', 'reactstrap'],
     plugins: plugins  
   }
 }

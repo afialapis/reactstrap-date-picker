@@ -27,9 +27,8 @@ export default {
     babel({
       exclude: 'node_modules/**',
       /*https://github.com/rollup/plugins/tree/master/packages/babel#babelhelpers*/
-      babelHelpers: 'runtime'
-    }),
-    //external([/@babel\/runtime/, 'react', 'react-dom', 'reactstrap', 'prop-types']),  
+      babelHelpers: 'bundled'
+    }), 
     resolve(),
     commonjs(),
     postcss({

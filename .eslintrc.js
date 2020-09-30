@@ -4,7 +4,8 @@ module.exports = {
   "parser": "babel-eslint",
   "extends": ["eslint:recommended", "plugin:react/recommended"],
   "plugins": [
-	  "react"
+	  "react",
+    "react-hooks"
   ],
   "settings": {
     "react": {
@@ -69,43 +70,3 @@ module.exports = {
 	"no-empty": 0
   }
 }
-
-/*
-module.exports = {
-  "env": {
-    "browser": true,
-    "commonjs": true,
-    "es6": true,
-    "node": true,
-    "mocha": true
-  },
-  "extends": [
-    "eslint:recommended",
-    "plugin:import/warnings"
-  ],
-  "parserOptions": {
-    "sourceType": "module",
-    "ecmaVersion": 8,
-  },
-  "rules": {
-    "indent": [
-      "warn",
-      2
-    ],
-    "linebreak-style": [
-      "error",
-      "unix"
-    ],
-    "quotes": [
-      "error",
-      "single"
-    ],
-    "semi": [
-      "error",
-      "never"
-    ],
-    "no-unused-vars": "warn",    
-    "no-console": 'off'
-  }
-};
-*/

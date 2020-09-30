@@ -204,12 +204,15 @@ describe('DatePicker', function () {
     const previousButtonElement = <div id="previous-button-element"></div>;
     const nextButtonElement = <div id="next-button-element"></div>;
 
+    const d= new Date('2011-10-05T14:48:00.000Z')
+
     class App extends React.Component {
       render() {
         return (
           <div>
             <DatePicker 
             id={id}
+            value= {d.toISOString()}
             dayLabels={spanishDayLabels}
             monthLabels={spanishMonthLabels}
             clearButtonElement={clearButtonElement}
@@ -220,14 +223,12 @@ describe('DatePicker', function () {
       }
     }  
 
-    const spanishMonthLabel = spanishMonthLabels[new Date().getMonth()];
+    const spanishMonthLabel = spanishMonthLabels[d.getMonth()];
     yield new Promise(function(resolve, _reject){
       ReactDOM.render(<App />, container, resolve)
     })
     
     assert.notEqual(document.getElementById("clear-button-element"),null)
-
-
     const inputElement = document.querySelector("input.form-control")    
     TestUtils.Simulate.focus(inputElement)
     const popover = document.querySelector(".popover")

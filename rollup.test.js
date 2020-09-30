@@ -7,7 +7,7 @@ import nodePolyfills from 'rollup-plugin-node-polyfills'
 const NODE_ENV = 'development'
 
 export default {
-  input: 'test/simple-test.js',
+  input: 'test/test_01.js',
   output: {
     file: 'test/bundle.js',
     format: 'umd',
@@ -15,9 +15,10 @@ export default {
     globals: {
       'react': 'React',
       'react-dom': 'ReactDOM',
+      'react-dom/test-utils': 'TestUtils',
       'reactstrap': 'Reactstrap',
-      'es6-promise': 'ES6Promise',
-      'co': 'co'
+      /*'es6-promise': 'ES6Promise',
+      'co': 'co'*/
     }
   },
   plugins: [
@@ -27,12 +28,12 @@ export default {
     babel({
       exclude: 'node_modules/**',
       /*https://github.com/rollup/plugins/tree/master/packages/babel#babelhelpers*/
-      babelHelpers: 'runtime'
+      babelHelpers: 'bundled'
     }),
-    resolve({
+    resolve(/*{
       browser: true,
       preferBuiltins: false
-    }),
+    }*/),
     commonjs(/*{
       esmExternals: ['es6-promise']
     }*/),
