@@ -43137,7 +43137,7 @@
 	    }
 
 	    this._inputRef = /*#__PURE__*/react.createRef();
-	    this.hiddenInputRef = /*#__PURE__*/react.createRef();
+	    this.hiddenInputRef = props.hiddenInputRef != undefined ? props.hiddenInputRef : /*#__PURE__*/react.createRef();
 	    this.overlayContainerRef = /*#__PURE__*/react.createRef();
 	    this.state = this.getInitialState();
 	    this.idSuffix = this.makeIdSuffix();
@@ -43186,6 +43186,7 @@
 	    event.stopPropagation();
 
 	    if (this.overlayContainerRef && this.overlayContainerRef.current && !this.overlayContainerRef.current.contains(event.target)) {
+	      console.log('RDP clcick outside');
 	      var inputFocused = this.inputRef && this.inputRef.current && this.inputRef.current.contains(event.target);
 	      this.setState({
 	        focused: false,
@@ -43632,7 +43633,9 @@
 	  noValidate: propTypes.bool,
 	  valid: propTypes.bool,
 	  invalid: propTypes.bool,
-	  customInputGroup: propTypes.object
+	  customInputGroup: propTypes.object,
+	  inputRef: propTypes.ref,
+	  hiddenInputRef: propTypes.ref
 	};
 
 	var defaultDateFormat = () => {

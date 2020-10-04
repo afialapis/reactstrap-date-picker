@@ -34,7 +34,7 @@ class DatePicker extends React.Component {
       throw new Error('Conflicting DatePicker properties \'value\' and \'defaultValue\'');
     }
     this._inputRef= React.createRef()
-    this.hiddenInputRef= React.createRef()
+    this.hiddenInputRef= props.hiddenInputRef!=undefined ? props.hiddenInputRef : React.createRef()
     this.overlayContainerRef= React.createRef()
 
     this.state= this.getInitialState()
@@ -84,22 +84,27 @@ class DatePicker extends React.Component {
 
   onClickOutside(event) {
     event.stopPropagation()
-    
-    if (this.overlayContainerRef && this.overlayContainerRef.current && !this.overlayContainerRef.current.contains(event.target)) {
-          
-      const inputFocused= (this.inputRef && this.inputRef.current && this.inputRef.current.contains(event.target))
-      this.setState({
-        focused: false,
-        inputFocused: inputFocused
-      });
 
-      if (this.props.onBlur) {
-        const event = document.createEvent('CustomEvent');
-        event.initEvent('Change Date', true, false);
-        this.hiddenInputRef.current.dispatchEvent(event);
-        this.props.onBlur(event);
+    if (this.state.focused) {
+      
+      if (this.overlayContainerRef && this.overlayContainerRef.current && !this.overlayContainerRef.current.contains(event.target)) {
+
+        console.log(`${this.props.id} RDP clcick outside`)
+            
+        const inputFocused= (this.inputRef && this.inputRef.current && this.inputRef.current.contains(event.target))
+        this.setState({
+          focused: false,
+          inputFocused: inputFocused
+        });
+
+        if (this.props.onBlur) {
+          const event = document.createEvent('CustomEvent');
+          event.initEvent('Change Date', true, false);
+          this.hiddenInputRef.current.dispatchEvent(event);
+          this.props.onBlur(event);
+        }
       }
-    }    
+    }
   }
   
   makeDateValues(isoString) {
@@ -507,6 +512,13 @@ class DatePicker extends React.Component {
   }
 }
 
+const propRef= PropTypes.oneOfType([
+  // Either a function
+  PropTypes.func, 
+  // Or the instance of a DOM native element (see the note about SSR)
+  PropTypes.shape({ current: PropTypes.instanceOf(Element) })
+])
+
 DatePicker.propTypes= {
   defaultValue: PropTypes.string,
   value: PropTypes.string,
@@ -563,7 +575,9 @@ DatePicker.propTypes= {
   noValidate: PropTypes.bool,
   valid: PropTypes.bool, 
   invalid: PropTypes.bool,
-  customInputGroup: PropTypes.object
+  customInputGroup: PropTypes.object,
+  inputRef: propRef,
+  hiddenInputRef: propRef
 }
 
 
