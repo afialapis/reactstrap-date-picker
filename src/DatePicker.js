@@ -88,8 +88,6 @@ class DatePicker extends React.Component {
     if (this.state.focused) {
       
       if (this.overlayContainerRef && this.overlayContainerRef.current && !this.overlayContainerRef.current.contains(event.target)) {
-
-        console.log(`${this.props.id} RDP clcick outside`)
             
         const inputFocused= (this.inputRef && this.inputRef.current && this.inputRef.current.contains(event.target))
         this.setState({
