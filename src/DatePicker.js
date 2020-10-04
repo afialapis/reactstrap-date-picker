@@ -34,7 +34,7 @@ class DatePicker extends React.Component {
       throw new Error('Conflicting DatePicker properties \'value\' and \'defaultValue\'');
     }
     this._inputRef= React.createRef()
-    this.hiddenInputRef= props.hiddenInputRef!=undefined ? props.hiddenInputRef : React.createRef()
+    this.hiddenInputRef= React.createRef()
     this.overlayContainerRef= React.createRef()
 
     this.state= this.getInitialState()
@@ -574,8 +574,7 @@ DatePicker.propTypes= {
   valid: PropTypes.bool, 
   invalid: PropTypes.bool,
   customInputGroup: PropTypes.object,
-  inputRef: propRef,
-  hiddenInputRef: propRef
+  inputRef: propRef
 }
 
 
