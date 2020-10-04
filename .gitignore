@@ -37,3 +37,4 @@ npm-debug.log*
 package-lock.json
 TODO.lst
 .vscode
+test/bundle.js
