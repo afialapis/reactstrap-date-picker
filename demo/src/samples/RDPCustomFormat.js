@@ -4,7 +4,7 @@ import {
   FormText,
   Label
 } from 'reactstrap'
-import DatePicker from '../../../src'
+import DatePicker from '../rdp'
 
 const spanishDayLabels = ['Dom', 'Lu', 'Ma', 'Mi', 'Ju', 'Vi', 'Sab'];
 const spanishMonthLabels = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];

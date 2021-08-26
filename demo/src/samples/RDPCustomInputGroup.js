@@ -4,7 +4,7 @@ import {
   FormText,
   Label
 } from 'reactstrap'
-import DatePicker from '../../../src'
+import DatePicker from '../rdp'
 
 const CustomInputGroup = ({children}) =>
   <div className="input-group cusom_input_group" style={{border: '5px solid aliceblue', borderRadius: '10px'}}>

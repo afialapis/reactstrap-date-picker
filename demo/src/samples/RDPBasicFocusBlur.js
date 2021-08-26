@@ -4,7 +4,7 @@ import {
   FormText,
   Label
 } from 'reactstrap'
-import DatePicker from '../../../src'
+import DatePicker from '../rdp'
 
 const RDPFocusBlur = () => {
   const inputName = 'reactstrap_date_picker_focus'
