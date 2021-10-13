@@ -31,7 +31,7 @@ npm install reactstrap-date-picker
 
 ```js
 import React from 'react
-import {FormGroup, Label, FormText} from 'reactstrap
+import {FormGroup, Label, FormText} from 'reactstrap';
 var DatePicker = require("reactstrap-date-picker");
 
 class App extends React.Component {
