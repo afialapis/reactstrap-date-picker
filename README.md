@@ -31,7 +31,7 @@ npm install reactstrap-date-picker
 
 ```js
 import React from 'react
-import {FormGroup, Label, FormText} from 'reactstrap
+import {FormGroup, Label, FormText} from 'reactstrap';
 var DatePicker = require("reactstrap-date-picker");
 
 class App extends React.Component {
@@ -440,3 +440,11 @@ And visit [http://localhost:3002](http://localhost:3002) on your browser
 npm run test
 
 ```
+
+
+# Versions
+
+## 0.0.12
+
+  · Fixed issue #15: placeholder will not fallback to dateFormat
+  · Fixed issue #16. do not allow keyboard input of dates out of minDate/maxDate
