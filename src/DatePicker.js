@@ -54,7 +54,7 @@ class DatePicker extends React.Component {
     }
     state.focused = false
     state.inputFocused = false
-    state.placeholder = this.props.placeholder || this.props.dateFormat
+    state.placeholder = this.props.placeholder || ''
     state.separator = this.props.dateFormat.match(/[^A-Z]/)[0]
     return state
   }
@@ -425,7 +425,7 @@ class DatePicker extends React.Component {
         onKeyDown   : (e) => this.handleKeyDown(e),
         value       : this.state.inputValue || '',
         required    : this.props.required,
-        placeholder : this.state.focused ? this.props.dateFormat : this.state.placeholder,
+        placeholder : this.state.placeholder,
         ref         : this.inputRef,
         disabled    : this.props.disabled,
         onFocus     : () => this.handleFocus(),
@@ -448,7 +448,7 @@ class DatePicker extends React.Component {
           style       = {this.props.style}
           autoFocus   = {this.props.autoFocus}
           disabled    = {this.props.disabled}
-          placeholder = {this.state.focused ? this.props.dateFormat : this.state.placeholder}
+          placeholder = {this.state.placeholder}
           onFocus     = {() => this.handleFocus()}
           onBlur      = {() => this.handleBlur()}
           onChange    = {() => this.handleInputChange()}
