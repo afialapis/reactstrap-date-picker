@@ -318,6 +318,13 @@ class DatePicker extends React.Component {
       return this.handleBadInput(originalValue);
     }
 
+    const beforeMinDate = this.props.minDate && Date.parse(originalValue) < Date.parse(this.props.minDate);
+    const afterMaxDate = this.props.maxDate && Date.parse(originalValue) > Date.parse(this.props.maxDate);
+
+    if (beforeMinDate || afterMaxDate) {
+      return this.handleBadInput(originalValue);
+    }
+
     if (!isNaN(monthInteger) && !isNaN(dayInteger) && !isNaN(yearInteger) && monthInteger <= 12 && dayInteger <= 31 && yearInteger > 999) {
       const selectedDate = new Date(yearInteger, monthInteger - 1, dayInteger, 12, 0, 0, 0);
       this.setState({
