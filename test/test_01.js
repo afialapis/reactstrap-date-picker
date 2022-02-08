@@ -320,7 +320,7 @@ describe('DatePicker', function () {
     })
     const inputElement = document.querySelector("input.form-control")
     TestUtils.Simulate.focus(inputElement)
-    const nextButtonElement = document.querySelector(".float-right")
+    const nextButtonElement = document.querySelector(".rdp-header-next-wrapper")
     for(let i = 0; i < 12; i++) {
       TestUtils.Simulate.click(nextButtonElement)
     }
