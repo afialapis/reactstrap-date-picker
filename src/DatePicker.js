@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {Input, InputGroup, InputGroupAddon, InputGroupText, Popover, PopoverHeader, PopoverBody} from 'reactstrap'
+import {Input, InputGroup, InputGroupText, Popover, PopoverHeader, PopoverBody} from 'reactstrap'
 import DatePickerHeader from './DatePickerHeader'
 import DatePickerCalendar from './DatePickerCalendar'
 
@@ -498,15 +498,15 @@ class DatePicker extends React.Component {
         />
               
         {this.props.showClearButton && !this.props.customControl && 
-            <InputGroupAddon onClick  = {() => this.props.disabled ? null : this.clear()}
-                             style    = {{cursor:(this.state.inputValue && !this.props.disabled) ? 'pointer' : 'not-allowed'}}
-                             addonType= "append"
-                             className= 'rdp-addon'>
-                <InputGroupText
-                             style={{opacity: (this.state.inputValue && !this.props.disabled) ? 1 : 0.5}}>
-                  {this.props.clearButtonElement}
-                </InputGroupText>
-            </InputGroupAddon>
+            <InputGroupText  
+                          onClick  = {() => this.props.disabled ? null : this.clear()}
+                          style    = {{
+                                      opacity: (this.state.inputValue && !this.props.disabled) ? 1 : 0.5,
+                                      cursor:(this.state.inputValue && !this.props.disabled) ? 'pointer' : 'not-allowed'
+                                    }}
+                          className= 'rdp-addon'>
+              {this.props.clearButtonElement}
+            </InputGroupText>
         }
         
         {this.props.children}

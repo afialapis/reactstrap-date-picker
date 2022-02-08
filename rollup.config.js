@@ -16,6 +16,7 @@ const baseCfg= (output, withReplace, withTerser) => {
   if (withReplace) {
     plugins.push(
       replace({
+        preventAssignment: true,
         'process.env.NODE_ENV': JSON.stringify(NODE_ENV)
       })      
     )

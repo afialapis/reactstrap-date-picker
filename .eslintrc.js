@@ -1,11 +1,11 @@
 
 module.exports = {
   "root": true,
-  "parser": "babel-eslint",
+  "parser": "@babel/eslint-parser",
   "extends": ["eslint:recommended", "plugin:react/recommended"],
   "plugins": [
-	  "react",
-    "react-hooks"
+		"react",
+		"react-hooks"
   ],
   "settings": {
     "react": {

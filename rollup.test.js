@@ -23,6 +23,7 @@ export default {
   },
   plugins: [
     replace({
+      preventAssignment: true,
       'process.env.NODE_ENV': JSON.stringify(NODE_ENV)
     }),
     babel({
@@ -30,10 +31,10 @@ export default {
       /*https://github.com/rollup/plugins/tree/master/packages/babel#babelhelpers*/
       babelHelpers: 'bundled'
     }),
-    resolve(/*{
+    resolve({
       browser: true,
       preferBuiltins: false
-    }*/),
+    }),
     commonjs(/*{
       esmExternals: ['es6-promise']
     }*/),

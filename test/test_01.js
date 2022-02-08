@@ -285,8 +285,8 @@ describe('DatePicker', function () {
     const inputElement = document.querySelector("input.form-control")
 
     TestUtils.Simulate.focus(inputElement)
-    const previousButtonElement = document.querySelector(".float-left")
-    const nextButtonElement = document.querySelector(".float-right")
+    const previousButtonElement = document.querySelector(".rdp-header-previous-wrapper")
+    const nextButtonElement = document.querySelector(".rdp-header-next-wrapper")
     
     TestUtils.Simulate.click(previousButtonElement)
     const previousDayElement = document.querySelector("table tbody tr:nth-child(2) td")
