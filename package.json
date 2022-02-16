@@ -1,6 +1,6 @@
 {
   "name": "reactstrap-date-picker",
-  "version": "0.0.14",
+  "version": "0.0.15",
   "description": "Reactstrap based, zero dependencies, date picker",
   "author": "Donato Lorenzo <donato@afialapis.com>",
   "contributors": [
@@ -32,7 +32,8 @@
     "lib": "npm run clean-lib && babel src -d lib",
     "dist": "npm run clean-dist && rollup -c",
     "prepare": "npm run lint && npm run test && npm run lib && npm run dist",
-    "demo": "rm -rf demo/dist && mkdir demo/dist && rollup -c rollup.demo.js -w"
+    "demo": "rm -rf demo/dist && mkdir demo/dist && rollup -c rollup.demo.js -w",
+    "reset": "rm -rf demo/dist && npm run clean-test && npm run clean-lib && npm run clean-dist && rm -fr node_modules package-lock.json && npm i"
   },
   "keywords": [
     "js",
@@ -42,22 +43,22 @@
     "picker"
   ],
   "devDependencies": {
-    "@babel/cli": "^7.17.0",
-    "@babel/core": "^7.17.2",
+    "@babel/cli": "^7.17.3",
+    "@babel/core": "^7.17.4",
     "@babel/eslint-parser": "^7.17.0",
     "@babel/preset-env": "^7.16.11",
     "@babel/preset-react": "^7.16.7",
     "@rollup/plugin-babel": "^5.3.0",
     "@rollup/plugin-commonjs": "^21.0.1",
     "@rollup/plugin-node-resolve": "^13.1.3",
-    "@rollup/plugin-replace": "^3.0.1",
+    "@rollup/plugin-replace": "^3.1.0",
     "bootstrap": "^5.1.3",
     "co": "^4.6.0",
     "es6-promise": "^4.2.8",
-    "eslint": "^8.8.0",
+    "eslint": "^8.9.0",
     "eslint-plugin-react": "^7.28.0",
     "eslint-plugin-react-hooks": "^4.3.0",
-    "karma": "^6.3.15",
+    "karma": "^6.3.16",
     "karma-chrome-launcher": "^3.1.0",
     "karma-cli": "^2.0.0",
     "karma-firefox-launcher": "^2.1.2",
@@ -70,7 +71,7 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "reactstrap": "^9.0.1",
-    "rollup": "^2.67.1",
+    "rollup": "^2.67.2",
     "rollup-plugin-livereload": "^2.0.5",
     "rollup-plugin-node-polyfills": "^0.2.1",
     "rollup-plugin-postcss": "^4.0.2",
@@ -80,6 +81,6 @@
   "peerDependencies": {
     "react": ">=16.13.1",
     "react-dom": ">=16.13.1",
-    "reactstrap": ">=8.5.1"
+    "reactstrap": ">=9.0.1"
   }
 }
