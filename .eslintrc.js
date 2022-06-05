@@ -67,6 +67,8 @@ module.exports = {
 	"react/jsx-closing-bracket-location": 0,
 	"react/prop-types": 0,
 	"react/prefer-stateless-function": 0,
-	"no-empty": 0
+	"no-empty": 0,
+  "react-hooks/rules-of-hooks": "error",
+  "react-hooks/exhaustive-deps": "warn"
   }
 }

@@ -4,7 +4,7 @@ import {
   FormText,
   Label
 } from 'reactstrap'
-import DatePicker from '../rdp'
+import {DatePicker} from '../rdp'
 
 const clearButtonElement = <div id="clear-button-element">Clear</div>;
 const previousButtonElement = <div id="previous-button-element">Prev</div>;

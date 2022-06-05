@@ -506,7 +506,7 @@ class DatePicker extends React.Component {
                                     }}
                           className= 'rdp-addon'>
               {this.props.clearButtonElement}
-            </InputGroupText>            
+            </InputGroupText>
         }
         
         {this.props.children}

@@ -1,4 +1,3 @@
-// import DatePicker from '../../src/'
-import DatePicker from '../../src/hooks/DatePicker'
+import {DatePicker} from '../../src'
 
-export {DatePicker as default}
+export {DatePicker}

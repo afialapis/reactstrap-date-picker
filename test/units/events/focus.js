@@ -1,0 +1,118 @@
+import React, {useState} from 'react'
+import {DatePicker} from '../../../src/index'
+import {assertIsoStringsHaveSameDate} from '../../tools/checks'
+
+import {
+  getInputWrapper
+} from '../../tools/finders'
+
+const expect= global.expect
+const mount= global.mount
+
+
+describe('reactstrap-date-picker basics', function () {
+  this.timeout(500)
+
+
+  it("should call focus and blur handlers.", () => {
+    const did = 'focus-one'
+    let value = `${new Date().toISOString().slice(0,10)}T12:00:00.000Z`
+
+    const Unit = () => {
+      const [focused, setFocused]= useState(false)
+      const [foo, _setFoo]= useState('foo')
+
+      const focusHandler = (e) => {
+        //expect(e.target).to.equal(document.querySelector("input[type=hidden]"))
+        expect(e.target).to.equal(document.querySelector("input.form-control"))
+        assertIsoStringsHaveSameDate(e.target.value, value)
+        setFocused(true)
+      }
+
+      const blurHandler = (e) => {
+        //expect(e.target).to.equal(document.querySelector("input[type=hidden]"))
+        expect(e.target).to.equal(document.querySelector("input.form-control"))
+        assertIsoStringsHaveSameDate(e.target.value, value)
+        setFocused(false)
+      }
+
+      return (
+        <div>
+          <div>
+            <input id='blurringClickTarget' 
+                   defaultValue={foo} 
+                   onFocus={() => setFocused(false)}
+                   onClick={() => setFocused(false)}></input>
+            {focused 
+              ? <div id="focused">Focused</div> 
+              : <div id="blurred">Blurred</div>
+            }
+          </div>
+          <DatePicker id     = {did} 
+                      onBlur = {(e) => blurHandler(e)} 
+                      onFocus= {(e) => focusHandler(e)} 
+                      value  = {value} />
+        </div>                    
+      )
+    }
+
+    const wrapper= mount(<Unit/>)
+    const inputWrapper= getInputWrapper(wrapper)    
+    
+    const focus_it = () => {
+      inputWrapper.getDOMNode().focus() 
+      inputWrapper.simulate('focus')    // This is not enough to update document.activeElement, dunno why yet
+    }
+    const check_it_is_blurred_soft = () => expect(wrapper.find('div#blurred').length, 'checking blurred (soft)').to.not.equal(0)
+    const check_it_is_focused_soft = () => expect(wrapper.find('div#focused').length, 'checking focused (soft)').to.not.equal(0)
+
+    const check_it_is_blurred_hard = () => expect(inputWrapper.getDOMNode(), 'checking blurred (hard)').to.not.equal(document.activeElement)
+    const check_it_is_focused_hard = () => expect(inputWrapper.getDOMNode(), 'checking focused (hard)').to.equal(document.activeElement)    
+    
+    // It should start blurred
+    // console.log('1 - starting blurred')
+    check_it_is_blurred_soft()
+    check_it_is_blurred_hard()
+
+    // Let's focus it
+    // console.log('2 - focusing')
+    focus_it()
+    check_it_is_focused_soft()
+    check_it_is_focused_hard()
+
+    // Let's blur it again
+    // console.log('3 - blurring')
+      // Calling blur on the input control is not 
+      // enough to blur the whole DatePicker, as
+      // the Calendar remains opened   
+      inputWrapper.simulate('blur')    
+      check_it_is_focused_soft()
+
+      // But we can use the specific parameter 
+      //    event.data.rdp_close_calendar= true
+      // This will force the Calendar to be closed
+      inputWrapper.simulate('blur', {data: {rdp_close_calendar: true}})     
+      check_it_is_blurred_soft()
+
+    // Let's focus it again
+    // console.log('4 - focusing again')
+    focus_it()
+    check_it_is_focused_soft()
+    check_it_is_focused_hard()
+
+    // Let's blur it again, now by focusing external element
+    // console.log('5 - blurring again')
+
+    const blurringClickWrapper = wrapper.find('input#blurringClickTarget')  
+
+    blurringClickWrapper.getDOMNode().focus()
+    blurringClickWrapper.simulate('focus')
+
+    check_it_is_blurred_soft()
+    check_it_is_blurred_hard()
+    
+    wrapper.unmount()
+
+    
+  })
+})

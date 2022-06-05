@@ -4,7 +4,7 @@ import {
   FormText,
   Label
 } from 'reactstrap'
-import DatePicker from '../rdp'
+import {DatePicker} from '../rdp'
 
 const spanishDayLabels = ['Dom', 'Lu', 'Ma', 'Mi', 'Ju', 'Vi', 'Sab'];
 const spanishMonthLabels = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
@@ -29,7 +29,7 @@ const RDPCustomFormat = () => {
         monthLabels  = {spanishMonthLabels}
       /> 
       <FormText>
-        {"Using ES labels and dateFormat='DD/M/YYYY'"}        
+        {"Using ES labels and dateFormat='DD/MM/YYYY'"}        
       </FormText>
     </FormGroup>
   )

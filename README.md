@@ -6,17 +6,16 @@
 
 A Reactstrap based, zero dependencies, date picker.
 
-Based on [react-bootstrap-date-picker](https://github.com/pushtell/react-bootstrap-date-picker/).
-
 Demo and docs at [reactstrap-date-picker](https://reactstrap-date-picker.afialapis.com/).
 
 # Table of Contents
 
-1. [Installation](#installation)
+1. [Installation](#install)
 2. [Usage](#usage)
-3. [API Reference](#api-reference)
-4. [Deeper customizing](#deeper-customizing)
-4. [Inspect this package](#inspect-this-package)
+3. [API Reference](#api)
+4. [Deeper customizing](#customizing)
+5. [Inspect this package](#inspect)
+6. [Changelog](#changelog)
 
 
 # Installation
@@ -442,9 +441,39 @@ npm run test
 ```
 
 
-# Versions
+# Changelog
+
+
+Originally based on [react-bootstrap-date-picker](https://github.com/pushtell/react-bootstrap-date-picker/),
+`reactstrap-date-picker` has evolved. From v1 it has been refactored, using React hooks, 
+with cleaner code and an improved final performance.
+
+reactstrap-date-picker 0.0.16: uses reactstrap 9.0.1 (InputGroupText), and needs bootstrap 5.1.3
+reactstrap-date-picker 0.0.12: uses reactstrap 8.5.1 (InputGroupAddon), and needs bootstrap 4.5.2
+
+## 1.0.0
+  · Introduction of React Hooks
+  · Deep refactor of the source code
+  · Introduction of new API, still backwards compatible
+  · Supported versions:
+    - React >= 16.8
+    - Reactstrap 8.5.1
+    - Bootstrap 4.5.2
+
+
+## 0.0.16
+
+  · Version to use if you wanna go Reactstrap 9
+  · Supported versions:
+    - React >= 14
+    - Reactstrap 9.0.1
+    - Bootstrap 5.1.3
 
 ## 0.0.12
 
   · Fixed issue #15: placeholder will not fallback to dateFormat
   · Fixed issue #16. do not allow keyboard input of dates out of minDate/maxDate
+  · Supported versions:
+    - React >= 14
+    - Reactstrap 8.5.1
+    - Bootstrap 4.5.2

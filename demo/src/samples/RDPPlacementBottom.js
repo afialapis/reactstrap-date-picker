@@ -4,7 +4,7 @@ import {
   FormText,
   Label
 } from 'reactstrap'
-import DatePicker from '../rdp'
+import {DatePicker} from '../rdp'
 
 const RDPPlacementBottom = () => {
   const inputName = 'reactstrap_date_picker_placement_bottom'
