@@ -24,8 +24,6 @@ describe('reactstrap-date-picker basics', function () {
       const inputRef= useRef()
       
       const handleChange = (newValue) => {
-        // console.log('\nhandleChange.....' + newValue)
-
         setValue(newValue)
         expect(mainRef.current.getNode()).to.equal(inputRef.current)        
       }

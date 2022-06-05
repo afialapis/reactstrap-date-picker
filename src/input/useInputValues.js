@@ -28,15 +28,12 @@ const useInputValues = (controlInputRef, value, defaultValue, minDate, maxDate, 
 
   // handle props changes
   useEffect(() => {
-    //console.log('inputs.useEffect(2)' )
     setSeparator(dateFormat.match(/[^A-Z]/)[0])
   }, [dateFormat])
 
 
   // handle input values
   useEffect(() => {
-    //console.log('inputs.useEffect() props.value: ' + value)    
-
     const isoString= value || defaultValue
     const minDate = getDateFromIsoString(minDate)
     const maxDate = getDateFromIsoString(maxDate)
@@ -61,12 +58,7 @@ const useInputValues = (controlInputRef, value, defaultValue, minDate, maxDate, 
         nDisplayDate = today
       }
     }
-
-    //console.log('inputs.useEffect() selected date: ' + nSelectedDate)    
-    //console.log('inputs.useEffect() display date: ' + nDisplayDate)
-    //console.log('inputs.useEffect() input value: ' + nInputValue)
-    //console.log('inputs.useEffect() inner  value: ' + nInnerValue)
-
+    
     setInnerValue(nInnerValue)
     setInputValue(nInputValue)
     setSelectedDate(nSelectedDate)
@@ -123,8 +115,6 @@ const useInputValues = (controlInputRef, value, defaultValue, minDate, maxDate, 
   }/*, [dateFormat, separator])*/
 
   const handleInputChange = /*useCallback(*/() => {
-    //console.log('handleInputChange() ....:')
-
     const originalValue = controlInputRef.current.value
     const nInputValue = originalValue.replace(/(-|\/\/)/g, separator).slice(0,10)
 
@@ -191,18 +181,12 @@ const useInputValues = (controlInputRef, value, defaultValue, minDate, maxDate, 
   }/*, [controlInputRef, separator, onChange, minDate, maxDate])*/
 
   const handleChangeMonth = (nDisplayDate) => {
-    //console.log('handleChangeMonth: ' + nDisplayDate)
     setDisplayDate(nDisplayDate)
   }
 
   const handleChangeDate = /*useCallback(*/(nSelectedDate) => {
     const nInnerValue = getIsoStringFromDate(nSelectedDate)
     const nInputValue = _makeInputValueString(nSelectedDate, separator, dateFormat)
-
-    //console.log('handleChangeDate() Changing selected date:')
-    //console.log('handleChangeDate() selected date: ' + nSelectedDate)    
-    //console.log('handleChangeDate() input value: ' + nInputValue)
-    //console.log('handleChangeDate() inner  value: ' + nInnerValue)
 
     setInputValue(nInputValue)
     setSelectedDate(nSelectedDate)

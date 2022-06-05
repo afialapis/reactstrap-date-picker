@@ -163,7 +163,6 @@ function useCalendarDays(displayDate, selectedDate, minDate, maxDate, weekStarts
   
 
   useEffect(() => {
-    //console.log('useCalendarDays.useEffect(1)')
     if (displayDate) {
       setYear(displayDate.getFullYear())
       setMonth(displayDate.getMonth())
@@ -172,12 +171,10 @@ function useCalendarDays(displayDate, selectedDate, minDate, maxDate, weekStarts
 
 
   useEffect(() => {
-    //console.log('useCalendarDays.useEffect(2)')
     setGroupByWeeks(_groupByWeeks(year, month, weekStartsOn))
   }, [year, month, weekStartsOn])
 
   useEffect(() => {
-    //console.log('useCalendarDays.useEffect(3)')
     setCalendarDays(_makeCalendarDays(groupByWeeks, selectedDate, minDate, maxDate))
   }, [groupByWeeks, selectedDate, minDate, maxDate])
 

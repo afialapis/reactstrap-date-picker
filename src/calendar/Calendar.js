@@ -20,8 +20,6 @@ const Calendar = (
     const day = e.currentTarget.getAttribute('data-day')
     const newSelectedDate = setTimeToNoon(new Date(displayDate))
     newSelectedDate.setDate(day)
-
-    //console.log('calendar.handleDayClick, selecting date ' + newSelectedDate)
     onChange(newSelectedDate)
   }
 

@@ -456,7 +456,7 @@ reactstrap-date-picker 0.0.12: uses reactstrap 8.5.1 (InputGroupAddon), and need
   · Deep refactor of the source code
   · Introduction of new API, still backwards compatible
   · Supported versions:
-    - React >= 16.8
+    - React >= 16.13.1
     - Reactstrap 8.5.1
     - Bootstrap 4.5.2
 

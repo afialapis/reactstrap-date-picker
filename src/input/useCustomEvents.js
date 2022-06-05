@@ -10,9 +10,6 @@ const useCustomEvents = (inputRef, onBlur, onFocus) => {
   const customOnBlur = useCallback(() => {
     
     if (onBlur) {
-      
-      //console.log('calling custom onBlur...')
-      
       const event = document.createEvent('CustomEvent')
       event.initEvent('Change Date', true, false)
       inputRef.current.dispatchEvent(event)
@@ -22,9 +19,6 @@ const useCustomEvents = (inputRef, onBlur, onFocus) => {
 
   const customOnFocus = useCallback(() => {
     if (onFocus) {
-      
-      //console.log('calling custom onFocus...')
-
       const event = document.createEvent('CustomEvent')
       event.initEvent('Change Date', true, false)
       inputRef.current.dispatchEvent(event)

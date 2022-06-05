@@ -54,23 +54,10 @@ function _DatePicker (props, ref) {
   const fixedDayLabels = useFixedDayLabels(dayLabels, weekStartsOn)
 
   const handleChangeDateAndBlur = (nSelectedDate) => {
-    //console.log('handleChangeDateAndBlur: ' + nSelectedDate)
     handleChangeDate(nSelectedDate)
     handleBlur(true)
   }
-
-  //console.log('main - Rendering with selected date:')
-  //console.log('main - props.value:' + value)
-  //console.log('main - innerValue:' + innerValue)
-  //console.log('main - inputValue:' + inputValue)
-  //console.log('main - displayDate:' + displayDate)
-  //console.log('main - selectedDate:' + selectedDate)
-  //console.log('main - open: ' + open)
-  //console.log('main - placement: ' + placement)
-  //console.log('main - controlInputRef: ' + controlInputRef?.current?.value)
-  //console.log('main - hiddenInputRef: ' + hiddenInputRef?.current?.value)
-
-
+  
   return (
     <InputGroup
       customInputGroup  = {customInputGroup}

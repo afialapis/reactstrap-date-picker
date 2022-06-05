@@ -34,7 +34,6 @@ describe('prop calendarContainer', function () {
     // NOTE Dunno if intended/expected, but trough enzyme
     //  wrappers the calendar is always inside th e DatePicker tree
     // const calendarWrapper= wrapper.find('div#heyho')
-    // console.log(calendarWrapper.debug())
   
     wrapper.unmount()
   })

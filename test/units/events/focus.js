@@ -70,18 +70,15 @@ describe('reactstrap-date-picker basics', function () {
     const check_it_is_focused_hard = () => expect(inputWrapper.getDOMNode(), 'checking focused (hard)').to.equal(document.activeElement)    
     
     // It should start blurred
-    // console.log('1 - starting blurred')
     check_it_is_blurred_soft()
     check_it_is_blurred_hard()
 
     // Let's focus it
-    // console.log('2 - focusing')
     focus_it()
     check_it_is_focused_soft()
     check_it_is_focused_hard()
 
     // Let's blur it again
-    // console.log('3 - blurring')
       // Calling blur on the input control is not 
       // enough to blur the whole DatePicker, as
       // the Calendar remains opened   
@@ -95,13 +92,11 @@ describe('reactstrap-date-picker basics', function () {
       check_it_is_blurred_soft()
 
     // Let's focus it again
-    // console.log('4 - focusing again')
     focus_it()
     check_it_is_focused_soft()
     check_it_is_focused_hard()
 
     // Let's blur it again, now by focusing external element
-    // console.log('5 - blurring again')
 
     const blurringClickWrapper = wrapper.find('input#blurringClickTarget')  
 

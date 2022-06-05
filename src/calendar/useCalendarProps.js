@@ -21,14 +21,11 @@ const useCalendarProps = (calendarPlacement, inputRef, autoFocus, onBlur, onFocu
 
   // Control the click outside
   useEffect(() => {
-    //console.log('useCalendarProps.useEffect(1)')
     function handleClickOutside(event) {
       event.stopPropagation()
 
       if (open) {
         if (overlayContainerRef && overlayContainerRef.current && !overlayContainerRef.current.contains(event.target)) {
-
-          console.log('CLICK OUTSIDE!')
           setOpen(false)
           customOnBlur()
         }
@@ -61,7 +58,6 @@ const useCalendarProps = (calendarPlacement, inputRef, autoFocus, onBlur, onFocu
   //  }
 
   const handleFocus = useCallback(() => {
-    //console.log('handleFocus')
     const nPlacement = getMaybeFuncValue(calendarPlacement)
     setPlacement(nPlacement)
 
@@ -70,9 +66,6 @@ const useCalendarProps = (calendarPlacement, inputRef, autoFocus, onBlur, onFocu
   }, [calendarPlacement, customOnFocus])
 
   const handleBlur = (force) => {
-    //console.log('handleBlur ' + open + ' --- ' + force)
-    
-
     if (open && !force) {
       // allow interactinos on Calendar without closing it
       return

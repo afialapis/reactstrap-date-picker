@@ -62,8 +62,6 @@ describe('reactstrap-date-picker basics', function () {
       const ref3= useRef()
       
       const handleChange = (newValue, newFormattedValue, format) => {
-        //console.log('\nhandleChange.....' + newValue + ' --- ' + format)
-
         setValue(newValue)
         values[format] = newValue
         formattedValues[format]= newFormattedValue
