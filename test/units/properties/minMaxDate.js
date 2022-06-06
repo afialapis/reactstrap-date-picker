@@ -88,8 +88,8 @@ describe('reactstrap-date-picker properties minDate / maxDate', function () {
     inputWrapper.simulate('focus')
 
     // check buttons
-    const prevButtonNode = wrapper.find(".rdp-header-previous-wrapper").getDOMNode()
-    const nextButtonNode = wrapper.find(".rdp-header-next-wrapper").getDOMNode()
+    const prevButtonNode = wrapper.find("div.rdp-header-previous-wrapper").getDOMNode()
+    const nextButtonNode = wrapper.find("div.rdp-header-next-wrapper").getDOMNode()
 
     expect(prevButtonNode.innerHTML).to.equal('&lt;')
     expect(nextButtonNode.innerHTML).to.equal('&gt;')
@@ -123,8 +123,8 @@ describe('reactstrap-date-picker properties minDate / maxDate', function () {
     inputWrapper.simulate('focus')
 
     // check buttons
-    const prevButtonNode = wrapper.find(".rdp-header-previous-wrapper").getDOMNode()
-    const nextButtonNode = wrapper.find(".rdp-header-next-wrapper").getDOMNode()
+    const prevButtonNode = wrapper.find("div.rdp-header-previous-wrapper").getDOMNode()
+    const nextButtonNode = wrapper.find("div.rdp-header-next-wrapper").getDOMNode()
 
     expect(prevButtonNode.innerHTML).to.equal('')
     expect(nextButtonNode.innerHTML).to.equal('')
@@ -158,8 +158,8 @@ describe('reactstrap-date-picker properties minDate / maxDate', function () {
     inputWrapper.simulate('focus')
 
     // check buttons
-    const prevButtonNode = wrapper.find(".rdp-header-previous-wrapper").getDOMNode()
-    const nextButtonNode = wrapper.find(".rdp-header-next-wrapper").getDOMNode()
+    const prevButtonNode = wrapper.find("div.rdp-header-previous-wrapper").getDOMNode()
+    const nextButtonNode = wrapper.find("div.rdp-header-next-wrapper").getDOMNode()
 
     expect(prevButtonNode.innerHTML).to.equal('')
     expect(nextButtonNode.innerHTML).to.equal('&gt;')
@@ -193,8 +193,8 @@ describe('reactstrap-date-picker properties minDate / maxDate', function () {
     inputWrapper.simulate('focus')
 
     // check buttons
-    const prevButtonNode = wrapper.find(".rdp-header-previous-wrapper").getDOMNode()
-    const nextButtonNode = wrapper.find(".rdp-header-next-wrapper").getDOMNode()
+    const prevButtonNode = wrapper.find("div.rdp-header-previous-wrapper").getDOMNode()
+    const nextButtonNode = wrapper.find("div.rdp-header-next-wrapper").getDOMNode()
 
     expect(prevButtonNode.innerHTML).to.equal('&lt;')
     expect(nextButtonNode.innerHTML).to.equal('')

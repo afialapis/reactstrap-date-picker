@@ -26,7 +26,7 @@ describe('prop roundedCorners', function () {
       inputWrapper.simulate('focus')
   
       // get and click some day in the calendar
-      const calendar = wrapper.find("input#" + id).closest('.input-group').find('.rdp-popover')
+      const calendar = wrapper.find("input#" + id).closest('.input-group').find('div.rdp-popover')
       const dayWrapper= calendar.find(`table tbody tr:last-child td`).at(0)
       dayWrapper.simulate('click')
 

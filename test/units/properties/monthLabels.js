@@ -34,7 +34,7 @@ describe('prop monthLabels', function () {
     
     // check the month title
     const currentMonthLabel = spanishMonthLabels[valueDate.getMonth()]
-    const calendarTitle = calendarWrapper.find('.rdp-header span').getDOMNode().innerHTML
+    const calendarTitle = calendarWrapper.find('div.rdp-header span').getDOMNode().innerHTML
     expect(calendarTitle.indexOf(currentMonthLabel)>=0).to.equal(true)
     
     wrapper.unmount()

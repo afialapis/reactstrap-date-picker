@@ -120,8 +120,8 @@ describe('reactstrap-date-picker calendar events', function () {
     inputWrapper.simulate('focus')
 
     // find month switchers
-    const previousButtonElement =  wrapper.find(`.rdp-header-previous-wrapper`)
-    const nextButtonElement =  wrapper.find(`.rdp-header-next-wrapper`)
+    const previousButtonElement =  wrapper.find(`div.rdp-header-previous-wrapper`)
+    const nextButtonElement =  wrapper.find(`div.rdp-header-next-wrapper`)
 
     // go to previous month
     previousButtonElement.simulate('click')
@@ -130,6 +130,9 @@ describe('reactstrap-date-picker calendar events', function () {
     const previousDay = getCalendarRandomDayWrapper(wrapper)
     previousDay.simulate('click')
     const previousMonthISOString = getHiddenInputValue(wrapper, did)
+
+    // reopen calendar
+    inputWrapper.simulate('focus')
 
     // go to next month
     nextButtonElement.simulate('click')
@@ -152,24 +155,27 @@ describe('reactstrap-date-picker calendar events', function () {
       <DatePicker id={did} value={value}/>
 
     const wrapper= mount(<Unit/>)
-
     // focus on control input, open calendar
     const inputWrapper = getInputWrapper(wrapper)
     inputWrapper.simulate('focus')
 
-    // find month switchers
-    const nextButtonElement =  wrapper.find(`.rdp-header-next-wrapper`)
-    
+   
     // iter 12 months
     for(let monthIndex = 0; monthIndex < 12; monthIndex++) {
       // on the first loop we are already on the wanted month
       if (monthIndex>0) {
+        // open calendar
+        inputWrapper.simulate('focus')
+
+        // find month switchers
+        const nextButtonElement =  wrapper.find('div.rdp-header-next-wrapper')        
         nextButtonElement.simulate('click')
       }
       // select any day in that month and get the value
       const dayWrapper = getCalendarRandomDayWrapper(wrapper)
       dayWrapper.simulate('click')
       const randomMonthISOString = getHiddenInputValue(wrapper, did)
+
       const randomMonthDate = new Date(randomMonthISOString)
       expect(randomMonthDate.getMonth()).to.equal(monthIndex)
     }

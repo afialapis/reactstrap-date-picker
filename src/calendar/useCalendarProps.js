@@ -14,7 +14,7 @@ const useCalendarProps = (calendarPlacement, inputRef, autoFocus, onBlur, onFocu
 
   const hiddenInputRef = useRef()
   const overlayContainerRef = useRef()
-  const controlInputRef = inputRef || useRef()
+  const controlInputRef = inputRef || useRef() // eslint-disable-line react-hooks/rules-of-hooks 
 
   // NOTE: do we want to use the controlInput or  the hiddenInput here?
   const [customOnBlur, customOnFocus] = useCustomEvents(/*hiddenInputRef*/ controlInputRef, onBlur, onFocus)

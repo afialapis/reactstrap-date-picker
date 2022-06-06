@@ -8,10 +8,11 @@ const getHiddenInputFmtValue      = (wrapper, did) => getHiddenInputNode(wrapper
 const getInputWrapper             = (wrapper) => wrapper.find(`input.form-control`)
 const getInputNode                = (wrapper) => getInputWrapper(wrapper).getDOMNode()
 
-const getCalendarWrapper          = (wrapper) => wrapper.find(`.rdp-popover`)
+const getCalendarWrapper          = (wrapper) => wrapper.find(`div.rdp-popover`)
 const getCalendarNode             = (wrapper) => getCalendarWrapper(wrapper).getDOMNode()
 
 const getCalendarRandomDayWrapper = (wrapper) => wrapper.find(`table tbody tr:last-child td`).at(0)
+//const getCalendarRandomDayWrapper = (wrapper) => wrapper.find('table tbody tr').last().find('td').at(0)
 const getCalendarRandomDayNode    = (wrapper) => getCalendarRandomDayWrapper(wrapper).getDOMNode()
 
 const getCalendarDayWrapper       = (wrapper, row, col) => wrapper.find(`table tbody tr`).at(row).find('td').at(col)

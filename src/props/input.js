@@ -1,20 +1,25 @@
-import React  from 'react'
+//import React  from 'react'
 import PropTypes from 'prop-types'
 import {propRef} from './util'
 
 const inputProps = {
-  defaultValue: PropTypes.string,
-  value: PropTypes.string,
-  required: PropTypes.bool,
-  className: PropTypes.string,
-  style: PropTypes.object,
   autoComplete: PropTypes.string,
-  placeholder: PropTypes.string,
   autoFocus: PropTypes.bool,
   disabled: PropTypes.bool,
+  noValidate: PropTypes.bool,
+  placeholder: PropTypes.string,
+  required: PropTypes.bool,
+
+  className: PropTypes.string,
+  style: PropTypes.object,
+  
   inputRef: propRef,
   customControl: PropTypes.object,
-  noValidate: PropTypes.bool,
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node
+
+  ])
 }
 
 const inputDefaultrops= {

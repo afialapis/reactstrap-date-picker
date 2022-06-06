@@ -26,7 +26,7 @@ describe('prop calendarPlacement', function () {
     const inputWrapper= getInputWrapper(wrapper)
     inputWrapper.simulate('focus')
 
-    const calendarWrapper= wrapper.find(`.rdp-popover.fade.right`)
+    const calendarWrapper= wrapper.find(`div.rdp-popover.fade.right`)
     expect(calendarWrapper.length).to.equal(1)
 
     wrapper.unmount() 
@@ -47,7 +47,7 @@ describe('prop calendarPlacement', function () {
     const inputWrapper= getInputWrapper(wrapper)
     inputWrapper.simulate('focus')
 
-    const calendarWrapper= wrapper.find(`.rdp-popover.fade.top`)
+    const calendarWrapper= wrapper.find(`div.rdp-popover.fade.top`)
     expect(calendarWrapper.length).to.equal(1)
     
     wrapper.unmount()

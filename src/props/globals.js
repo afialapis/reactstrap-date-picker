@@ -2,18 +2,15 @@ import PropTypes from 'prop-types'
 import {propElemOrString} from './util'
 
 const globalProps= {
+  value: PropTypes.string,  
+  defaultValue: PropTypes.string,
   id: PropTypes.string,
   name: PropTypes.string,
+  dateFormat: PropTypes.string, // 'MM/DD/YYYY', 'DD/MM/YYYY', 'YYYY/MM/DD', 'DD-MM-YYYY'
   minDate: PropTypes.string,
   maxDate: PropTypes.string,
   clearButtonElement: propElemOrString,
-  showClearButton: PropTypes.bool,
-  dateFormat: PropTypes.string, // 'MM/DD/YYYY', 'DD/MM/YYYY', 'YYYY/MM/DD', 'DD-MM-YYYY'
-  children: PropTypes.oneOfType([
-    PropTypes.arrayOf(PropTypes.node),
-    PropTypes.node
-
-  ])
+  showClearButton: PropTypes.bool
 }
 
 
