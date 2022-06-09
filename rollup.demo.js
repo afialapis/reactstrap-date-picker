@@ -42,7 +42,7 @@ export default {
     }),
     
     livereload({
-      watch: '',
+      watch: 'src',
       port: 3011,
       verbose: true,
       delay: 700

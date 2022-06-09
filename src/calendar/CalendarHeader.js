@@ -29,7 +29,7 @@ function CalendarHeader ({previousButtonElement, nextButtonElement, displayDate,
     try {
       setTitle(`${monthLabels[displayDate.getMonth()]} ${displayDate.getFullYear()}`)
     } catch(e) {
-      console.log(e)
+      console.error(e)
     }
 
   }, [displayDate, minDate, maxDate, monthLabels])

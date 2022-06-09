@@ -50,12 +50,12 @@ module.exports = [
   baseCfg({
     file: packageJSON.cjs,
     format: 'cjs',
-    exports: 'default'
+    exports: 'named'
   }, false, false),
   baseCfg({
     file: minifyExtension(packageJSON.cjs),
     format: 'cjs',
-    exports: 'default'
+    exports: 'named'
   }, false, true),
   //
   // ES modules
