@@ -1,16 +1,16 @@
 import React, {useState} from 'react'
-import {DatePicker} from '../../../src/index'
-import {assertIsoStringsHaveSameDate} from '../../tools/checks'
+import {DatePicker} from '../../../../src/index'
+import {assertIsoStringsHaveSameDate} from '../../../tools/checks'
 
 import {
   getInputWrapper
-} from '../../tools/finders'
+} from '../../../tools/finders'
 
 const expect= global.expect
 const mount= global.mount
 
 
-describe('reactstrap-date-picker basics', function () {
+describe('props:events: focus', function () {
   this.timeout(500)
 
 

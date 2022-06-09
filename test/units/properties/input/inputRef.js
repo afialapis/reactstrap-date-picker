@@ -1,16 +1,16 @@
 import React, {useState, useRef} from 'react'
-import {DatePicker} from '../../../src/index'
+import {DatePicker} from '../../../../src/index'
 
 import {
   getInputWrapper,
   getInputNode
-} from '../../tools/finders'
+} from '../../../tools/finders'
 
 const expect= global.expect
 const mount= global.mount
 
 
-describe('reactstrap-date-picker basics', function () {
+describe('props:input: inputRef', function () {
   this.timeout(500)
 
 

@@ -1,16 +1,16 @@
 import React from 'react'
-import {DatePicker} from '../../../src/index'
+import {DatePicker} from '../../../../src/index'
 
 import {
   getCalendarWrapper,
   getInputWrapper
-} from '../../tools/finders'
+} from '../../../tools/finders'
 
 const expect= global.expect
 const mount= global.mount
 
 
-describe('reactstrap-date-picker properties showTodayButton / todayButtonLabel', function () {
+describe('props:calendar: showTodayButton / todayButtonLabel', function () {
   this.timeout(150)
 
 

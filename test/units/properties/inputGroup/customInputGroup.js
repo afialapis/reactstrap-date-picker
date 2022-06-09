@@ -1,15 +1,15 @@
 import React from 'react'
-import {DatePicker} from '../../../src/index'
+import {DatePicker} from '../../../../src/index'
 
 import {
   getInputWrapper
-} from '../../tools/finders'
+} from '../../../tools/finders'
 
 const expect= global.expect
 const mount= global.mount
 
 
-describe('prop customInputGroup', function () {
+describe('props:inputGroup: customInputGroup', function () {
   this.timeout(100)
 
 

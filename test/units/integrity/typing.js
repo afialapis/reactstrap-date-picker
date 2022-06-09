@@ -8,7 +8,7 @@ import {
 const expect= global.expect
 const mount= global.mount
 
-describe('reactstrap-date-picker typing events', function () {
+describe('integrity: typing', function () {
   this.timeout(100)
 
   it('should trim extra characters.', () => {

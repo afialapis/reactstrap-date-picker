@@ -1,18 +1,18 @@
 
 import React, {useState} from 'react'
-import {DatePicker} from '../../../src/index'
+import {DatePicker} from '../../../../src/index'
 
 import {
   getHiddenInputValue,
   getInputWrapper,
   getCalendarDayWrapper
-} from '../../tools/finders'
+} from '../../../tools/finders'
 
 const expect= global.expect
 const mount= global.mount
 
 
-describe('reactstrap-date-picker properties minDate / maxDate', function () {
+describe('props:globals: minDate / maxDate', function () {
   this.timeout(150)
 
   it("should disable dates outside of min and max dates.", () => {

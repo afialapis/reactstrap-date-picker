@@ -1,15 +1,15 @@
 import React from 'react'
-import {DatePicker} from '../../../src/index'
+import {DatePicker} from '../../../../src/index'
 
 import {
   getInputNode,
-} from '../../tools/finders'
+} from '../../../tools/finders'
 
 const expect= global.expect
 const mount= global.mount
 
 
-describe('prop style', function () {
+describe('props:input: style', function () {
   this.timeout(100)
 
   it("should set the FormControl style.", () => {

@@ -1,16 +1,16 @@
 import React from 'react'
-import {DatePicker} from '../../../src/DatePicker'
-import {assertIsoStringsHaveSameDate} from '../../tools/checks'
+import {DatePicker} from '../../../../src/DatePicker'
+import {assertIsoStringsHaveSameDate} from '../../../tools/checks'
 
 import {
   getHiddenInputValue,
   getInputWrapper
-} from '../../tools/finders'
+} from '../../../tools/finders'
 
 const expect= global.expect
 const mount= global.mount
 
-describe('prop defaultValue', function () {
+describe('props:globals: defaultValue', function () {
   this.timeout(100)
 
 

@@ -1,16 +1,16 @@
 
 import React from 'react'
-import {DatePicker} from '../../../src/index'
+import {DatePicker} from '../../../../src/index'
 
 import {
   getInputWrapper
-} from '../../tools/finders'
+} from '../../../tools/finders'
 
 const expect= global.expect
 const mount= global.mount
 
 
-describe('prop calendarPlacement', function () {
+describe('props:calendar: calendarPlacement', function () {
   this.timeout(250)
   
   it("should allow for a string to determine calendar placement", () => {

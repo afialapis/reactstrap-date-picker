@@ -1,15 +1,15 @@
 import React from 'react'
-import {DatePicker} from '../../../src/index'
+import {DatePicker} from '../../../../src/index'
 
 import {
   getInputNode
-} from '../../tools/finders'
+} from '../../../tools/finders'
 
 const expect= global.expect
 const mount= global.mount
 
 
-describe('prop className', function () {
+describe('props:input: className', function () {
   this.timeout(100)
 
 

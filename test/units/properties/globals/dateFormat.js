@@ -1,17 +1,17 @@
 import React, {useState, useRef} from 'react'
-import {DatePicker} from '../../../src/index'
-import {assertIsoStringsHaveSameDate} from '../../tools/checks'
+import {DatePicker} from '../../../../src/index'
+import {assertIsoStringsHaveSameDate} from '../../../tools/checks'
 
 import {
   getInputWrapper,
   getInputNode
-} from '../../tools/finders'
+} from '../../../tools/finders'
 
 const expect= global.expect
 const mount= global.mount
 
 
-describe('reactstrap-date-picker basics', function () {
+describe('props:globals: dateFormat', function () {
   this.timeout(500)
 
   it("should automatically insert in YYYY/MM/DD format.", () => {

@@ -1,16 +1,16 @@
 import React from 'react'
-import {DatePicker} from '../../../src/index'
+import {DatePicker} from '../../../../src/index'
 
 import {
   getDocument,
   getInputNode
-} from '../../tools/finders'
+} from '../../../tools/finders'
 
 const expect= global.expect
 const mount= global.mount
 
 
-describe('prop autoFocus', function () {
+describe('props:input: autoFocus', function () {
   this.timeout(100)
 
 

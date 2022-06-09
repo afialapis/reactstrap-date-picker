@@ -1,17 +1,17 @@
 import React from 'react'
-import {DatePicker} from '../../../src/index'
+import {DatePicker} from '../../../../src/index'
 
 import {
   getInputWrapper,
   getInputNode,
   getCalendarRandomDayWrapper
-} from '../../tools/finders'
+} from '../../../tools/finders'
 
 const expect= global.expect
 const mount= global.mount
 
 
-describe('reactstrap-date-picker basics', function () {
+describe('props:events: changes', function () {
   this.timeout(500)
 
   it("should update via a change handler when the input is changed.", () => {

@@ -8,30 +8,39 @@ A Reactstrap based, zero dependencies, date picker.
 
 Demo and docs at [reactstrap-date-picker](https://reactstrap-date-picker.afialapis.com/).
 
+
 # Table of Contents
 
-1. [Installation](#install)
+1. [Installation](#installation)
 2. [Usage](#usage)
-3. [API Reference](#api)
-4. [Deeper customizing](#customizing)
-5. [Inspect this package](#inspect)
+3. [API Reference](#api-reference)
+4. [Deeper customizing](#deeper-customizing)
+5. [Inspect this package](#inspect-this-package)
 6. [Changelog](#changelog)
 
 
 # Installation
 
-`reactstrap-date-picker` is compatible with React 0.14.x, 0.15.x and 0.16.x.
+Using `npm`:
 
 ```bash
 npm install reactstrap-date-picker
 ```
 
+`reactstrap-date-picker` works with these [peer dependencies](https://nodejs.org/en/blog/npm/peer-dependencies/):
+  - [React](https://github.com/facebook/react) >= 16.13.1
+  - [Reactstrap](https://github.com/reactstrap/reactstrap) >= 8.5.1
+    * [Bootstrap](https://github.com/twbs/bootstrap) >= 4.5.2
+
+Check [Changelog](#changelog) for more info on other versions.
+
+
 # Usage
 
 ```js
 import React, {useState, useEffect} from 'react
-import {FormGroup, Label, FormText} from 'reactstrap';
-var DatePicker = require("reactstrap-date-picker");
+import {FormGroup, Label, FormText} from 'reactstrap'
+import {DatePicker} from 'reactstrap-date-picker'
 
 const App = () => {
   const [value, setValue]= useState(new Date().toISOString())
@@ -66,11 +75,27 @@ const App = () => {
 
 `reactstrap-date-picker`'s public component.
 
+```js
+import {DatePicker} from 'reactstrap-date-picker'
 
+const Example = () => {
+  ...
+  return (
+    ...
+      <DatePicker {props} />
+    ...
+  )
+}
 
-### Global properties
+```
 
-#### `value`
+<details>
+<summary>
+## Global properties
+</summary>
+<p>
+
+### `value`
 
 ISO date string representing the current value. Cannot be set alongside `defaultValue`.
 
@@ -78,7 +103,7 @@ ISO date string representing the current value. Cannot be set alongside `default
   * Type: `string`.
   * Example: `"2016-05-19T12:00:00.000Z"`
 
-#### `defaultValue`
+### `defaultValue`
 
 ISO date string representing the default value. Cannot be set alongside `value`.
 
@@ -86,7 +111,7 @@ ISO date string representing the default value. Cannot be set alongside `value`.
   * Type: `string`
   * Example: `"2016-05-19T12:00:00.000Z"`
 
-#### `id`
+### `id`
 
 HTML identifier for the `reactstrap-date-picker`'s input (the hidden one). You may
 want to use it in case you need to traverse somehow the DOM.
@@ -95,7 +120,7 @@ want to use it in case you need to traverse somehow the DOM.
   * Type: `string`.
   * Example: `"example-datepicker"`
 
-#### `name`
+### `name`
 
 HTML `name` attribute for the `reactstrap-date-picker`'s input (the hidden one). You may
 need to use it depending on how your handle your Forms.
@@ -104,7 +129,7 @@ need to use it depending on how your handle your Forms.
   * Type: `string`.
   * Example: `"date-field"`
 
-#### `dateFormat`
+### `dateFormat`
 
 Date format. Any combination of DD, MM, YYYY and separator.
 
@@ -112,7 +137,7 @@ Date format. Any combination of DD, MM, YYYY and separator.
   * Type: `string`
   * Examples: `"MM/DD/YYYY"`, `"YYYY/MM/DD"`, `"MM-DD-YYYY"`, or `"DD MM YYYY"`
 
-#### `minDate`
+### `minDate`
 
 ISO date string to set the lowest allowable date value.
 
@@ -120,7 +145,7 @@ ISO date string to set the lowest allowable date value.
   * Type: `string`
   * Example: `"2016-05-19T12:00:00.000Z"`
 
-#### `maxDate`
+### `maxDate`
 
 ISO date string to set the highest allowable date value.
 
@@ -128,7 +153,7 @@ ISO date string to set the highest allowable date value.
   * Type: `string`
   * Example: `"2016-05-19T12:00:00.000Z"`
 
-#### `showClearButton`
+### `showClearButton`
 
 Toggles the visibility of the clearButton
 
@@ -136,19 +161,23 @@ Toggles the visibility of the clearButton
   * Type: `bool`
   * Default: `false`
 
-#### `clearButtonElement`
+### `clearButtonElement`
 
 Character or component to use for the clear button.
 
   * Optional
   * Type: `string` or `ReactClass`
   * Default: `"×"`
+</p>
+</details>
 
+<details>
+<summary>
+## Input properties
+</summary>
+<p>
 
-### Input properties
-
-
-#### `autoComplete`
+### `autoComplete`
 
 Hint for form autofill feature.
 
@@ -156,7 +185,7 @@ Hint for form autofill feature.
   * Type: `string`
   * Default: `on`
 
-#### `autoFocus`
+### `autoFocus`
 
 Whether or not component starts with focus.
 
@@ -164,7 +193,7 @@ Whether or not component starts with focus.
   * Type: `bool`
   * Default: `false`
 
-#### `disabled`
+### `disabled`
 
 Whether or not component is disabled.
 
@@ -172,7 +201,7 @@ Whether or not component is disabled.
   * Type: `bool`
   * Default: `false`
 
-#### `noValidate`
+### `noValidate`
 
 When present, it specifies that the form-data (input) should not be validated when submitted.
 
@@ -180,8 +209,7 @@ When present, it specifies that the form-data (input) should not be validated wh
   * Type: `bool`
   * Default: `false`
 
-
-#### `placeholder`
+### `placeholder`
 
 Text that appears in the form control when it has no value set.
 
@@ -189,7 +217,7 @@ Text that appears in the form control when it has no value set.
   * Type: `text`
   * Example: `John Doe`
 
-#### `required`
+### `required`
 
 `boolean`. A value is required or must be check for the form to be submittable
 
@@ -197,8 +225,7 @@ Text that appears in the form control when it has no value set.
   * Type: `boolean`
   * Default: `false`
 
-
-#### `className`
+### `className`
 
 Class name passed to the Form Control input element.
 
@@ -206,7 +233,7 @@ Class name passed to the Form Control input element.
   * Type: `string`
   * Example: `example-class`
 
-#### `style`
+### `style`
 
 Style object passed to the Form Control input element.
 
@@ -214,15 +241,14 @@ Style object passed to the Form Control input element.
   * Type: `object`
   * Example: `{width: "100%"}`
 
-
-#### `inputRef`
+### `inputRef`
 
 A React ref to the Form Control input element
 
   * Optional
   * Type: `ref`
 
-#### `customControl`
+### `customControl`
 
 Overwrite the default Form Control component with your own component.
 
@@ -230,19 +256,22 @@ Overwrite the default Form Control component with your own component.
   * Type: `React.Component`
   * Example: `<CustomControl />`
 
-#### `children`
+### `children`
 
 `children` elements from the Form Control`
 
   * Optional
   * Type: `React.Component`
+</p>
+</details>
 
+<details>
+<summary>
+## Input Group properties
+</summary>
+<p>
 
-
-
-### Input Group properties
-
-#### `size`
+### `size`
 
 Size of the input
 
@@ -252,7 +281,7 @@ Size of the input
 
 You can also override it completely and pass your own component:
 
-#### `valid`
+### `valid`
 
 Applies the `is-valid` class when `true`, does nothing when `false`
 
@@ -260,7 +289,7 @@ Applies the `is-valid` class when `true`, does nothing when `false`
   * Type: `bool`
   * Example: `true`
 
-#### `invalid`
+### `invalid`
 
 Applies the `is-invalid` class when `true`, does nothing when `false`
 
@@ -268,19 +297,23 @@ Applies the `is-invalid` class when `true`, does nothing when `false`
   * Type: `bool`
   * Example: `true`  
 
-#### `customInputGroup`
+### `customInputGroup`
 
 Overwrite the default InputGroup component with your own component.
 
   * Optional
   * Type: `React.Component`
   * Example: `<CustomInputGroup />`
+</p>
+</details>
 
+<details>
+<summary>
+## Calendar properties
+</summary>
+<p>
 
-### Calendar properties
-
-
-#### `dayLabels`
+### `dayLabels`
 
 Array of day names to use in the calendar. Starting on Sunday.
 
@@ -288,7 +321,7 @@ Array of day names to use in the calendar. Starting on Sunday.
   * Type: `array`
   * Default: `['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']`
 
-#### `monthLabels`
+### `monthLabels`
 
 Array of month names to use in the calendar.
 
@@ -296,7 +329,7 @@ Array of month names to use in the calendar.
   * Type: `array`
   * Default: `['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']`
 
-#### `weekStartsOn`
+### `weekStartsOn`
 
 Makes the calendar's week to start on a specified day. 0 = Sunday, 1 = Monday, etc.
 
@@ -304,7 +337,7 @@ Makes the calendar's week to start on a specified day. 0 = Sunday, 1 = Monday, e
   * Type: `number`
   * Example: `4`
 
-#### `showWeeks`
+### `showWeeks`
 
 Shows the number of the week in the calendar
 
@@ -312,7 +345,7 @@ Shows the number of the week in the calendar
   * Type: `bool`
   * Default: `false`
 
-#### `previousButtonElement`
+### `previousButtonElement`
 
 Character or component to use for the calendar's previous button.
 
@@ -320,7 +353,7 @@ Character or component to use for the calendar's previous button.
   * Type: `string` or `ReactClass`
   * Default: `"<"`
 
-#### `nextButtonElement`
+### `nextButtonElement`
 
 Character or component to use for the calendar's next button.
 
@@ -328,7 +361,7 @@ Character or component to use for the calendar's next button.
   * Type: `string` or `ReactClass`
   * Default: `">"`
 
-#### `showTodayButton`
+### `showTodayButton`
 
 Toggles the visibility of the today-button.
 
@@ -336,7 +369,7 @@ Toggles the visibility of the today-button.
   * Type: `boolean`
   * Default: `false`
 
-#### `todayButtonLabel`
+### `todayButtonLabel`
 
 Label for the today-button
 
@@ -344,7 +377,7 @@ Label for the today-button
   * Type: `string`
   * Default: `"Today"`
 
-#### `cellPadding`
+### `cellPadding`
 
 CSS padding value for calendar date cells.
 
@@ -352,7 +385,7 @@ CSS padding value for calendar date cells.
   * Type: `string`
   * Default: `"5px"`
 
-#### `roundedCorners`
+### `roundedCorners`
 
 CSS border-radius value for calendar date cells.
 
@@ -360,7 +393,7 @@ CSS border-radius value for calendar date cells.
   * Type: `bool`
   * Default: `false`
 
-#### `calendarPlacement`
+### `calendarPlacement`
 
 Overlay placement for the popover calendar.
 
@@ -368,18 +401,23 @@ Overlay placement for the popover calendar.
   * Type: `string` or `function`
   * Default: `"top"`
 
-#### `calendarContainer`
+### `calendarContainer`
 
 Overlay container for the popover calendar. When placing the date-picker in a scrolling container, set this prop to some ancestor of the scrolling container.
 
   * Optional
   * Type: A DOM element or a component
   * Example: `document.body`
+</p>
+</details>
 
+<details>
+<summary>
+## Event properties
+</summary>
+<p>
 
-### Event properties
-
-#### `onChange`
+### `onChange`
 
 Change callback function.
 
@@ -393,14 +431,14 @@ Change callback function.
       * Type: `String`
       * Example: `"05/19/2016"`
 
-#### `onClear`
+### `onClear`
 
 Defines what happens when clear button is clicked.
 
   * Optional
   * Type: `function`
 
-#### `onFocus`
+### `onFocus`
 
 Focus callback function.
 
@@ -410,7 +448,7 @@ Focus callback function.
     * `event` : Focus event.
       * Type: `Event`
 
-#### `onBlur`
+### `onBlur`
 
 Blur callback function.
 
@@ -420,20 +458,25 @@ Blur callback function.
     * `event` : Blur event.
       * Type: `Event`
 
-#### `onInvalid`
+### `onInvalid`
 
 Defines what happens when input has not passed the form validation.
 
   * Optional
   * Type: `function`
+</p>
+</details>
 
 
-
+<details>
+<summary>
 # Deeper customizing
+</summary>
+<p>
 
 You can also customize `reactstrap-date-picker` trough element's `id` or `class` attributes.
 
-`reactstrap-date-picker` renders several elements, all contained within a [reactstrap InputGroup](https://reactstrap.github.io/components/form/).
+`reactstrap-date-picker` renders several elements, all contained within a [reactstrap InputGroup](https://reactstrap.github.io/?path=/docs/components-inputgroup--input-group).
 Such elements will have its unique `id` attribute, plus `reactstrap-date-picker` custom `class` names (prefixed by `rdp-*`).
 
 The rendered DOM structure seems like this:
@@ -464,8 +507,7 @@ The rendered DOM structure seems like this:
       </div>
     </div>
     <input class="rdp-hidden" id="props.id or rdp-hidden-SUFFIX" />
-    <div class="input-group-addon rdp-addon">
-      <span class="input-group-text">
+    <div class="input-group-text rdp-addon">
     </div>
   </div>
 ```
@@ -487,7 +529,8 @@ So, the idea is, depending on your needs:
 
   · if you will perform more complex operations, then use `props.name` or `props.id`, and pay attention to the
     previous DOM structure and the `SUFFIX` presences
-
+</p>
+</details>
 
 
 # Inspect this package
@@ -500,7 +543,7 @@ npm run demo
 
 ```
 
-And visit [http://localhost:3002](http://localhost:3002) on your browser
+And visit [http://localhost:3010](http://localhost:3010) on your browser
 
 
 ## Running Tests
@@ -511,16 +554,16 @@ npm run test
 
 ```
 
-
+<details>
+<summary>
 # Changelog
-
+</summary>
+<p>
 
 Originally based on [react-bootstrap-date-picker](https://github.com/pushtell/react-bootstrap-date-picker/),
-`reactstrap-date-picker` has evolved. From v1 it has been refactored, using React hooks, 
+`reactstrap-date-picker` has evolved. From v1.0 it has been refactored, using React hooks, 
 with cleaner code and an improved final performance.
 
-reactstrap-date-picker 0.0.16: uses reactstrap 9.0.1 (InputGroupText), and needs bootstrap 5.1.3
-reactstrap-date-picker 0.0.12: uses reactstrap 8.5.1 (InputGroupAddon), and needs bootstrap 4.5.2
 
 ## 1.0.0
   · Introduction of React Hooks
@@ -548,3 +591,5 @@ reactstrap-date-picker 0.0.12: uses reactstrap 8.5.1 (InputGroupAddon), and need
     - React >= 14
     - Reactstrap 8.5.1
     - Bootstrap 4.5.2
+</p>
+</details>

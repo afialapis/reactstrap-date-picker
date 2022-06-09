@@ -1,12 +1,12 @@
 import React from 'react'
-import {DatePicker} from '../../../src/index'
+import {DatePicker} from '../../../../src/index'
 
-import {getInputWrapper,  getCalendarWrapper} from '../../tools/finders'
+import {getInputWrapper,  getCalendarWrapper} from '../../../tools/finders'
 
 const expect= global.expect
 const mount= global.mount
 
-describe('prop dayLabels', function () {
+describe('props:calendar: dayLabels', function () {
   this.timeout(300)
 
   it("should render custom day labels", (done) => {

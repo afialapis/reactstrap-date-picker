@@ -1,12 +1,12 @@
 import React from 'react'
-import {DatePicker} from '../../../src/index'
+import {DatePicker} from '../../../../src/index'
 
-import {getInputWrapper,  getCalendarWrapper} from '../../tools/finders'
+import {getInputWrapper,  getCalendarWrapper} from '../../../tools/finders'
 
 const expect= global.expect
 const mount= global.mount
 
-describe('prop previousButtonElement', function () {
+describe('props:calendar: previousButtonElement', function () {
   this.timeout(150)
 
 

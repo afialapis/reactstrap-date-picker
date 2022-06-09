@@ -1,10 +1,10 @@
 import React from 'react'
-import {DatePicker} from '../../../src/index'
+import {DatePicker} from '../../../../src/index'
 
 const expect= global.expect
 const mount= global.mount
 
-describe('prop roundedCorners', function () {
+describe('props:calendar: roundedCorners', function () {
   this.timeout(200)
 
   it("should allow for rounded corners.", () => {

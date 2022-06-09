@@ -1,5 +1,5 @@
 import React from 'react'
-import {DatePicker} from '../../../src/index'
+import {DatePicker} from '../../../../src/index'
 
 import {
   getHiddenInputValue,
@@ -7,13 +7,13 @@ import {
   getInputNode,
   getCalendarWrapper,
   getCalendarDayHeaderWrapper
-} from '../../tools/finders'
+} from '../../../tools/finders'
 
 const expect= global.expect
 const mount= global.mount
 
 
-describe('prop weekStartsOn', function () {
+describe('props:calendar: weekStartsOn', function () {
   //this.timeout(10000)
   this.timeout(3000)
 

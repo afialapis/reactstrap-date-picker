@@ -1,10 +1,10 @@
 import React from 'react'
-import {DatePicker} from '../../../src/index'
+import {DatePicker} from '../../../../src/index'
 
 const expect= global.expect
 const mount= global.mount
 
-describe('prop customControl', function () {
+describe('props:input: customControl', function () {
   this.timeout(100)
   
   it('should render a custom button element', () => {

@@ -4,20 +4,15 @@ import {assertIsoStringsHaveSameDate} from '../../tools/checks'
 
 import {
   getHiddenInputWrapper,
-  getHiddenInputNode,
   getHiddenInputValue,
-  getHiddenInputFmtValue,
-  getInputWrapper,
-  getInputNode,
-  getCalendarRandomDayWrapper,
-  getCalendarRandomDayNode
+  getHiddenInputFmtValue
 } from '../../tools/finders'
 
 const expect= global.expect
 const mount= global.mount
 
 
-describe('reactstrap-date-picker basic integrity', function () {
+describe('integrity: basic', function () {
   this.timeout(100)
 
 
