@@ -23,13 +23,13 @@ const inputProps = {
 }
 
 const inputDefaultrops= {
-  autoFocus            : false,
-  disabled             : false,
-  autoComplete         : 'on',
+  autoFocus    : false,
+  disabled     : false,
+  autoComplete : 'on',
   /*style: {
     width: '100%'
   },*/
-  noValidate: false
+  noValidate   : false
 }
 
 export {inputProps, inputDefaultrops}
