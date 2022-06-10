@@ -38,7 +38,7 @@ const baseCfg= (output, withReplace, withTerser) => {
   return {
     input: input,
     output: output,
-    external: ['react', 'react-dom', 'reactstrap'],
+    external: ['react', 'react-dom', 'prop-types', 'reactstrap'],
     plugins: plugins  
   }
 }
@@ -80,6 +80,7 @@ module.exports = [
     globals: {
       'react': 'React',
       'react-dom': 'ReactDOM',
+      'prop-types': 'ReactPropTypes',
       'reactstrap': 'Reactstrap'
     }
   }, true, false),
@@ -90,6 +91,7 @@ module.exports = [
     globals: {
       'react': 'React',
       'react-dom': 'ReactDOM',
+      'prop-types': 'ReactPropTypes',
       'reactstrap': 'Reactstrap'
     }
   }, true, true), 
