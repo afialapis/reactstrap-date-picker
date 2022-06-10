@@ -80,7 +80,7 @@ module.exports = [
     globals: {
       'react': 'React',
       'react-dom': 'ReactDOM',
-      'prop-types': 'ReactPropTypes',
+      'prop-types': 'PropTypes',
       'reactstrap': 'Reactstrap'
     }
   }, true, false),
@@ -91,7 +91,7 @@ module.exports = [
     globals: {
       'react': 'React',
       'react-dom': 'ReactDOM',
-      'prop-types': 'ReactPropTypes',
+      'prop-types': 'PropTypes',
       'reactstrap': 'Reactstrap'
     }
   }, true, true), 

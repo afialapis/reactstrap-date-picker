@@ -17,9 +17,11 @@ export default {
     globals: {
       'react': 'React',
       'react-dom': 'ReactDOM',
+      'prop-types': 'PropTypes',
       'reactstrap': 'Reactstrap'
     }
   },
+  external: ['react', 'react-dom', 'prop-types', 'reactstrap'],
   plugins: [
     replace({
       preventAssignment: true,
