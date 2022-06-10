@@ -1,17 +1,26 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
 <head>
   <!--[if lt IE 9]>
     <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.js"></script>
   <![endif]-->
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>reactstrap-date-picker demo</title>
-  <meta name="description" content="">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta charset="utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+  <title>reactstrap-date-picker playground (current)</title>
+  <meta name="description" content=""/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
   <link rel="stylesheet" type="text/css" href="https://www.unpkg.com/bootstrap@4.5.2/dist/css/bootstrap.css"/>
-  <link rel="stylesheet" type="text/css" href="dist/bundle.css"/>
   <link rel="icon" href="img/reactstrap_date_picker.ico"/> 
+
+  <style>
+    .App {
+      font-family: sans-serif;
+      text-align: center;
+      max-width: 200px;
+      margin: 2rem auto;
+    }
+
+  </style>
 </head>
 <body>
   <!--[if lt IE 8]>
@@ -27,20 +36,31 @@
   <script type="text/javascript" src="https://www.unpkg.com/react-dom@16.13.1/umd/react-dom.development.js"></script>
   <script src="https://unpkg.com/prop-types@15.8.1/prop-types.js"></script>
   <script type="text/javascript" src="https://www.unpkg.com/reactstrap@8.5.1/dist/reactstrap.full.js"></script>
-  
 
-  
+  <script type="text/javascript"  src="https://unpkg.com/@babel/standalone/babel.js"></script>
 
-  <script src="dist/bundle.js"></script>
-  <script>
-    // Sanity-check the component loaded...
-    setTimeout(function () {
-      var content = document.querySelector("#content");
-      var warning = "If you can see this, something is broken (or JS is not enabled)!";
-      if (!content.innerHTML) {
-        content.innerHTML = warning;
-      }
-    }, 500);
+  <script src="../../dist/reactstrap-date-picker.umd.js"></script>
+
+  <script type="text/babel">
+   
+
+    function App() {
+      return (
+        <div className="App">
+          <ReactstrapDatePicker.DatePicker
+            name={"reactstrap_date_picker_size-small"}
+            instanceCount={7}
+            value={"2022-03-01"}
+            onChange={(v, _f) => setValue(v)}
+            size="sm"
+          />
+        </div>
+      );
+    }
+
+
+    ReactDOM.render(<App />, document.getElementById('content'))
   </script>
+
 </body>
 </html>
