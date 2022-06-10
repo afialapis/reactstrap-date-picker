@@ -568,11 +568,12 @@ with cleaner code and an improved final performance.
 ## 1.0.0
   · Introduction of React Hooks
   · Deep refactor of the source code
-  · Introduction of new API, still backwards compatible
   · Supported versions:
     - React >= 16.13.1
-    - Reactstrap 8.5.1
-    - Bootstrap 4.5.2
+    - Reactstrap >= 8.5.1
+    - Bootstrap >= 4.5.2
+  · Improved performance
+  · Smaller bundle sizes
 
 
 ## 0.0.16
