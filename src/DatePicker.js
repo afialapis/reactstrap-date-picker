@@ -62,9 +62,7 @@ function _DatePicker (props, ref) {
     <InputGroup
       customInputGroup  = {customInputGroup}
       size              = {size}
-      inputId           = {groupInputId}
-      valid             = {valid}
-      invalid           = {invalid}>
+      inputId           = {groupInputId}>
 
       <InputControlInput 
         controlId         = {controlInputId}
@@ -80,6 +78,8 @@ function _DatePicker (props, ref) {
         autoComplete      = {autoComplete}
         onInvalid         = {onInvalid}
         noValidate        = {noValidate}
+        valid             = {valid}
+        invalid           = {invalid}
         onFocus           = {() => handleFocus()}
         onBlur            = {(e) => handleBlur(e?.data?.rdp_close_calendar || false) }
         onChange          = {() => handleInputChange()}

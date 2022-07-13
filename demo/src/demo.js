@@ -15,6 +15,8 @@ import RDPPlacementLeft from './samples/RDPPlacementLeft'
 import RDPPlacementRight from './samples/RDPPlacementRight'
 import RDPCustomInputGroup from './samples/RDPCustomInputGroup'
 import RDPCustomFormControl from './samples/RDPCustomFormControl'
+import RDPValidityValid from './samples/RDPValidityValid'
+import RDPValidityInvalid from './samples/RDPValidityInvalid'
 
 import '../../node_modules/bootstrap/dist/css/bootstrap.min.css'
 import './demo.scss'
@@ -109,6 +111,10 @@ const Demo = () => {
 
         <Title title="Custom components"/>
         <Pair one={RDPCustomInputGroup} two={RDPCustomFormControl}/>
+
+        <Title title="Validity"/>
+        <Pair one={RDPValidityValid} two={RDPValidityInvalid}/>
+                
         
         
       </Container>
