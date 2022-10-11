@@ -562,7 +562,7 @@ with cleaner code and an improved final performance.
 
 <details>
 <summary>
-> Expand
+Expand
 </summary>
 <p>
 
