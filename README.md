@@ -554,16 +554,17 @@ npm run test
 
 ```
 
-<details>
-<summary>
 # Changelog
-</summary>
-<p>
 
 Originally based on [react-bootstrap-date-picker](https://github.com/pushtell/react-bootstrap-date-picker/),
 `reactstrap-date-picker` has evolved. From v1.0 it has been refactored, using React hooks, 
 with cleaner code and an improved final performance.
 
+<details>
+<summary>
+> Expand
+</summary>
+<p>
 
 ## 1.0.0
   · Introduction of React Hooks
