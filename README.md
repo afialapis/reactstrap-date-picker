@@ -566,6 +566,15 @@ Expand
 </summary>
 <p>
 
+
+## 1.0.2
+
+· Fixed [issue #20: In/valid props doesn't apply the reactstrap in/valid css style](https://github.com/afialapis/reactstrap-date-picker/issues/20)
+
+## 1.0.1
+
+· Fixed [issue #19: ReferenceError: Element is not defined](https://github.com/afialapis/reactstrap-date-picker/issues/19)
+
 ## 1.0.0
 
 · Introduction of React Hooks
@@ -593,9 +602,9 @@ Expand
 
 ## 0.0.12
 
-· Fixed issue #15: placeholder will not fallback to dateFormat
+· Fixed [issue #15: placeholder will not fallback to dateFormat](https://github.com/afialapis/reactstrap-date-picker/issues/15)
 
-· Fixed issue #16. do not allow keyboard input of dates out of minDate/maxDate
+· Fixed [issue #16. do not allow keyboard input of dates out of minDate/maxDate](https://github.com/afialapis/reactstrap-date-picker/issues/16)
 
 · Supported versions:
 - React >= 14
