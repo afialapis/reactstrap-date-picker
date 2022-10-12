@@ -55,7 +55,7 @@ function CalendarHeader ({
   const handleChangeYear = (y) => {
     const newDisplayDate = new Date(displayDate)
     newDisplayDate.setDate(1)
-    newDisplayDate.setYear(y)
+    newDisplayDate.setFullYear(y)
     onChange(newDisplayDate)
   }
 
