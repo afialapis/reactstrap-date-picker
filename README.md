@@ -567,19 +567,25 @@ Expand
 <p>
 
 ## 1.0.0
+
   · Introduction of React Hooks
+
   · Deep refactor of the source code
+
   · Supported versions:
     - React >= 16.13.1
     - Reactstrap >= 8.5.1
     - Bootstrap >= 4.5.2
+
   · Improved performance
+
   · Smaller bundle sizes
 
 
 ## 0.0.16
 
   · Version to use if you wanna go Reactstrap 9
+
   · Supported versions:
     - React >= 14
     - Reactstrap 9.0.1
@@ -588,7 +594,9 @@ Expand
 ## 0.0.12
 
   · Fixed issue #15: placeholder will not fallback to dateFormat
+
   · Fixed issue #16. do not allow keyboard input of dates out of minDate/maxDate
+
   · Supported versions:
     - React >= 14
     - Reactstrap 8.5.1
