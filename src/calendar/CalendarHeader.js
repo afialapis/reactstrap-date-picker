@@ -9,6 +9,7 @@ function CalendarHeader ({
   const [displayingMinMonth, setDisplayingMinMonth]= useState(false)
   const [displayingMaxMonth, setDisplayingMaxMonth]= useState(false)
   const [title, setTitle]= useState('')
+  const PickMonthElement = pickMonthElement
  
   useEffect(() => {    
     if (displayDate==undefined) {
@@ -68,15 +69,15 @@ function CalendarHeader ({
       </div>
       
       <div style={{flex: 'auto'}}>{
-        pickMonthElement==null
+        PickMonthElement==null
         ? <span>{title}</span>
-        : pickMonthElement({
-            displayDate   : displayDate,
-            minDate       : minDate,
-            maxDate       : maxDate,
-            onChangeMonth : (m) => handleChangeMonth(m),
-            onChangeYear  : (y) => handleChangeYear(y)
-        })
+        : <PickMonthElement
+            displayDate   = { displayDate }
+            minDate       = { minDate }
+            maxDate       = { maxDate }
+            onChangeMonth = { (m) => handleChangeMonth(m) }
+            onChangeYear  = { (y) => handleChangeYear(y) }/>
+        
       }</div>
       <div className= "text-muted rdp-header-next-wrapper" 
             onClick  = {() => handleChangeMonth(+1)} 

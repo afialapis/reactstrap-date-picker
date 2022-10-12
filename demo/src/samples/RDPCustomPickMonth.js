@@ -13,7 +13,7 @@ const MONTH_NAMES= ['January', 'February', 'March', 'April',
 
 const YEARS = [2018, 2019, 2020, 2021, 2022, 2023, 2024]
 
-const PickMonthElement = ({displayDate, minDate, maxDate, onChangeMonth, onChangeYear}) => {
+const PickMonthElement = ({displayDate, _minDate, _maxDate, onChangeMonth, onChangeYear}) => {
   const [month, setMonth]= useState((new Date(displayDate)).getMonth())
   const [year, setYear]= useState((new Date(displayDate)).getFullYear())
 
