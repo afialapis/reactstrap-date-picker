@@ -514,21 +514,17 @@ The rendered DOM structure seems like this:
 
 This `SUFFIX` is:
 
-  · `props.name`
-
-  · if `props.name` is not passed, then use `props.id`
-
-  · if `props.id` is not passed, then take a global counter of active `reactstrap-date-picker` instances
+· `props.name`
+· if `props.name` is not passed, then use `props.id`
+· if `props.id` is not passed, then take a global counter of active `reactstrap-date-picker` instances
 
 So, the idea is, depending on your needs:
 
-  · if you don't need handle `id`s at all, `reactstrap-date-picker` will render unique `id` with no problem
-
-  · if you need a basic `id` usage, for example accessing the `reactstrap-date-picker`'s value from the DOM, then 
-    you just have to pass `props.id` and get the value from the element with that `id`
-
-  · if you will perform more complex operations, then use `props.name` or `props.id`, and pay attention to the
-    previous DOM structure and the `SUFFIX` presences
+· if you don't need handle `id`s at all, `reactstrap-date-picker` will render unique `id` with no problem
+· if you need a basic `id` usage, for example accessing the `reactstrap-date-picker`'s value from the DOM, then 
+  you just have to pass `props.id` and get the value from the element with that `id`
+· if you will perform more complex operations, then use `props.name` or `props.id`, and pay attention to the
+  previous DOM structure and the `SUFFIX` presences
 </p>
 </details>
 
@@ -568,18 +564,14 @@ Expand
 
 ## 1.0.0
 
-  · Introduction of React Hooks
-
-  · Deep refactor of the source code
-
-  · Supported versions:
-    - React >= 16.13.1
-    - Reactstrap >= 8.5.1
-    - Bootstrap >= 4.5.2
-
-  · Improved performance
-
-  · Smaller bundle sizes
+· Introduction of React Hooks
+· Deep refactor of the source code
+· Supported versions:
+- React >= 16.13.1
+- Reactstrap >= 8.5.1
+- Bootstrap >= 4.5.2
+· Improved performance
+· Smaller bundle sizes
 
 
 ## 0.0.16
