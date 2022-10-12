@@ -584,22 +584,20 @@ Expand
 
 ## 0.0.16
 
-  · Version to use if you wanna go Reactstrap 9
-
-  · Supported versions:
-    - React >= 14
-    - Reactstrap 9.0.1
-    - Bootstrap 5.1.3
+· Version to use if you wanna go Reactstrap 9
+· Supported versions:
+- React >= 14
+- Reactstrap 9.0.1
+- Bootstrap 5.1.3
 
 ## 0.0.12
 
-  · Fixed issue #15: placeholder will not fallback to dateFormat
+· Fixed issue #15: placeholder will not fallback to dateFormat
+· Fixed issue #16. do not allow keyboard input of dates out of minDate/maxDate
+· Supported versions:
+- React >= 14
+- Reactstrap 8.5.1
+- Bootstrap 4.5.2
 
-  · Fixed issue #16. do not allow keyboard input of dates out of minDate/maxDate
-
-  · Supported versions:
-    - React >= 14
-    - Reactstrap 8.5.1
-    - Bootstrap 4.5.2
 </p>
 </details>
