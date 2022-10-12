@@ -10,6 +10,7 @@ const calendarProps= {
 
   previousButtonElement: propElemOrString,
   nextButtonElement: propElemOrString,
+  pickMonthElement: propRef,
 
   showTodayButton: PropTypes.bool,
   todayButtonLabel: PropTypes.string,
@@ -36,6 +37,7 @@ const calendarDefaultProps= {
                  'October', 'November', 'December'],
   previousButtonElement: '<',
   nextButtonElement    : '>',
+  pickMonthElement     : undefined,
   calendarPlacement    : 'bottom',
   showTodayButton      : false,
   todayButtonLabel     : 'Today',

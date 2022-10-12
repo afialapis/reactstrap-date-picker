@@ -2,8 +2,9 @@
 import React, {useState, useEffect} from 'react'
 import {compareMonths} from '../util/compareMonths'
 
-function CalendarHeader ({previousButtonElement, nextButtonElement, displayDate, minDate,
-                           maxDate, onChange, monthLabels}) {
+function CalendarHeader ({
+   previousButtonElement, nextButtonElement, pickMonthElement,
+   displayDate, minDate, maxDate, onChange, monthLabels}) {
   
   const [displayingMinMonth, setDisplayingMinMonth]= useState(false)
   const [displayingMaxMonth, setDisplayingMaxMonth]= useState(false)
@@ -43,17 +44,21 @@ function CalendarHeader ({previousButtonElement, nextButtonElement, displayDate,
   }
 
   return (
-    <div className="rdp-header text-center">
+    <div className="rdp-header text-center" style={{display: 'flex', flexFlow: 'row', flexWrap: 'wrap', width: '100%'}}>
       <div className= "text-muted rdp-header-previous-wrapper" 
             onClick  = {() => handleChangeMonth(-1)}
-            style    = {{cursor: 'pointer', float: 'left', userSelect: 'none'}}>
+            style    = {{cursor: 'pointer', userSelect: 'none'}}>
         {displayingMinMonth ? null : previousButtonElement}
       </div>
       
-      <span>{title}</span>
+      <div style={{flex: 'auto'}}>{
+        pickMonthElement==null
+        ? title
+        : <pickMonthElement/> 
+      }</div>
       <div className= "text-muted rdp-header-next-wrapper" 
             onClick  = {() => handleChangeMonth(+1)} 
-            style    = {{cursor: 'pointer', float: 'right', userSelect: 'none'}}>
+            style    = {{cursor: 'pointer', userSelect: 'none'}}>
         {displayingMaxMonth ? null : nextButtonElement}
       </div>
     </div>

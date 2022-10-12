@@ -20,7 +20,8 @@ function _DatePicker (props, ref) {
     onChange, onFocus, onBlur, onClear, onInvalid, 
     id, name, required, placeholder, inputRef, noValidate, valid, invalid, 
     customInputGroup, style, className, autoComplete, autoFocus, disabled, size, 
-    customControl, showClearButton, clearButtonElement, previousButtonElement, nextButtonElement, 
+    customControl, showClearButton, clearButtonElement, 
+    previousButtonElement, nextButtonElement, pickMonthElement,
     cellPadding, roundedCorners, dayLabels, monthLabels, calendarPlacement, calendarContainer, 
     showWeeks, showTodayButton, todayButtonLabel, children } = props
 
@@ -92,6 +93,7 @@ function _DatePicker (props, ref) {
         target               = {controlInputId}
         previousButtonElement= {previousButtonElement}
         nextButtonElement    = {nextButtonElement}
+        pickMonthElement     = {pickMonthElement}
         displayDate          = {displayDate}
         minDate              = {minDate}
         maxDate              = {maxDate}

@@ -12,7 +12,7 @@ const Calendar = (
   {selectedDate, displayDate, minDate, maxDate, onChange, dayLabels, 
     cellPadding, weekStartsOn, showTodayButton, todayButtonLabel, 
     roundedCorners, showWeeks, monthLabels, previousButtonElement, 
-    nextButtonElement, placement, open, 
+    nextButtonElement, pickMonthElement, placement, open, 
     container, target,  onChangeMonth}) => {
   const calendarDays = useCalendarDays(displayDate, selectedDate, minDate, maxDate, weekStartsOn)
   
@@ -44,6 +44,7 @@ const Calendar = (
           <CalendarHeader
               previousButtonElement= {previousButtonElement}
               nextButtonElement    = {nextButtonElement}
+              pickMonthElement     = {pickMonthElement}
               displayDate          = {displayDate}
               minDate              = {minDate}
               maxDate              = {maxDate}
@@ -104,6 +105,10 @@ Calendar.propTypes= {
     PropTypes.string,
     PropTypes.object
   ]).isRequired,  
+  pickMonthElement: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.object
+  ]),
   placement: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.func
