@@ -96,7 +96,7 @@ Calendar.propTypes= {
   todayButtonLabel: PropTypes.string,
   roundedCorners  : PropTypes.bool,
   showWeeks       : PropTypes.bool,
-  monthLabels: PropTypes.array.isRequired,
+  monthLabels: PropTypes.array,
   previousButtonElement: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.object

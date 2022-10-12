@@ -28,7 +28,9 @@ function CalendarHeader ({
     }
 
     try {
-      setTitle(`${monthLabels[displayDate.getMonth()]} ${displayDate.getFullYear()}`)
+      if (monthLabels) {
+        setTitle(`${monthLabels[displayDate.getMonth()]} ${displayDate.getFullYear()}`)
+      }
     } catch(e) {
       console.error(e)
     }
@@ -43,6 +45,20 @@ function CalendarHeader ({
     onChange(newDisplayDate)
   }
 
+  const handleSetMonth = (m) => {
+    const newDisplayDate = new Date(displayDate)
+    newDisplayDate.setDate(1)
+    newDisplayDate.setMonth(m)
+    onChange(newDisplayDate)
+  }
+
+  const handleSetYear = (y) => {
+    const newDisplayDate = new Date(displayDate)
+    newDisplayDate.setDate(1)
+    newDisplayDate.setYear(y)
+    onChange(newDisplayDate)
+  }
+
   return (
     <div className="rdp-header text-center" style={{display: 'flex', flexFlow: 'row', flexWrap: 'wrap', width: '100%'}}>
       <div className= "text-muted rdp-header-previous-wrapper" 
@@ -54,7 +70,13 @@ function CalendarHeader ({
       <div style={{flex: 'auto'}}>{
         pickMonthElement==null
         ? title
-        : <pickMonthElement/> 
+        : <pickMonthElement
+            displayDate = {displayDate}
+            minDate     = {minDate}
+            maxDate     = {maxDate}
+            onSetMonth  = {(m) => handleSetMonth(m)}
+            onSetYear   = {(y) => handleSetYear(y)}
+          /> 
       }</div>
       <div className= "text-muted rdp-header-next-wrapper" 
             onClick  = {() => handleChangeMonth(+1)} 
