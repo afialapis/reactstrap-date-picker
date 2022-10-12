@@ -10,7 +10,10 @@ const calendarProps= {
 
   previousButtonElement: propElemOrString,
   nextButtonElement: propElemOrString,
-  pickMonthElement: propRef,
+  pickMonthElement: PropTypes.oneOfType([
+    PropTypes.func,
+    PropTypes.element
+  ]),
 
   showTodayButton: PropTypes.bool,
   todayButtonLabel: PropTypes.string,

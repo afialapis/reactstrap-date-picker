@@ -1,5 +1,5 @@
 import React from 'react'
-import PropTypes from 'prop-types'
+// import PropTypes from 'prop-types'
 import {Popover, PopoverHeader, PopoverBody} from 'reactstrap'
 import {setTimeToNoon} from '../util/setTimeToNoon'
 import {CalendarHeader} from './CalendarHeader'
@@ -83,38 +83,38 @@ const Calendar = (
 }
 
 
-Calendar.propTypes= {
-  selectedDate    : PropTypes.object,
-  displayDate     : PropTypes.object, //.isRequired,
-  minDate         : PropTypes.string,
-  maxDate         : PropTypes.string,
-  onChange        : PropTypes.func.isRequired,
-  dayLabels       : PropTypes.array.isRequired,
-  cellPadding     : PropTypes.string.isRequired,
-  weekStartsOn    : PropTypes.number,
-  showTodayButton : PropTypes.bool,
-  todayButtonLabel: PropTypes.string,
-  roundedCorners  : PropTypes.bool,
-  showWeeks       : PropTypes.bool,
-  monthLabels: PropTypes.array,
-  previousButtonElement: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.object
-  ]).isRequired,
-  nextButtonElement: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.object
-  ]).isRequired,  
-  pickMonthElement: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.object
-  ]),
-  placement: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.func
-  ]),
-}
-
+// Calendar.propTypes= {
+//   selectedDate    : PropTypes.object,
+//   displayDate     : PropTypes.object, //.isRequired,
+//   minDate         : PropTypes.string,
+//   maxDate         : PropTypes.string,
+//   onChange        : PropTypes.func.isRequired,
+//   dayLabels       : PropTypes.array.isRequired,
+//   cellPadding     : PropTypes.string.isRequired,
+//   weekStartsOn    : PropTypes.number,
+//   showTodayButton : PropTypes.bool,
+//   todayButtonLabel: PropTypes.string,
+//   roundedCorners  : PropTypes.bool,
+//   showWeeks       : PropTypes.bool,
+//   monthLabels: PropTypes.array,
+//   previousButtonElement: PropTypes.oneOfType([
+//     PropTypes.string,
+//     PropTypes.object
+//   ]).isRequired,
+//   nextButtonElement: PropTypes.oneOfType([
+//     PropTypes.string,
+//     PropTypes.object
+//   ]).isRequired,  
+//   pickMonthElement: PropTypes.oneOfType([
+//     PropTypes.func,
+//     PropTypes.element
+//   ]),
+//   placement: PropTypes.oneOfType([
+//     PropTypes.string,
+//     PropTypes.func
+//   ]),
+// }
+// 
 export { Calendar }
 
 

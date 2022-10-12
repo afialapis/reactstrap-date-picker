@@ -38,21 +38,21 @@ function CalendarHeader ({
   }, [displayDate, minDate, maxDate, monthLabels])
 
   
-  const handleChangeMonth = (inc) => {
+  const handleChangeMonthIncr = (inc) => {
     const newDisplayDate = new Date(displayDate)
     newDisplayDate.setDate(1)
     newDisplayDate.setMonth(newDisplayDate.getMonth() + inc)
     onChange(newDisplayDate)
   }
 
-  const handleSetMonth = (m) => {
+  const handleChangeMonth = (m) => {
     const newDisplayDate = new Date(displayDate)
     newDisplayDate.setDate(1)
     newDisplayDate.setMonth(m)
     onChange(newDisplayDate)
   }
 
-  const handleSetYear = (y) => {
+  const handleChangeYear = (y) => {
     const newDisplayDate = new Date(displayDate)
     newDisplayDate.setDate(1)
     newDisplayDate.setYear(y)
@@ -62,21 +62,21 @@ function CalendarHeader ({
   return (
     <div className="rdp-header text-center" style={{display: 'flex', flexFlow: 'row', flexWrap: 'wrap', width: '100%'}}>
       <div className= "text-muted rdp-header-previous-wrapper" 
-            onClick  = {() => handleChangeMonth(-1)}
+            onClick  = {() => handleChangeMonthIncr(-1)}
             style    = {{cursor: 'pointer', userSelect: 'none'}}>
         {displayingMinMonth ? null : previousButtonElement}
       </div>
       
       <div style={{flex: 'auto'}}>{
         pickMonthElement==null
-        ? title
-        : <pickMonthElement
-            displayDate = {displayDate}
-            minDate     = {minDate}
-            maxDate     = {maxDate}
-            onSetMonth  = {(m) => handleSetMonth(m)}
-            onSetYear   = {(y) => handleSetYear(y)}
-          /> 
+        ? <span>{title}</span>
+        : pickMonthElement({
+            displayDate   : displayDate,
+            minDate       : minDate,
+            maxDate       : maxDate,
+            onChangeMonth : (m) => handleChangeMonth(m),
+            onChangeYear  : (y) => handleChangeYear(y)
+        })
       }</div>
       <div className= "text-muted rdp-header-next-wrapper" 
             onClick  = {() => handleChangeMonth(+1)} 

@@ -6,11 +6,15 @@ import {
 } from 'reactstrap'
 import {DatePicker} from '../rdp'
 
-const clearButtonElement = <div id="clear-button-element">Clear</div>;
-const previousButtonElement = <div id="previous-button-element">Prev</div>;
-const nextButtonElement = <div id="next-button-element">Next</div>;
+const pickMonthElement = ({displayDate, minDate, maxDate, onChangeMonth, onChangeYear}) => {
+  return (
+    <div>
+      HEY
+    </div>
+  )
+}
 
-const RDPCustomElements = () => {
+const RDPCustomPickMonth = () => {
   const inputName = 'reactstrap_date_picker_custom_elements'
   const [value, setValue] = useState("2019-06-01T00:00:00.000Z")
 
@@ -18,22 +22,20 @@ const RDPCustomElements = () => {
     <FormGroup>
       <Label for={inputName}
              className="valium-reactstrap-label">
-        {"Custom Elements"}
+        {"Custom pick Month/Year buttons"}
       </Label>
       <DatePicker
         name         = {inputName}
         instanceCount= {3}
         value        = {value}
         onChange     = {(v, _f) => setValue(v)}
-        clearButtonElement   = {clearButtonElement}
-        nextButtonElement    = {nextButtonElement}
-        previousButtonElement= {previousButtonElement}           
+        pickMonthElement= {pickMonthElement}           
       /> 
       <FormText>
-        {'Custom text/elements can be rendered on Clear and Prev/Next calendar buttons'}
+        {'Custom elements can be used as Month/Year picker'}
       </FormText>
     </FormGroup>
   )
 }
 
-export default RDPCustomElements
+export default RDPCustomPickMonth

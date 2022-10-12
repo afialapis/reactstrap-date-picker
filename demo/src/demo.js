@@ -4,7 +4,9 @@ import { Container, Row, Col } from 'reactstrap'
 import RDPBasic from './samples/RDPBasic'
 import RDPBasicDisabled  from './samples/RDPBasicDisabled'
 import RDPCustomFormat from './samples/RDPCustomFormat'
-import RDPCustomElements from './samples/RDPCustomElements'
+import RDPCustomClear from './samples/RDPCustomClear'
+import RDPCustomPrevNext from './samples/RDPCustomPrevNext'
+import RDPCustomPickMonth from './samples/RDPCustomPickMonth'
 import RDPCustomWeek from './samples/RDPCustomWeek'
 import RDPFocusBlur from './samples/RDPBasicFocusBlur'
 import RDPSizeSmall from './samples/RDPSizeSmall'
@@ -96,24 +98,24 @@ const Demo = () => {
         </Row>
         
         <Title title="Basic usage"/>
-
-
         <Three one={RDPBasic} two={RDPBasicDisabled} three={RDPFocusBlur}/>
         
-        <Title title="Customize"/>
-        <Three one={RDPCustomFormat} two={RDPCustomElements} three={RDPCustomWeek}/>
-        
-        <Title title="Sizing"/>
-        <Pair one={RDPSizeSmall} two={RDPSizeLarge}/>
-
         <Title title="Placement"/>
         <Four one={RDPPlacementTop} two={RDPPlacementRight} three={RDPPlacementBottom} four={RDPPlacementLeft}/>
 
-        <Title title="Custom components"/>
-        <Pair one={RDPCustomInputGroup} two={RDPCustomFormControl}/>
+        <Title title="Sizing"/>
+        <Pair one={RDPSizeSmall} two={RDPSizeLarge}/>
+
 
         <Title title="Validity"/>
         <Pair one={RDPValidityValid} two={RDPValidityInvalid}/>
+
+        <Title title="Customize"/>
+        <Pair one={RDPCustomFormat} two={RDPCustomWeek}/>
+        <Three one={RDPCustomPickMonth} two={RDPCustomPrevNext} three={RDPCustomClear}/>
+      
+        <Pair one={RDPCustomInputGroup} two={RDPCustomFormControl}/>
+
                 
         
         
