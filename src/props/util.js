@@ -9,7 +9,7 @@ const propRef= PropTypes.oneOfType([
   PropTypes.func, 
   PropTypes.shape({ current: PropTypes.oneOfType([
     PropTypes.instanceOf(Element),
-    undefined
+    PropTypes.any
   ])})
   //PropTypes.shape({ current: PropTypes.any })
 ])
