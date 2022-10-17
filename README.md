@@ -620,33 +620,36 @@ Expand
 </summary>
 <p>
 
+## 1.0.4
+
+- fix warning on `prop-types`
 
 ## 1.0.3
 
-· Added [pickMonthElement](https://github.com/afialapis/reactstrap-date-picker/issues/22)
+- Added [pickMonthElement](https://github.com/afialapis/reactstrap-date-picker/issues/22)
 
 ## 1.0.2
 
-· Fixed [issue #20: In/valid props doesn't apply the reactstrap in/valid css style](https://github.com/afialapis/reactstrap-date-picker/issues/20)
+- Fixed [issue #20: In/valid props doesn't apply the reactstrap in/valid css style](https://github.com/afialapis/reactstrap-date-picker/issues/20)
 
 ## 1.0.1
 
-· Fixed [issue #19: ReferenceError: Element is not defined](https://github.com/afialapis/reactstrap-date-picker/issues/19)
+- Fixed [issue #19: ReferenceError: Element is not defined](https://github.com/afialapis/reactstrap-date-picker/issues/19)
 
 ## 1.0.0
 
-· Introduction of React Hooks
+- Introduction of React Hooks
 
-· Deep refactor of the source code
+- Deep refactor of the source code
 
-· Supported versions:
-- React >= 16.13.1
-- Reactstrap >= 8.5.1
-- Bootstrap >= 4.5.2
+- Supported versions:
+· React >= 16.13.1
+· Reactstrap >= 8.5.1
+· Bootstrap >= 4.5.2
 
-· Improved performance
+- Improved performance
 
-· Smaller bundle sizes
+- Smaller bundle sizes
 
 
 ## 0.0.16
