@@ -514,13 +514,13 @@ Defines what happens when input has not passed the form validation.
 </details>
 
 
+# Deeper customizing
+
 <details>
 <summary>
-# Deeper customizing
+You can also customize `reactstrap-date-picker` using `CSS`, trough element's `id` or `class` attributes.
 </summary>
 <p>
-
-You can also customize `reactstrap-date-picker` trough element's `id` or `class` attributes.
 
 `reactstrap-date-picker` renders several elements, all contained within a [reactstrap InputGroup](https://reactstrap.github.io/?path=/docs/components-inputgroup--input-group).
 Such elements will have its unique `id` attribute, plus `reactstrap-date-picker` custom `class` names (prefixed by `rdp-*`).
@@ -566,20 +566,20 @@ The rendered DOM structure seems like this:
 
 This `SUFFIX` is:
 
-· `props.name`
+- `props.name`
 
-· if `props.name` is not passed, then use `props.id`
+- if `props.name` is not passed, then use `props.id`
 
-· if `props.id` is not passed, then take a global counter of active `reactstrap-date-picker` instances
+- if `props.id` is not passed, then take a global counter of active `reactstrap-date-picker` instances
 
 So, the idea is, depending on your needs:
 
-· if you don't need handle `id`s at all, `reactstrap-date-picker` will render unique `id` with no problem
+- if you don't need handle `id`s at all, `reactstrap-date-picker` will render unique `id` with no problem
 
-· if you need a basic `id` usage, for example accessing the `reactstrap-date-picker`'s value from the DOM, then 
+- if you need a basic `id` usage, for example accessing the `reactstrap-date-picker`'s value from the DOM, then 
   you just have to pass `props.id` and get the value from the element with that `id`
 
-· if you will perform more complex operations, then use `props.name` or `props.id`, and pay attention to the
+- if you will perform more complex operations, then use `props.name` or `props.id`, and pay attention to the
   previous DOM structure and the `SUFFIX` presences
 </p>
 </details>
