@@ -518,9 +518,11 @@ Defines what happens when input has not passed the form validation.
 
 <details>
 <summary>
-You can also customize `reactstrap-date-picker` using `CSS`, trough element's `id` or `class` attributes.
+Customize styling directly trough CSS.
 </summary>
 <p>
+
+You can also customize `reactstrap-date-picker` using `CSS`, trough element's `id` or `class` attributes.
 
 `reactstrap-date-picker` renders several elements, all contained within a [reactstrap InputGroup](https://reactstrap.github.io/?path=/docs/components-inputgroup--input-group).
 Such elements will have its unique `id` attribute, plus `reactstrap-date-picker` custom `class` names (prefixed by `rdp-*`).
@@ -618,6 +620,10 @@ Expand
 </summary>
 <p>
 
+
+## 1.0.3
+
+· Added [pickMonthElement](https://github.com/afialapis/reactstrap-date-picker/issues/22)
 
 ## 1.0.2
 
