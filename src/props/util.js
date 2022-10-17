@@ -7,8 +7,11 @@ let Element = typeof Element === 'undefined'
 
 const propRef= PropTypes.oneOfType([
   PropTypes.func, 
-  PropTypes.shape({ current: PropTypes.instanceOf(Element) })
-  // PropTypes.shape({ current: PropTypes.any })
+  PropTypes.shape({ current: PropTypes.oneOfType([
+    PropTypes.instanceOf(Element),
+    undefined
+  ])})
+  //PropTypes.shape({ current: PropTypes.any })
 ])
 
 const propElemOrString = PropTypes.oneOfType([

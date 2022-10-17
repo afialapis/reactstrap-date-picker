@@ -186,6 +186,65 @@ describe('integrity: calendar', function () {
     wrapper.unmount()
   })  
 
+  it("should change month and year using default pick month element.", () => {
+    const did = 'calendar-month-iter-using-pick-month'
+    const value = "2019-07-15T00:00:00.000Z"
+    const minDate = "2018-07-15T00:00:00.000Z"
+    const maxDate = "2023-07-15T00:00:00.000Z"
+    const Unit = () => 
+      <DatePicker id={did}
+                  value={value}
+                  minDate={minDate}
+                  maxDate={maxDate}
+                  pickMonthElement="default"/>
+
+    const wrapper= mount(<Unit/>)
+   
+    // focus on control input, open calendar
+    const inputWrapper = getInputWrapper(wrapper)
+    inputWrapper.simulate('focus')
+
+    // find month switcher
+    const pickMonthElement =  wrapper.find(`div.rdp-header-pick-month-default-month select`)
+    
+    // go to March
+    pickMonthElement.simulate('change', { target: { name: 'rdp-header-pick-month-default-month', value: 2 }})
+    
+    // select any day in that month and get the value
+    const previousDay = getCalendarRandomDayWrapper(wrapper)
+    previousDay.simulate('click')
+    const some2019MarchISOString = getHiddenInputValue(wrapper, did)
+    
+    // reopen calendar
+    inputWrapper.simulate('focus')
+    
+    // find year switcher
+    const pickYearElement =  wrapper.find(`div.rdp-header-pick-month-default-year select`)
+
+    // go to 2023
+    pickYearElement.simulate('change', { target: { name: 'rdp-header-pick-month-default-year', value: 2023 }})
+    
+    // select any day in that month and get the value
+    const nextDay = getCalendarRandomDayWrapper(wrapper)
+    nextDay.simulate('click')
+    const some2023ISOString = getHiddenInputValue(wrapper, did)    
+
+    // check taht first date is actually older
+    expect(some2019MarchISOString < some2023ISOString).to.equal(true)
+    
+    // check picked dates are alright
+    const some2019MarchDate = new Date(some2019MarchISOString)
+    const some2023Date = new Date(some2023ISOString)
+
+    expect(some2019MarchDate.getMonth()).to.equal(2)    
+    expect(some2019MarchDate.getFullYear()).to.equal(2019)  
+
+    expect(some2023Date.getMonth()).to.equal(2)    
+    expect(some2023Date.getFullYear()).to.equal(2023)    
+
+    wrapper.unmount()
+  })
+
   it("should display the correct day of the week in the calendar.", () => {
 
     const did = 'calndar-integrity-one'

@@ -7,6 +7,7 @@ import RDPCustomFormat from './samples/RDPCustomFormat'
 import RDPCustomClear from './samples/RDPCustomClear'
 import RDPCustomPrevNext from './samples/RDPCustomPrevNext'
 import RDPCustomPickMonth from './samples/RDPCustomPickMonth'
+import RDPCustomPickMonthDefault from './samples/RDPCustomPickMonthDefault'
 import RDPCustomWeek from './samples/RDPCustomWeek'
 import RDPFocusBlur from './samples/RDPBasicFocusBlur'
 import RDPSizeSmall from './samples/RDPSizeSmall'
@@ -112,7 +113,7 @@ const Demo = () => {
 
         <Title title="Customize"/>
         <Pair one={RDPCustomFormat} two={RDPCustomWeek}/>
-        <Three one={RDPCustomPickMonth} two={RDPCustomPrevNext} three={RDPCustomClear}/>
+        <Four one={RDPCustomPickMonthDefault} two={RDPCustomPickMonth} three={RDPCustomPrevNext} four={RDPCustomClear}/>
       
         <Pair one={RDPCustomInputGroup} two={RDPCustomFormControl}/>
 

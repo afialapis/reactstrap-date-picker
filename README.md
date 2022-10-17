@@ -345,6 +345,52 @@ Shows the number of the week in the calendar
   * Type: `bool`
   * Default: `false`
 
+### `pickMonthElement`
+
+Optional component to use for the calendar's year and month pickers.
+
+  * Optional
+  * Type: `string` or `ReactClass`
+  * Default: `undefined`
+
+`pickMonthElement = undefined` is the same as `pickMonthElement = "none"`.
+
+#### custom pickMonthElement
+
+You can pass a custom `React` component, which will receive these properties:
+- `displayDate`
+- `minDate`
+- `maxDate`
+- `onChangeMonth`: a callback receiving an `int` parameter (month number)
+- `onChangeYear`: a callback receiving an `int` parameter (year number)
+
+On the [demo](https://github.com/afialapis/reactstrap-date-picker/blob/master/demo/src/samples/RDPCustomPickMonth.js)
+you will find a simple custom element.
+
+
+#### `default` pickMonthElement
+
+There is a predefined component, consisting of two simple `select` elements,
+which can be used by passing `pickMonthElement = "default"`.
+
+It has a simple styling, which may not fit your needs. Maybe you can tweak it
+through the `css` classes used by `reactstrap-date-picker`:
+
+```html
+  <div class="rdp-header">
+    <div class="rdp-header-previous-wrapper"/>
+    <div class="rdp-header-pick-month-wrapper">
+      <!-- if pickMonthElement = 'default' -->
+      <div class="rdp-header-pick-month-default">
+        <div class="rdp-header-pick-month-default-month"/>
+        <div class="rdp-header-pick-month-default-year"/>
+      </div>
+    </div>
+    <div class="rdp-header-next-wrapper"/>
+  </div>
+```
+
+
 ### `previousButtonElement`
 
 Character or component to use for the calendar's previous button.
@@ -492,7 +538,13 @@ The rendered DOM structure seems like this:
               <div class="popover-header">
                 <div class="rdp-header">
                   <div class="rdp-header-previous-wrapper"/>
-                  <span/>
+                  <div class="rdp-header-pick-month-wrapper">
+                    <!-- if pickMonthElement = 'default' -->
+                    <div class="rdp-header-pick-month-default">
+                      <div class="rdp-header-pick-month-default-month"/>
+                      <div class="rdp-header-pick-month-default-year"/>
+                    </div>
+                  </div>
                   <div class="rdp-header-next-wrapper"/>
                 </div>
               </div>

@@ -11,6 +11,7 @@ const calendarProps= {
   previousButtonElement: propElemOrString,
   nextButtonElement: propElemOrString,
   pickMonthElement: PropTypes.oneOfType([
+    PropTypes.string,
     PropTypes.func,
     PropTypes.element
   ]),

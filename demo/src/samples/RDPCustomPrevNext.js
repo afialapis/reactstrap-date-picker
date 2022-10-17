@@ -10,7 +10,7 @@ const previousButtonElement = <div id="previous-button-element">Prev</div>;
 const nextButtonElement = <div id="next-button-element">Next</div>;
 
 const RDPCustomElements = () => {
-  const inputName = 'reactstrap_date_picker_custom_elements'
+  const inputName = 'reactstrap_date_picker_custom_prev_next'
   const [value, setValue] = useState("2019-06-01T00:00:00.000Z")
 
   return (

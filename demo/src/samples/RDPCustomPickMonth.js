@@ -75,14 +75,14 @@ const PickMonthElement = ({displayDate, _minDate, _maxDate, onChangeMonth, onCha
 }
 
 const RDPCustomPickMonth = () => {
-  const inputName = 'reactstrap_date_picker_custom_elements'
+  const inputName = 'reactstrap_date_picker_custom_pick_month'
   const [value, setValue] = useState("2019-06-01T00:00:00.000Z")
 
   return (
     <FormGroup>
       <Label for={inputName}
              className="valium-reactstrap-label">
-        {"Custom pick Month/Year buttons"}
+        {"Custom pick Month/Year selectors"}
       </Label>
       <DatePicker
         name         = {inputName}

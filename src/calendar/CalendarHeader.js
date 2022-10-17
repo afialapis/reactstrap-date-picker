@@ -1,6 +1,7 @@
 
 import React, {useState, useEffect} from 'react'
 import {compareMonths} from '../util/compareMonths'
+import PickMonthDefault from './pickmonth/PickMonthDefault'
 
 function CalendarHeader ({
    previousButtonElement, nextButtonElement, pickMonthElement,
@@ -41,36 +42,42 @@ function CalendarHeader ({
   
   const handleChangeMonthIncr = (inc) => {
     const newDisplayDate = new Date(displayDate)
-    newDisplayDate.setDate(1)
-    newDisplayDate.setMonth(newDisplayDate.getMonth() + inc)
+    newDisplayDate.setMonth(newDisplayDate.getMonth() + inc, 1)
     onChange(newDisplayDate)
   }
 
   const handleChangeMonth = (m) => {
     const newDisplayDate = new Date(displayDate)
-    newDisplayDate.setDate(1)
     newDisplayDate.setMonth(m)
     onChange(newDisplayDate)
   }
 
   const handleChangeYear = (y) => {
     const newDisplayDate = new Date(displayDate)
-    newDisplayDate.setDate(1)
     newDisplayDate.setFullYear(y)
     onChange(newDisplayDate)
   }
 
   return (
-    <div className="rdp-header text-center" style={{display: 'flex', flexFlow: 'row', flexWrap: 'wrap', width: '100%'}}>
+    <div className="rdp-header text-center" style={{display: 'flex', flexFlow: 'row', flexWrap: 'nowrap'}}>
       <div className= "text-muted rdp-header-previous-wrapper" 
             onClick  = {() => handleChangeMonthIncr(-1)}
-            style    = {{cursor: 'pointer', userSelect: 'none'}}>
+            style    = {{cursor: 'pointer', userSelect: 'none', flexBasis: '1.25em', alignSelf: 'center'}}>
         {displayingMinMonth ? null : previousButtonElement}
       </div>
       
-      <div style={{flex: 'auto'}}>{
-        PickMonthElement==null
-        ? <span>{title}</span>
+      <div className= "rdp-header-pick-month-wrapper"
+           style={{flex: '1 1 auto'}}>{
+        (PickMonthElement==null || PickMonthElement==='none')
+        ? <div>{title}</div>
+        : PickMonthElement==='default'
+        ? <PickMonthDefault
+            displayDate   = { displayDate }
+            monthLabels   = { monthLabels }
+            minDate       = { minDate }
+            maxDate       = { maxDate }
+            onChangeMonth = { (m) => handleChangeMonth(m) }
+            onChangeYear  = { (y) => handleChangeYear(y) }/>
         : <PickMonthElement
             displayDate   = { displayDate }
             minDate       = { minDate }
@@ -80,8 +87,8 @@ function CalendarHeader ({
         
       }</div>
       <div className= "text-muted rdp-header-next-wrapper" 
-            onClick  = {() => handleChangeMonth(+1)} 
-            style    = {{cursor: 'pointer', userSelect: 'none'}}>
+            onClick  = {() => handleChangeMonthIncr(+1)} 
+            style    = {{cursor: 'pointer', userSelect: 'none', flexBasis: '1.25em', alignSelf: 'center'}}>
         {displayingMaxMonth ? null : nextButtonElement}
       </div>
     </div>
