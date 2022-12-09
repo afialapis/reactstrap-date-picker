@@ -25,7 +25,9 @@ const InputControlInput = (
       onKeyDown   : onKeyDown,
       onFocus     : onFocus,
       onBlur      : onBlur,
-      onChange    : onChange
+      onChange    : onChange,
+      valid       : valid,
+      invalid     : invalid
     })
   }
 
@@ -49,6 +51,8 @@ const InputControlInput = (
       onFocus     = {onFocus}
       onBlur      = {onBlur}
       onChange    = {onChange}
+      valid       = {valid}
+      invalid     = {invalid}
       />
   )
 
