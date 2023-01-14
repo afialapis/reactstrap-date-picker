@@ -632,6 +632,14 @@ Expand
 </summary>
 <p>
 
+## 1.0.6
+
+- cleaner readme
+
+## 1.0.5
+
+- fix valid props on hidden input
+
 ## 1.0.4
 
 - fix warning on `prop-types`
