@@ -89,10 +89,10 @@ const Example = () => {
 
 ```
 
-<details>
-<summary>
+
 ## Global properties
-</summary>
+
+<details>
 <p>
 
 ### `value`
