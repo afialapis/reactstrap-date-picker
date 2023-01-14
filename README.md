@@ -94,7 +94,7 @@ const Example = () => {
 
 <details>
 <summary>
-&nbsp;
+&nbsp;<code>value, defaultValue, ...</code>
 </summary>
 <p>
 
