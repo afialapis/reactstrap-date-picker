@@ -94,7 +94,7 @@ const Example = () => {
 
 <details>
 <summary>
-&nbsp;<code>value, defaultValue, ...</code>
+<code>value, defaultValue, id, name, dateFormat, minDate, maxDate, showClearButton, clearButtonElement</code>
 </summary>
 <p>
 
@@ -174,9 +174,11 @@ Character or component to use for the clear button.
 </p>
 </details>
 
+
+## Input properties
 <details>
 <summary>
-## Input properties
+<code>autoComplete, autoFocus, disabled, noValidate, placeholder, required, className, style, inputRef, customControl, children</code>
 </summary>
 <p>
 
@@ -268,9 +270,12 @@ Overwrite the default Form Control component with your own component.
 </p>
 </details>
 
+
+## Input Group properties
+
 <details>
 <summary>
-## Input Group properties
+<code>size, valid, invalid, customInputGroup</code>
 </summary>
 <p>
 
@@ -310,9 +315,11 @@ Overwrite the default InputGroup component with your own component.
 </p>
 </details>
 
+## Calendar properties
+
 <details>
 <summary>
-## Calendar properties
+<code>dayLabels, monthLabels, weekStartsOn, showWeeks, pickMonthElement, previousButtonElement, nextButtonElement, showTodayButton, todayButtonLabel, cellPadding, roundedCorners, calendarPlacement, calendarContainer</code>
 </summary>
 <p>
 
@@ -460,9 +467,11 @@ Overlay container for the popover calendar. When placing the date-picker in a sc
 </p>
 </details>
 
+
+## Event properties
 <details>
 <summary>
-## Event properties
+<code>onChange, onClear, onFocus, onBlur, onInvalid</code>
 </summary>
 <p>
 
