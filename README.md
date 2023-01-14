@@ -93,6 +93,9 @@ const Example = () => {
 ## Global properties
 
 <details>
+<summary>
+`value`, `defaultValue`, `id`, `name`, `dateFormat`, `minDate`, `maxDate`, `showClearButton`, `clearButtonElement`
+</summary>
 <p>
 
 ### `value`
