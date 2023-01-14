@@ -94,7 +94,7 @@ const Example = () => {
 
 <details>
 <summary>
-`value`, `defaultValue`, `id`, `name`, `dateFormat`, `minDate`, `maxDate`, `showClearButton`, `clearButtonElement`
+&nbsp;
 </summary>
 <p>
 
