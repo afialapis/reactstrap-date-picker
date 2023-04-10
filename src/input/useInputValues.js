@@ -115,7 +115,7 @@ const useInputValues = (controlInputRef, value, defaultValue, minDate, maxDate, 
   }/*, [dateFormat, separator])*/
 
   const handleInputChange = /*useCallback(*/() => {
-    const originalValue = controlInputRef.current.value
+    const originalValue = controlInputRef?.current?.value || ''
     const nInputValue = originalValue.replace(/(-|\/\/)/g, separator).slice(0,10)
 
     if (!nInputValue) {
