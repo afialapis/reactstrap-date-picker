@@ -86,31 +86,35 @@ function _DatePicker (props, ref) {
         onChange          = {() => handleInputChange()}
       />
 
-      <Calendar
-        placement            = {placement}
-        open                 = {open}
-        container            = {calendarContainer || overlayContainerRef.current}
-        target               = {controlInputId}
-        previousButtonElement= {previousButtonElement}
-        nextButtonElement    = {nextButtonElement}
-        pickMonthElement     = {pickMonthElement}
-        displayDate          = {displayDate}
-        minDate              = {minDate}
-        maxDate              = {maxDate}
-        onChangeMonth        = {(newDisplayDate) => handleChangeMonth(newDisplayDate)}
-        monthLabels          = {monthLabels}
-        cellPadding          = {cellPadding}
-        selectedDate         = {selectedDate}
-        onChange             = {(newSelectedDate) => handleChangeDateAndBlur(newSelectedDate)}
-        dayLabels            = {fixedDayLabels}
-        weekStartsOn         = {weekStartsOn}
-        showTodayButton      = {showTodayButton}
-        todayButtonLabel     = {todayButtonLabel}
-        roundedCorners       = {roundedCorners}
-        showWeeks            = {showWeeks}/>
     
       <InputOverlay  
-        overlayContainerRef = {overlayContainerRef}/>
+        overlayContainerRef = {overlayContainerRef}>
+
+        <Calendar
+          placement            = {placement}
+          open                 = {open}
+          container            = {calendarContainer || overlayContainerRef.current}
+          target               = {controlInputId}
+          previousButtonElement= {previousButtonElement}
+          nextButtonElement    = {nextButtonElement}
+          pickMonthElement     = {pickMonthElement}
+          displayDate          = {displayDate}
+          minDate              = {minDate}
+          maxDate              = {maxDate}
+          onChangeMonth        = {(newDisplayDate) => handleChangeMonth(newDisplayDate)}
+          monthLabels          = {monthLabels}
+          cellPadding          = {cellPadding}
+          selectedDate         = {selectedDate}
+          onChange             = {(newSelectedDate) => handleChangeDateAndBlur(newSelectedDate)}
+          dayLabels            = {fixedDayLabels}
+          weekStartsOn         = {weekStartsOn}
+          showTodayButton      = {showTodayButton}
+          todayButtonLabel     = {todayButtonLabel}
+          roundedCorners       = {roundedCorners}
+          showWeeks            = {showWeeks}/>
+      
+      </InputOverlay>
+
 
       <InputHidden
         inputId             = {hiddenInputId}

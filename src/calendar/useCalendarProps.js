@@ -25,7 +25,9 @@ const useCalendarProps = (calendarPlacement, inputRef, autoFocus, onBlur, onFocu
       event.stopPropagation()
 
       if (open) {
-        if (overlayContainerRef && overlayContainerRef.current && !overlayContainerRef.current.contains(event.target)) {
+        const outOfOverlay = (overlayContainerRef?.current==undefined) || (!overlayContainerRef.current.contains(event.target))
+        const outOfControlInput = (controlInputRef?.current==undefined) || (!controlInputRef.current.contains(event.target))
+        if (outOfOverlay && outOfControlInput) {
           setOpen(false)
           customOnBlur()
         }
