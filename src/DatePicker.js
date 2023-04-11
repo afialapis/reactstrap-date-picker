@@ -36,7 +36,7 @@ function _DatePicker (props, ref) {
 
   const [innerValue, inputValue, displayDate, 
          selectedDate, handleClear, handleInputChange, 
-         handleChangeMonth, handleChangeDate] = useInputValues(controlInputRef, value, defaultValue, 
+         handleChangeMonth, handleChangeDate, handleBadInputOnBlur] = useInputValues(controlInputRef, value, defaultValue, 
           minDate, maxDate, dateFormat, onClear, onChange)
 
   const [groupInputId, hiddenInputId, controlInputId] = useInputIds(id, name, customControl)
@@ -82,7 +82,7 @@ function _DatePicker (props, ref) {
         valid             = {valid}
         invalid           = {invalid}
         onFocus           = {() => handleFocus()}
-        onBlur            = {(e) => handleBlur(e?.data?.rdp_close_calendar || false) }
+        onBlur            = {(e) => {handleBadInputOnBlur(); handleBlur(e?.data?.rdp_close_calendar || false) }}
         onChange          = {() => handleInputChange()}
       />
 

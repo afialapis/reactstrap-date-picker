@@ -83,8 +83,10 @@ const useInputValues = (controlInputRef, value, defaultValue, minDate, maxDate, 
     }
   }/*, [onClear, onChange])*/
 
-  const handleBadInput = /*useCallback(*/(originalValue) => {
+  const handleBadInput = /*useCallback(*/(originalValue, tail= false) => {
+    
     const parts = originalValue.replace(new RegExp(`[^0-9${separator}]`), '').split(separator)
+
     if (dateFormat.match(/MM.DD.YYYY/) || dateFormat.match(/DD.MM.YYYY/)) {
       if (parts[0] && parts[0].length > 2) {
         parts[1] = parts[0].slice(2) + (parts[1] || '')
@@ -96,6 +98,11 @@ const useInputValues = (controlInputRef, value, defaultValue, minDate, maxDate, 
       }
       if (parts[2]) {
         parts[2] = parts[2].slice(0,4)
+        if (tail) {
+          if (parts[2].length < 4) {
+            parts[2]= parts[2].padEnd(4, '0')
+          }
+        }
       }
     } else {
       if (parts[0] && parts[0].length > 4) {
@@ -113,6 +120,13 @@ const useInputValues = (controlInputRef, value, defaultValue, minDate, maxDate, 
     const nInputValue= parts.join(separator)
     setInputValue(nInputValue)
   }/*, [dateFormat, separator])*/
+
+  const handleBadInputOnBlur = () => {
+    const originalValue = controlInputRef?.current?.value || ''
+    if (originalValue) {
+      handleBadInput(originalValue, true)
+    }
+  }
 
   const handleInputChange = /*useCallback(*/() => {
     const originalValue = controlInputRef?.current?.value || ''
@@ -199,7 +213,7 @@ const useInputValues = (controlInputRef, value, defaultValue, minDate, maxDate, 
   }/*, [separator, dateFormat, onChange])*/
 
 
-  return [innerValue, inputValue, displayDate, selectedDate, handleClear, handleInputChange, handleChangeMonth, handleChangeDate]
+  return [innerValue, inputValue, displayDate, selectedDate, handleClear, handleInputChange, handleChangeMonth, handleChangeDate, handleBadInputOnBlur]
 
 }
 

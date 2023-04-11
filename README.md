@@ -632,6 +632,12 @@ Expand
 </summary>
 <p>
 
+## 1.0.8
+
+- fixed `inputRef` property to make it work properly when passing callback refs
+- keep Calendar open when clicking inside the control input
+- improve bad format handling on blur
+
 ## 1.0.6
 
 - cleaner readme
