@@ -82,7 +82,7 @@ function _DatePicker (props, ref) {
         valid             = {valid}
         invalid           = {invalid}
         onFocus           = {() => handleFocus()}
-        onBlur            = {(e) => {handleBadInputOnBlur(); handleBlur(e?.data?.rdp_close_calendar || false) }}
+        onBlur            = {() => {handleBadInputOnBlur(); handleBlur() }}
         onChange          = {() => handleInputChange()}
       />
 

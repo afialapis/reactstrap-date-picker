@@ -14,7 +14,9 @@ const useCalendarProps = (calendarPlacement, inputRef, autoFocus, onBlur, onFocu
 
   const hiddenInputRef = useRef()
   const overlayContainerRef = useRef()
-  const controlInputRef = useRef(inputRef)
+  const controlInputRef = typeof inputRef == 'object'
+                          ? inputRef
+                          : useRef(inputRef) // eslint-disable-line react-hooks/rules-of-hooks
 
   // NOTE: do we want to use the controlInput or  the hiddenInput here?
   const [customOnBlur, customOnFocus] = useCustomEvents(/*hiddenInputRef*/ controlInputRef, onBlur, onFocus)
@@ -67,12 +69,7 @@ const useCalendarProps = (calendarPlacement, inputRef, autoFocus, onBlur, onFocu
     customOnFocus()
   }, [calendarPlacement, customOnFocus])
 
-  const handleBlur = (force) => {
-    if (open && !force) {
-      // allow interactinos on Calendar without closing it
-      return
-    }
-
+  const handleBlur = () => {
     setOpen(false)
     customOnBlur()  
   }

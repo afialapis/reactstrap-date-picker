@@ -78,18 +78,9 @@ describe('props:events: focus', function () {
     check_it_is_focused_soft()
     check_it_is_focused_hard()
 
-    // Let's blur it again
-      // Calling blur on the input control is not 
-      // enough to blur the whole DatePicker, as
-      // the Calendar remains opened   
-      inputWrapper.simulate('blur')    
-      check_it_is_focused_soft()
-
-      // But we can use the specific parameter 
-      //    event.data.rdp_close_calendar= true
-      // This will force the Calendar to be closed
-      inputWrapper.simulate('blur', {data: {rdp_close_calendar: true}})     
-      check_it_is_blurred_soft()
+    // Let's blur it again 
+    inputWrapper.simulate('blur')  
+    check_it_is_blurred_soft()
 
     // Let's focus it again
     focus_it()
