@@ -49,7 +49,7 @@ function _DatePicker (props, ref) {
       return displayDate ? inputValue : null;
     },
     getNode: () => controlInputRef?.current
-  }));
+  }) /*, [controlInputRef, displayDate, inputValue, selectedDate]*/);
   
 
   const fixedDayLabels = useFixedDayLabels(dayLabels, weekStartsOn)
