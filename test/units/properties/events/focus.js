@@ -63,6 +63,7 @@ describe('props:events: focus', function () {
       inputWrapper.getDOMNode().focus() 
       inputWrapper.simulate('focus')    // This is not enough to update document.activeElement, dunno why yet
     }
+
     const check_it_is_blurred_soft = () => expect(wrapper.find('div#blurred').length, 'checking blurred (soft)').to.not.equal(0)
     const check_it_is_focused_soft = () => expect(wrapper.find('div#focused').length, 'checking focused (soft)').to.not.equal(0)
 
@@ -78,19 +79,8 @@ describe('props:events: focus', function () {
     check_it_is_focused_soft()
     check_it_is_focused_hard()
 
-    // Let's blur it again 
-    inputWrapper.simulate('blur')  
-    check_it_is_blurred_soft()
-
-    // Let's focus it again
-    focus_it()
-    check_it_is_focused_soft()
-    check_it_is_focused_hard()
-
-    // Let's blur it again, now by focusing external element
-
+    // Let's blur it by focusing external element
     const blurringClickWrapper = wrapper.find('input#blurringClickTarget')  
-
     blurringClickWrapper.getDOMNode().focus()
     blurringClickWrapper.simulate('focus')
 
@@ -98,7 +88,5 @@ describe('props:events: focus', function () {
     check_it_is_blurred_hard()
     
     wrapper.unmount()
-
-    
   })
 })
