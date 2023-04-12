@@ -82,7 +82,7 @@ function _DatePicker (props, ref) {
         valid             = {valid}
         invalid           = {invalid}
         onFocus           = {() => handleFocus()}
-        onBlur            = {() => {handleBadInputOnBlur(); handleBlur() }}
+        onBlur            = {(event) => {handleBadInputOnBlur(); handleBlur(event) }}
         onChange          = {() => handleInputChange()}
       />
 

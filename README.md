@@ -632,6 +632,9 @@ Expand
 </summary>
 <p>
 
+## 1.0.9
+- fixed blur handle when navigating months 
+
 ## 1.0.8
 
 - fixed `inputRef` property to make it work properly when passing callback refs

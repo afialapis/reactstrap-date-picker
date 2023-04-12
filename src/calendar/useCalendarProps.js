@@ -21,15 +21,20 @@ const useCalendarProps = (calendarPlacement, inputRef, autoFocus, onBlur, onFocu
   // NOTE: do we want to use the controlInput or  the hiddenInput here?
   const [customOnBlur, customOnFocus] = useCustomEvents(/*hiddenInputRef*/ controlInputRef, onBlur, onFocus)
 
+  const isOutside = useCallback((event) => {
+    const outOfOverlay = (overlayContainerRef?.current==undefined) || (!overlayContainerRef.current.contains(event.target))
+    const outOfControlInput = (controlInputRef?.current==undefined) || (!controlInputRef.current.contains(event.target))
+    const isOut= (outOfOverlay && outOfControlInput)
+    return isOut
+  }, [overlayContainerRef, controlInputRef])
+
   // Control the click outside
   useEffect(() => {
     function handleClickOutside(event) {
       event.stopPropagation()
 
       if (open) {
-        const outOfOverlay = (overlayContainerRef?.current==undefined) || (!overlayContainerRef.current.contains(event.target))
-        const outOfControlInput = (controlInputRef?.current==undefined) || (!controlInputRef.current.contains(event.target))
-        if (outOfOverlay && outOfControlInput) {
+        if (isOutside(event)) {
           setOpen(false)
           customOnBlur()
         }
@@ -40,7 +45,7 @@ const useCalendarProps = (calendarPlacement, inputRef, autoFocus, onBlur, onFocu
     return () => {
       document.removeEventListener("mousedown", handleClickOutside)
     }
-  }, [open, overlayContainerRef, customOnBlur])
+  }, [open, isOutside, customOnBlur])
 
 
   //
@@ -69,10 +74,12 @@ const useCalendarProps = (calendarPlacement, inputRef, autoFocus, onBlur, onFocu
     customOnFocus()
   }, [calendarPlacement, customOnFocus])
 
-  const handleBlur = () => {
-    setOpen(false)
-    customOnBlur()  
-  }
+  const handleBlur = useCallback((event) => {
+    if (isOutside(event)) {
+      setOpen(false)
+      customOnBlur()  
+    }
+  }, [isOutside, customOnBlur])
 
   return [hiddenInputRef, overlayContainerRef, controlInputRef, open, placement, handleFocus, handleBlur]
 }
