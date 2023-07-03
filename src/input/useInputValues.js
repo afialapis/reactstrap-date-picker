@@ -76,10 +76,10 @@ const useInputValues = (controlInputRef, value, defaultValue, minDate, maxDate, 
       setInputValue(null)
       setSelectedDate(null)
       setDisplayDate(null)
-    }
 
-    if (onChange) {
-      onChange(null, null)
+      if (onChange) {
+        onChange(null, null)
+      }
     }
   }/*, [onClear, onChange])*/
 

@@ -22,10 +22,14 @@ const RDPCustomClear = () => {
         instanceCount= {3}
         value        = {value}
         onChange     = {(v, _f) => setValue(v)}
-        clearButtonElement   = {clearButtonElement}       
+        clearButtonElement   = {clearButtonElement}    
+        onClear = {() => {
+          const today= new Date()
+          setValue(today.toISOString())
+        }}   
       /> 
       <FormText>
-        {'Custom text/elements can be rendered on Clear button'}
+        {`Custom text/elements can be rendered on Clear button. Current value is ${value}.`}
       </FormText>
     </FormGroup>
   )

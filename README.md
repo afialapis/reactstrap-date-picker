@@ -496,6 +496,18 @@ Defines what happens when clear button is clicked.
   * Optional
   * Type: `function`
 
+If passed, `onChange` event won't be fired when clicking clear button. This way, you will be able to customize 
+the input behavior, for example:
+
+```jsx
+  <DatePicker
+    onClear = {() => {
+      const today= new Date()
+      setValue(today.toISOString())
+    }}   
+  /> 
+```
+
 ### `onFocus`
 
 Focus callback function.
@@ -631,6 +643,9 @@ with cleaner code and an improved final performance.
 Expand
 </summary>
 <p>
+
+## 1.0.10
+- fixed `onClear` event: if passed, `onChange` is not fired
 
 ## 1.0.9
 - fixed blur handle when navigating months 
