@@ -31,7 +31,7 @@ function _DatePicker (props, ref) {
   }
 
 
-  const [hiddenInputRef, overlayContainerRef, controlInputRef, open, placement, 
+  const [hiddenInputRef, overlayContainerRef, popoverRef, controlInputRef, open, placement, 
     handleFocus, handleBlur] = useCalendarProps(calendarPlacement, inputRef, autoFocus, onBlur, onFocus)
 
   const [innerValue, inputValue, displayDate, 
@@ -39,7 +39,7 @@ function _DatePicker (props, ref) {
          handleChangeMonth, handleChangeDate, handleBadInputOnBlur] = useInputValues(controlInputRef, value, defaultValue, 
           minDate, maxDate, dateFormat, onClear, onChange)
 
-  const [groupInputId, hiddenInputId, controlInputId] = useInputIds(id, name, customControl)
+  const [groupInputId, hiddenInputId, controlInputId, overlayId] = useInputIds(id, name, customControl)
 
   useImperativeHandle(ref, () => ({
     getValue: () => {
@@ -88,31 +88,37 @@ function _DatePicker (props, ref) {
 
     
       <InputOverlay  
-        overlayContainerRef = {overlayContainerRef}>
+        overlayContainerRef = {overlayContainerRef}
+        oid                 = {overlayId}>
 
-        <Calendar
-          placement            = {placement}
-          open                 = {open}
-          container            = {calendarContainer || overlayContainerRef.current}
-          target               = {controlInputId}
-          previousButtonElement= {previousButtonElement}
-          nextButtonElement    = {nextButtonElement}
-          pickMonthElement     = {pickMonthElement}
-          displayDate          = {displayDate}
-          minDate              = {minDate}
-          maxDate              = {maxDate}
-          onChangeMonth        = {(newDisplayDate) => handleChangeMonth(newDisplayDate)}
-          monthLabels          = {monthLabels}
-          cellPadding          = {cellPadding}
-          selectedDate         = {selectedDate}
-          onChange             = {(newSelectedDate) => handleChangeDateAndBlur(newSelectedDate)}
-          dayLabels            = {fixedDayLabels}
-          weekStartsOn         = {weekStartsOn}
-          showTodayButton      = {showTodayButton}
-          todayButtonLabel     = {todayButtonLabel}
-          roundedCorners       = {roundedCorners}
-          showWeeks            = {showWeeks}/>
-      
+        {overlayContainerRef.current == undefined
+         ? null
+         : 
+
+          <Calendar
+            popoverRef           = {popoverRef}
+            placement            = {placement}
+            open                 = {open}
+            container            = {calendarContainer || overlayContainerRef}
+            target               = {controlInputId}
+            previousButtonElement= {previousButtonElement}
+            nextButtonElement    = {nextButtonElement}
+            pickMonthElement     = {pickMonthElement}
+            displayDate          = {displayDate}
+            minDate              = {minDate}
+            maxDate              = {maxDate}
+            onChangeMonth        = {(newDisplayDate) => handleChangeMonth(newDisplayDate)}
+            monthLabels          = {monthLabels}
+            cellPadding          = {cellPadding}
+            selectedDate         = {selectedDate}
+            onChange             = {(newSelectedDate) => handleChangeDateAndBlur(newSelectedDate)}
+            dayLabels            = {fixedDayLabels}
+            weekStartsOn         = {weekStartsOn}
+            showTodayButton      = {showTodayButton}
+            todayButtonLabel     = {todayButtonLabel}
+            roundedCorners       = {roundedCorners}
+            showWeeks            = {showWeeks}/>
+        }
       </InputOverlay>
 
 

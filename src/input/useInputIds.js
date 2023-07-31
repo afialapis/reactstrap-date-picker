@@ -21,7 +21,8 @@ const _getInputIds = (id, name, customControl) => {
   if (customControl!=undefined && customControl?.props?.id) {
     control= customControl.props.id
   }
-  return [group, hidden, control]
+  const overlay = `rdp-overlay-${idSuffix}`
+  return [group, hidden, control, overlay]
 }
 
 

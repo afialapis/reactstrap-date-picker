@@ -9,7 +9,7 @@ import {CalendarFooter} from './CalendarFooter'
 import {useCalendarDays} from './useCalendarDays'
 
 const Calendar = (
-  {selectedDate, displayDate, minDate, maxDate, onChange, dayLabels, 
+  {popoverRef, selectedDate, displayDate, minDate, maxDate, onChange, dayLabels, 
     cellPadding, weekStartsOn, showTodayButton, todayButtonLabel, 
     roundedCorners, showWeeks, monthLabels, previousButtonElement, 
     nextButtonElement, pickMonthElement, placement, open, 
@@ -32,6 +32,7 @@ const Calendar = (
     <>
 
       <Popover  
+          innerRef   = {popoverRef}
           className  = {`rdp-popover ${placement}`}
           //toggle     = {() => handleHide()}
           isOpen     = {open}

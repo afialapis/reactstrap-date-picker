@@ -26,6 +26,10 @@ const calendarProps= {
     PropTypes.string,
     PropTypes.func
   ]),
+  target: PropTypes.oneOfType([
+    PropTypes.string,
+    propRef
+  ]), 
   calendarContainer: PropTypes.oneOfType([
     PropTypes.string,
     propRef

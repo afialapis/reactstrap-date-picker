@@ -18,6 +18,7 @@ import RDPPlacementLeft from './samples/RDPPlacementLeft'
 import RDPPlacementRight from './samples/RDPPlacementRight'
 import RDPCustomInputGroup from './samples/RDPCustomInputGroup'
 import RDPCustomFormControl from './samples/RDPCustomFormControl'
+import RDPCustomContainer from './samples/RDPCustomContainer'
 import RDPValidityValid from './samples/RDPValidityValid'
 import RDPValidityInvalid from './samples/RDPValidityInvalid'
 
@@ -115,10 +116,8 @@ const Demo = () => {
         <Pair one={RDPCustomFormat} two={RDPCustomWeek}/>
         <Four one={RDPCustomPickMonthDefault} two={RDPCustomPickMonth} three={RDPCustomPrevNext} four={RDPCustomClear}/>
       
-        <Pair one={RDPCustomInputGroup} two={RDPCustomFormControl}/>
-
-                
-        
+        <Three one={RDPCustomInputGroup} two={RDPCustomFormControl} three={RDPCustomContainer}/>
+        {/*<Pair one={RDPCustomInputGroup} two={RDPCustomFormControl}/>*/}
         
       </Container>
     </div>

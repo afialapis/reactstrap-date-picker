@@ -7,6 +7,8 @@ import { getMaybeFuncValue } from '../util/getMaybeFuncValue'
 //   (https://blog.maisie.ink/react-ref-autofocus/)
 // But let's just use react's autoFocus attribute by now
 
+
+
 const useCalendarProps = (calendarPlacement, inputRef, autoFocus, onBlur, onFocus) => {
   const [open, setOpen] = useState(false)
   
@@ -14,6 +16,7 @@ const useCalendarProps = (calendarPlacement, inputRef, autoFocus, onBlur, onFocu
 
   const hiddenInputRef = useRef()
   const overlayContainerRef = useRef()
+  const popoverRef = useRef()
   const controlInputRef = typeof inputRef == 'object'
                           ? inputRef
                           : useRef(inputRef) // eslint-disable-line react-hooks/rules-of-hooks
@@ -22,11 +25,11 @@ const useCalendarProps = (calendarPlacement, inputRef, autoFocus, onBlur, onFocu
   const [customOnBlur, customOnFocus] = useCustomEvents(/*hiddenInputRef*/ controlInputRef, onBlur, onFocus)
 
   const isOutside = useCallback((event) => {
-    const outOfOverlay = (overlayContainerRef?.current==undefined) || (!overlayContainerRef.current.contains(event.target))
+    const outOfCalendar =  (popoverRef?.current==undefined) || (!popoverRef?.current.contains(event.target))
     const outOfControlInput = (controlInputRef?.current==undefined) || (!controlInputRef.current.contains(event.target))
-    const isOut= (outOfOverlay && outOfControlInput)
+    const isOut= (outOfCalendar && outOfControlInput)
     return isOut
-  }, [overlayContainerRef, controlInputRef])
+  }, [popoverRef, controlInputRef])
 
   // Control the click outside
   useEffect(() => {
@@ -81,7 +84,7 @@ const useCalendarProps = (calendarPlacement, inputRef, autoFocus, onBlur, onFocu
     }
   }, [isOutside, customOnBlur])
 
-  return [hiddenInputRef, overlayContainerRef, controlInputRef, open, placement, handleFocus, handleBlur]
+  return [hiddenInputRef, overlayContainerRef, popoverRef, controlInputRef, open, placement, handleFocus, handleBlur]
 }
 
 export { useCalendarProps }

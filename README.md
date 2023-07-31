@@ -459,10 +459,10 @@ Overlay placement for the popover calendar.
 
 ### `calendarContainer`
 
-Overlay container for the popover calendar. When placing the date-picker in a scrolling container, set this prop to some ancestor of the scrolling container.
+Overlay container for the popover calendar. When placing the `reactstrap-date-picker` in a scrolling container, set this prop to some ancestor of the scrolling container.
 
   * Optional
-  * Type: A DOM element or a component
+  * Type: A DOM element, a string selector or a `ref`
   * Example: `document.body`
 </p>
 </details>

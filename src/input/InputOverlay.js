@@ -1,8 +1,9 @@
 import React from 'react'
 
-const InputOverlay = ({overlayContainerRef, children}) =>
+const InputOverlay = ({oid, overlayContainerRef, children}) =>
   <div   
     ref       = {overlayContainerRef}
+    id        = {oid}
     className = 'rdp-overlay'>
     {children}
   </div>
