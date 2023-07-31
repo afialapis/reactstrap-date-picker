@@ -644,6 +644,9 @@ Expand
 </summary>
 <p>
 
+## 1.0.11
+- fixed `calendarContainer` prop causes calendar to close unexpectedly
+
 ## 1.0.10
 - fixed `onClear` event: if passed, `onChange` is not fired
 
