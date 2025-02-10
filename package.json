@@ -31,7 +31,7 @@
   },
   "scripts": {
     "postinstall": "patch-package",
-    "clean-demo": "rm -rf demo/dist && mkdir demo/dist && ln -s ../assets demo/dist/assets",
+    "clean-demo": "rm -rf demo/dist && mkdir -p demo/dist/img && ln -s ./logo/favicon/reactstrap-date-picker.ico demo/dist/img/",
     "clean-lib": "rm -rf lib && mkdir lib",
     "clean-dist": "rm -rf dist && mkdir dist",
     "clean-site": "rm -rf arredemo",
