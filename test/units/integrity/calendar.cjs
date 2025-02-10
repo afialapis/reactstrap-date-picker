@@ -19,7 +19,7 @@ const {
 } = global
 
 describe('integrity: calendar', function () {
-  // this.timeout(5000)
+  this.timeout(5000)
   
   it("should open the calendar and select a date.", () => {
     const did = 'calendar-select'
