@@ -30,21 +30,6 @@
     "require": "./dist/reactstrap-date-picker.cjs"
   },
   "scripts": {
-    "x_lint": "eslint src",
-    "x_clean-lib": "rm -rf lib && mkdir lib",
-    "x_lib": "npm run clean-lib && babel src -d lib",
-    "x_clean-dist": "rm -rf dist && mkdir dist",
-    "x_dist": "npm run clean-dist && rollup -c",
-    "x_test-command": "mocha --exit --timeout 500 --slow 300 --require @babel/register --require ./test/dom.js --require ignore-styles ./test/helpers.js ",
-    "x_test-file": "npm run test-command --bail ",
-    "x_test-r17": "npm run test-command --paralell $(find ./test -name '*.js' ! -path '**/_*.js')",
-    "x_test": "npm run test-command --bail $(find ./test -name '*.js' ! -path '**/_*.js')",
-    "x_clean-demo": "rm -rf demo/dist && mkdir demo/dist",
-    "x_demo": "npm run clean-demo && rollup -c rollup.demo.js -w",
-    "x_clean-all": "npm run clean-demo && npm run clean-lib && npm run clean-dist && rm -fr node_modules package-lock.json",
-    "x_reset": "npm run clean-all && npm i",
-    "x_prepare": "npm run lint && npm run test && npm run lib && npm run dist",
-
     "postinstall": "patch-package",
     "clean-demo": "rm -rf demo/dist && mkdir demo/dist && ln -s ../assets demo/dist/assets",
     "clean-lib": "rm -rf lib && mkdir lib",
