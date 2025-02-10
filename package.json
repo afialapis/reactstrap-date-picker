@@ -1,6 +1,6 @@
 {
   "name": "reactstrap-date-picker",
-  "version": "1.0.11",
+  "version": "2.0.0-beta.1",
   "description": "Reactstrap based, zero dependencies, date picker",
   "author": "Donato Lorenzo <donato@afialapis.com>",
   "contributors": [
@@ -19,25 +19,46 @@
     "lib",
     "dist"
   ],
-  "main": "lib/index.js",
-  "cjs": "dist/reactstrap-date-picker.cjs.js",
-  "browser": "dist/reactstrap-date-picker.umd.js",
-  "module": "dist/reactstrap-date-picker.es.js",
+  "type": "module",
+  "main": "./lib/index.cjs",
+  "cjs": "./dist/reactstrap-date-picker.cjs",
+  "browser": "./dist/reactstrap-date-picker.umd.js",
+  "module": "./dist/reactstrap-date-picker.mjs",
+  "exports": {
+    "import": "./dist/reactstrap-date-picker.mjs",
+    "default": "./lib/index.cjs",
+    "require": "./dist/reactstrap-date-picker.cjs"
+  },
   "scripts": {
-    "lint": "eslint src",
+    "x_lint": "eslint src",
+    "x_clean-lib": "rm -rf lib && mkdir lib",
+    "x_lib": "npm run clean-lib && babel src -d lib",
+    "x_clean-dist": "rm -rf dist && mkdir dist",
+    "x_dist": "npm run clean-dist && rollup -c",
+    "x_test-command": "mocha --exit --timeout 500 --slow 300 --require @babel/register --require ./test/dom.js --require ignore-styles ./test/helpers.js ",
+    "x_test-file": "npm run test-command --bail ",
+    "x_test-r17": "npm run test-command --paralell $(find ./test -name '*.js' ! -path '**/_*.js')",
+    "x_test": "npm run test-command --bail $(find ./test -name '*.js' ! -path '**/_*.js')",
+    "x_clean-demo": "rm -rf demo/dist && mkdir demo/dist",
+    "x_demo": "npm run clean-demo && rollup -c rollup.demo.js -w",
+    "x_clean-all": "npm run clean-demo && npm run clean-lib && npm run clean-dist && rm -fr node_modules package-lock.json",
+    "x_reset": "npm run clean-all && npm i",
+    "x_prepare": "npm run lint && npm run test && npm run lib && npm run dist",
+
+    "postinstall": "patch-package",
+    "clean-demo": "rm -rf demo/dist && mkdir demo/dist && ln -s ../assets demo/dist/assets",
     "clean-lib": "rm -rf lib && mkdir lib",
-    "lib": "npm run clean-lib && babel src -d lib",
     "clean-dist": "rm -rf dist && mkdir dist",
-    "dist": "npm run clean-dist && rollup -c",
-    "test-command": "mocha --exit --timeout 500 --slow 300 --require @babel/register --require ./test/dom.js --require ignore-styles ./test/helpers.js ",
-    "test-file": "npm run test-command --bail ",
-    "test-r17": "npm run test-command --paralell $(find ./test -name '*.js' ! -path '**/_*.js')",
-    "test": "npm run test-command --bail $(find ./test -name '*.js' ! -path '**/_*.js')",
-    "clean-demo": "rm -rf demo/dist && mkdir demo/dist",
-    "demo": "npm run clean-demo && rollup -c rollup.demo.js -w",
-    "clean-all": "npm run clean-demo && npm run clean-lib && npm run clean-dist && rm -fr node_modules package-lock.json",
-    "reset": "npm run clean-all && npm i",
-    "prepare": "npm run lint && npm run test && npm run lib && npm run dist"
+    "clean-site": "rm -rf arredemo",
+    "clean-all": "npm run --silent clean-demo && npm run --silent clean-lib && npm run --silent clean-dist && npm run --silent clean-site",
+    "lint": "npx xeira lint",
+    "test": "npx xeira test --files=./test/before.mjs,./test/units/integrity/*.cjs,./test/units/properties/**/*.cjs",
+    "lib": "npm run --silent clean-lib && npx xeira transpile",
+    "dist": "npm run --silent clean-dist && npx xeira bundle",
+    "site": "npm run --silent clean-site && npx xeira site",
+    "prepare": "npm run --silent clean-demo && npm run --silent lint && npm run --silent test && npm run --silent lib && npm run --silent dist && npm run --silent site",
+    "demo": "npm run --silent clean-demo && npx xeira demo --port=8003",
+    "reset": "npm run --silent clean-all && rm -fr node_modules package-lock.json && npm i"    
   },
   "keywords": [
     "js",
@@ -47,49 +68,25 @@
     "picker"
   ],
   "devDependencies": {
-    "@babel/cli": "^7.17.10",
-    "@babel/core": "^7.18.2",
-    "@babel/eslint-parser": "^7.18.2",
-    "@babel/preset-env": "^7.18.2",
-    "@babel/preset-react": "^7.17.12",
-    "@babel/register": "^7.17.7",
-    "@rollup/plugin-babel": "^5.3.1",
-    "@rollup/plugin-commonjs": "^22.0.0",
-    "@rollup/plugin-node-resolve": "^13.3.0",
-    "@rollup/plugin-replace": "^4.0.0",
-    "bootstrap": "^4.5.2",
-    "chai": "^4.3.6",
-    "enzyme": "^3.11.0",
-    "enzyme-adapter-react-16": "^1.15.6",
-    "eslint": "^8.17.0",
-    "eslint-plugin-react": "^7.30.0",
-    "eslint-plugin-react-hooks": "^4.5.0",
-    "ignore-styles": "^5.0.1",
-    "jsdom": "^19.0.0",
-    "mocha": "^10.0.0",
-    "node-sass": "^7.0.1",
-    "node-uuid": "^1.4.8",
-    "postcss": "^8.4.14",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "reactstrap": "8.5.1",
-    "rollup": "^2.75.6",
-    "rollup-plugin-livereload": "^2.0.5",
-    "rollup-plugin-postcss": "^4.0.2",
-    "rollup-plugin-serve": "^1.1.0",
-    "rollup-plugin-terser": "^7.0.2"
+    "xeira": "^1.0.0-beta.2",
+    "bootstrap": "^5.3.3",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "reactstrap": "^9.2.3"
   },
   "peerDependencies": {
-    "react": ">=16.13.1",
-    "react-dom": ">=16.13.1",
-    "reactstrap": ">=8.5.1"
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "reactstrap": "^9.2.3"
   },
   "overrides": {
-    "enzyme": {
-      "cheerio": "1.0.0-rc.3"
-    },
     "css-select": {
       "nth-check": "2.0.1"
     }
-  }  
+  }, 
+  "eslintConfig": {
+    "extends": [
+      "./node_modules/xeira/configs/eslint.react.cjs"
+    ]
+  }
 }

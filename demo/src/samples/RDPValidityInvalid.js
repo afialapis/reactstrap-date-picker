@@ -15,7 +15,7 @@ const RDPValidityInvalid = () => {
     <FormGroup>
       <Label for={inputName}
              className="valium-reactstrap-label">
-        {"Valid"}
+        {"Invalid"}
       </Label>
       <DatePicker
         name         = {inputName}

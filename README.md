@@ -644,6 +644,21 @@ Expand
 </summary>
 <p>
 
+## 2.0.0-beta.1
+
+Upgraded versions to:
+· `react@^18.3.1`
+· `reactstrap@^9.2.3`
+· `bootstrap@^5.3.3`
+
+Now using [`xeira`](https://github.com/afialapis/xeira) for bundling. Forced to rewrite tests using `React Testing Library`.
+
+Removed `prop-types` usages. Also patched some `reactstrap` warning about it.
+
+Removed `defaultProps` usages. Also patched some `reactstrap` warning about it.
+
+
+
 ## 1.0.11
 - fixed `calendarContainer` prop causes calendar to close unexpectedly
 

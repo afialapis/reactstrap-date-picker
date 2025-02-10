@@ -1,0 +1,15 @@
+{
+  "product": "package",
+  "target": "both",
+  "source_index": "./src/index.mjs",
+  "linter": "eslint",
+  "transpile_folder": "./lib",
+  "transpiler": "babel",
+  "minifier": "none",
+  "bundle_folder": "./dist",
+  "bundler": "rollup",
+  "test_folder": "./test",
+  "demo_mode": "auto",
+  "demo_demoer": "rollup",
+  "verbose": false
+}

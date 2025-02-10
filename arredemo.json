@@ -1,0 +1,14 @@
+{
+  "theme": "default",
+  "favicon": "logo/favicon/reactstrap-date-picker.ico",
+  "logo": "logo/reactstrap-date-picker.png",
+  "url": "https://reactstrap-date-picker.afialapis.com/",
+  "company": "Afialapis",
+  "company_url": "https://www.afialapis.com",
+  "doc_versions": null,
+  "md": {
+    "strip_details_tag": true,
+    "keep_summary_content": false
+  },
+  "demo_entry": "demo/src/Demo.js"
+}
