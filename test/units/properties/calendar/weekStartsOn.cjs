@@ -18,7 +18,7 @@ const {
 
 describe('props:calendar: weekStartsOn', function () {
   //// this.timeout(10000)
-  // this.timeout(3000)
+  this.timeout(3000)
 
   it("week should start on Monday.", () => {
     const did = 'week-starts-monday'
