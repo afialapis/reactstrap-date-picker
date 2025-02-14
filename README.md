@@ -31,9 +31,9 @@ npm install reactstrap-date-picker
 ```
 
 `reactstrap-date-picker` works with these [peer dependencies](https://nodejs.org/en/blog/npm/peer-dependencies/):
-  - [React](https://github.com/facebook/react) >= 16.13.1
-  - [Reactstrap](https://github.com/reactstrap/reactstrap) >= 8.5.1
-    * [Bootstrap](https://github.com/twbs/bootstrap) >= 4.5.2
+  * [React](https://github.com/facebook/react) ^18.3.1
+  * [Reactstrap](https://github.com/reactstrap/reactstrap) ^9.2.3
+  * [Bootstrap](https://github.com/twbs/bootstrap) ^5.1.0
 
 Check [Changelog](#changelog) for more info on other versions.
 

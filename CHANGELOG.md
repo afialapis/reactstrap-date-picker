@@ -14,7 +14,7 @@ with cleaner code and an improved final performance.
  * Upgraded versions to:
     - `react@^18.3.1`
     - `reactstrap@^9.2.3`
-    - `bootstrap@^5.3.3`
+    - `bootstrap@^5.1.0`
  * Now using [`xeira`](https://github.com/afialapis/xeira) for bundling. Forced to rewrite tests using ``react` Testing Library`.
  * Removed `prop-types` usages. Also patched some `reactstrap` warning about it.
  * Removed `defaultProps` usages. Also patched some `reactstrap` warning about it.
