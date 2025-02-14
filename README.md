@@ -636,4 +636,4 @@ npm run test
 
 # Changelog
 
-See [changelog here](https://github.com/afialapis/reactstrap-date-picker/blob/main/CHANGELOG.md)
+See [changelog here](https://github.com/afialapis/reactstrap-date-picker/blob/master/CHANGELOG.md)

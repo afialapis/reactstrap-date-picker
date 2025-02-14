@@ -2,7 +2,7 @@
 # Changelog
 
 Originally based on [react-bootstrap-date-picker](https://github.com/pushtell/react-bootstrap-date-picker/),
-`reactstrap-date-picker` has evolved. From v1.0 it has been refactored, using React hooks, 
+`reactstrap-date-picker` has evolved. From v1.0 it has been refactored, using `react` hooks, 
 with cleaner code and an improved final performance.
 
 ## 2.0.0-beta.2
@@ -15,7 +15,7 @@ with cleaner code and an improved final performance.
     - `react@^18.3.1`
     - `reactstrap@^9.2.3`
     - `bootstrap@^5.3.3`
- * Now using [`xeira`](https://github.com/afialapis/xeira) for bundling. Forced to rewrite tests using `React Testing Library`.
+ * Now using [`xeira`](https://github.com/afialapis/xeira) for bundling. Forced to rewrite tests using ``react` Testing Library`.
  * Removed `prop-types` usages. Also patched some `reactstrap` warning about it.
  * Removed `defaultProps` usages. Also patched some `reactstrap` warning about it.
 
@@ -63,28 +63,28 @@ with cleaner code and an improved final performance.
 
 ## 1.0.0
 
- * Introduction of React Hooks
+ * Introduction of `react` Hooks
  * Deep refactor of the source code
  * Supported versions:
-    - React >= 16.13.1
-    - Reactstrap >= 8.5.1
-    - Bootstrap >= 4.5.2
+    - `react` >= 16.13.1
+    - `reactstrap` >= 8.5.1
+    - `bootstrap` >= 4.5.2
  * Improved performance
  * Smaller bundle sizes
 
 ## 0.0.16
 
- * Version to use if you wanna go Reactstrap 9
+ * Version to use if you wanna go `reactstrap` 9
  * Supported versions:
-    - React >= 14
-    - Reactstrap 9.0.1
-    - Bootstrap 5.1.3
+    - `react` >= 14
+    - `reactstrap` 9.0.1
+    - `bootstrap` 5.1.3
 
 ## 0.0.12
 
  * Fixed [issue #15: placeholder will not fallback to dateFormat](https://github.com/afialapis/reactstrap-date-picker/issues/15)
  * Fixed [issue #16. do not allow keyboard input of dates out of minDate/maxDate](https://github.com/afialapis/reactstrap-date-picker/issues/16)
  * Supported versions:
-    - React >= 14
-    - Reactstrap 8.5.1
-    - Bootstrap 4.5.2
+    - `react` >= 14
+    - `reactstrap` 8.5.1
+    - `bootstrap` 4.5.2
