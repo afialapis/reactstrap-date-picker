@@ -1,6 +1,6 @@
 {
   "name": "reactstrap-date-picker",
-  "version": "2.0.0-beta.1",
+  "version": "2.0.0-beta.2",
   "description": "Reactstrap based, zero dependencies, date picker",
   "author": "Donato Lorenzo <donato@afialapis.com>",
   "contributors": [
@@ -53,7 +53,7 @@
     "picker"
   ],
   "devDependencies": {
-    "xeira": "^1.0.0-beta.2",
+    "xeira": "^1.0.1",
     "bootstrap": "^5.3.3",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
