@@ -623,7 +623,7 @@ npm run demo
 
 ```
 
-And visit [http://localhost:3010](http://localhost:3010) on your browser
+And visit [http://localhost:8003](http://localhost:8003) on your browser
 
 
 ## Running Tests
