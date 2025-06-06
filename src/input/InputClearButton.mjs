@@ -7,7 +7,8 @@ const InputClearButton = ({inputValue, disabled, clearButtonElement, onClick}) =
       onClick  = {() => disabled ? null : onClick()}
       style    = {{
                   opacity: (inputValue && !disabled) ? 1 : 0.5,
-                  cursor:(inputValue && !disabled) ? 'pointer' : 'not-allowed'
+                  cursor:(inputValue && !disabled) ? 'pointer' : 'not-allowed',
+                  width: "100%"
                 }}>
       {clearButtonElement}
     </InputGroupText>   
