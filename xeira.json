@@ -11,5 +11,6 @@
   "test_folder": "./test",
   "demo_mode": "auto",
   "demo_demoer": "rollup",
-  "verbose": false
+  "verbose": false,
+  "react": true
 }

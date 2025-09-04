@@ -53,7 +53,7 @@
     "picker"
   ],
   "devDependencies": {
-    "xeira": "^2.0.0-beta.4",
+    "xeira": "^2.0.0-beta.5",
     "bootstrap": "^5.3.8",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
