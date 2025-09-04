@@ -5,19 +5,16 @@ Originally based on [react-bootstrap-date-picker](https://github.com/pushtell/re
 `reactstrap-date-picker` has evolved. From v1.0 it has been refactored, using `react` hooks, 
 with cleaner code and an improved final performance.
 
-## 2.0.0-beta.2
-
- * Upgraded `xeira`
-
-## 2.0.0-beta.1
+## 2.0.0
 
  * Upgraded versions to:
     - `react@^18.3.1`
     - `reactstrap@^9.2.3`
     - `bootstrap@^5.1.0`
- * Now using [`xeira`](https://github.com/afialapis/xeira) for bundling. Forced to rewrite tests using `React Testing Library`.
+ * Now using [`xeira@1.0.1`](https://github.com/afialapis/xeira) for bundling. Forced to rewrite tests using `React Testing Library`.
  * Removed `prop-types` usages. Also patched some `reactstrap` warning about it.
  * Removed `defaultProps` usages. Also patched some `reactstrap` warning about it.
+ * Adjusted clarButton height
 
 ## 1.0.11
 
