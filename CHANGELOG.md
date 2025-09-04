@@ -5,6 +5,13 @@ Originally based on [react-bootstrap-date-picker](https://github.com/pushtell/re
 `reactstrap-date-picker` has evolved. From v1.0 it has been refactored, using `react` hooks, 
 with cleaner code and an improved final performance.
 
+## 3.0.0-beta.1
+
+ * Upgraded versions to:
+    - `react@^19.1.1`
+    - `reactstrap@^9.2.3`
+    - `bootstrap@^5.3.8`
+
 ## 2.0.0
 
  * Upgraded versions to:

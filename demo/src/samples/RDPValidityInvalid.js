@@ -7,7 +7,7 @@ import {
 import {DatePicker} from '../rdp'
 
 const RDPValidityInvalid = () => {
-  const inputName = 'reactstrap_date_picker_valid'
+  const inputName = 'reactstrap_date_picker_invalid'
   const [value, setValue] = useState("2019-06-01T00:00:00.000Z")
   const [fmtValue, setFmtValue] = useState("06/01/2019")
 

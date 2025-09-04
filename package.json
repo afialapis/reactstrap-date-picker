@@ -1,6 +1,6 @@
 {
   "name": "reactstrap-date-picker",
-  "version": "2.0.0",
+  "version": "3.0.0-beta.1",
   "description": "Reactstrap based, zero dependencies, date picker",
   "author": "Donato Lorenzo <donato@afialapis.com>",
   "contributors": [
@@ -53,26 +53,21 @@
     "picker"
   ],
   "devDependencies": {
-    "xeira": "^1.0.1",
-    "bootstrap": "^5.1.0",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
+    "xeira": "^2.0.0-beta.4",
+    "bootstrap": "^5.3.8",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1",
     "reactstrap": "^9.2.3"
   },
   "peerDependencies": {
-    "bootstrap": "^5.1.0",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
+    "bootstrap": "^5.3.8",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1",
     "reactstrap": "^9.2.3"
   },
   "overrides": {
     "css-select": {
       "nth-check": "2.0.1"
     }
-  }, 
-  "eslintConfig": {
-    "extends": [
-      "./node_modules/xeira/configs/eslint.react.cjs"
-    ]
   }
 }
